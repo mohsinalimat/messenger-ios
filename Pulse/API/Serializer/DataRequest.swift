@@ -1,5 +1,5 @@
 //
-//  ResponseObjectSerializable.swift
+//  DataRequest.swift
 //  Pulse
 //
 //  Created by Luke Klinker on 1/1/18.
@@ -7,10 +7,6 @@
 //
 
 import Alamofire
-
-protocol ResponseObjectSerializable {
-    init?(response: HTTPURLResponse, representation: Any)
-}
 
 extension DataRequest {
     func responseObject<T: ResponseObjectSerializable>(
@@ -35,5 +31,31 @@ extension DataRequest {
         }
         
         response(queue: queue, responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
+    
+    @discardableResult
+    func responseCollection<T: ResponseCollectionSerializable>(
+        queue: DispatchQueue? = nil,
+        completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self
+    {
+        let responseSerializer = DataResponseSerializer<[T]> { request, response, data, error in
+            guard error == nil else { return .failure(BackendError.network(error: error!)) }
+            
+            let jsonSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = jsonSerializer.serializeResponse(request, response, data, nil)
+            
+            guard case let .success(jsonObject) = result else {
+                return .failure(BackendError.jsonSerialization(error: result.error!))
+            }
+            
+            guard let response = response else {
+                let reason = "Response collection could not be serialized due to nil response."
+                return .failure(BackendError.objectSerialization(reason: reason))
+            }
+            
+            return .success(T.collection(from: response, withRepresentation: jsonObject))
+        }
+        
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
     }
 }

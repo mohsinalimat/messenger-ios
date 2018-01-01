@@ -19,6 +19,9 @@
 		A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE31FFADDF900F72313 /* LoginResponse.swift */; };
 		A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */; };
 		A3A47FE81FFADEFF00F72313 /* BackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE71FFADEFF00F72313 /* BackendError.swift */; };
+		A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE91FFAE5C600F72313 /* ResponseCollectionSerializable.swift */; };
+		A3A47FED1FFAE61800F72313 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FEC1FFAE61800F72313 /* DataRequest.swift */; };
+		A3A47FEF1FFAE65200F72313 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FEE1FFAE65200F72313 /* Conversation.swift */; };
 		B2FB3E9BD5E6B1727A30F857 /* Pods_PulseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F838AF0BCAE988971148362 /* Pods_PulseUITests.framework */; };
 		C747314DA2CC55106CB68B6D /* Pods_Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C50C204838A9CE62146B0 /* Pods_Pulse.framework */; };
 		F419450C8CDEEC4EC4C53F9B /* Pods_PulseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DC997D327DB5940F96B486 /* Pods_PulseTests.framework */; };
@@ -69,6 +72,9 @@
 		A3A47FE31FFADDF900F72313 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		A3A47FE71FFADEFF00F72313 /* BackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendError.swift; sourceTree = "<group>"; };
+		A3A47FE91FFAE5C600F72313 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
+		A3A47FEC1FFAE61800F72313 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		A3A47FEE1FFAE65200F72313 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +164,8 @@
 		A3A47FDF1FFAD01E00F72313 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A3A47FEB1FFAE5FA00F72313 /* Serializer */,
 				A3A47FE01FFAD03800F72313 /* PulseApi.swift */,
-				A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */,
 				A3A47FE71FFADEFF00F72313 /* BackendError.swift */,
 			);
 			path = API;
@@ -169,8 +175,19 @@
 			isa = PBXGroup;
 			children = (
 				A3A47FE31FFADDF900F72313 /* LoginResponse.swift */,
+				A3A47FEE1FFAE65200F72313 /* Conversation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A3A47FEB1FFAE5FA00F72313 /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */,
+				A3A47FE91FFAE5C600F72313 /* ResponseCollectionSerializable.swift */,
+				A3A47FEC1FFAE61800F72313 /* DataRequest.swift */,
+			);
+			path = Serializer;
 			sourceTree = "<group>";
 		};
 		CFD77C0876C93678AB2DEA84 /* Frameworks */ = {
@@ -489,12 +506,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3A47FED1FFAE61800F72313 /* DataRequest.swift in Sources */,
 				A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */,
+				A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */,
 				A32380811FF918E5000321B5 /* Pulse.xcdatamodeld in Sources */,
 				A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */,
 				A3A47FE81FFADEFF00F72313 /* BackendError.swift in Sources */,
 				A323807B1FF918E5000321B5 /* ViewController.swift in Sources */,
 				A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */,
+				A3A47FEF1FFAE65200F72313 /* Conversation.swift in Sources */,
 				A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
