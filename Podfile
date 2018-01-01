@@ -4,7 +4,7 @@ platform :ios, '9.0'
 target 'Pulse' do
   use_frameworks!
 
-  # Pods for Pulse
+  pod 'Alamofire', '~> 4.5'
 
   target 'PulseTests' do
     inherit! :search_paths

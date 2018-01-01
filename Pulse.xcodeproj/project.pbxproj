@@ -15,6 +15,10 @@
 		A32380861FF918E5000321B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32380841FF918E5000321B5 /* LaunchScreen.storyboard */; };
 		A32380911FF918E5000321B5 /* PulseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380901FF918E5000321B5 /* PulseTests.swift */; };
 		A323809C1FF918E5000321B5 /* PulseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323809B1FF918E5000321B5 /* PulseUITests.swift */; };
+		A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE01FFAD03800F72313 /* PulseApi.swift */; };
+		A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE31FFADDF900F72313 /* LoginResponse.swift */; };
+		A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */; };
+		A3A47FE81FFADEFF00F72313 /* BackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE71FFADEFF00F72313 /* BackendError.swift */; };
 		B2FB3E9BD5E6B1727A30F857 /* Pods_PulseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F838AF0BCAE988971148362 /* Pods_PulseUITests.framework */; };
 		C747314DA2CC55106CB68B6D /* Pods_Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C50C204838A9CE62146B0 /* Pods_Pulse.framework */; };
 		F419450C8CDEEC4EC4C53F9B /* Pods_PulseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DC997D327DB5940F96B486 /* Pods_PulseTests.framework */; };
@@ -61,6 +65,10 @@
 		A32380971FF918E5000321B5 /* PulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A323809B1FF918E5000321B5 /* PulseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseUITests.swift; sourceTree = "<group>"; };
 		A323809D1FF918E5000321B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3A47FE01FFAD03800F72313 /* PulseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApi.swift; sourceTree = "<group>"; };
+		A3A47FE31FFADDF900F72313 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
+		A3A47FE71FFADEFF00F72313 /* BackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,8 @@
 		A32380771FF918E5000321B5 /* Pulse */ = {
 			isa = PBXGroup;
 			children = (
+				A3A47FE21FFADDEA00F72313 /* Model */,
+				A3A47FDF1FFAD01E00F72313 /* API */,
 				A32380781FF918E5000321B5 /* AppDelegate.swift */,
 				A323807A1FF918E5000321B5 /* ViewController.swift */,
 				A323807C1FF918E5000321B5 /* Main.storyboard */,
@@ -143,6 +153,24 @@
 				A323809D1FF918E5000321B5 /* Info.plist */,
 			);
 			path = PulseUITests;
+			sourceTree = "<group>";
+		};
+		A3A47FDF1FFAD01E00F72313 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A3A47FE01FFAD03800F72313 /* PulseApi.swift */,
+				A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */,
+				A3A47FE71FFADEFF00F72313 /* BackendError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A3A47FE21FFADDEA00F72313 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3A47FE31FFADDF900F72313 /* LoginResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CFD77C0876C93678AB2DEA84 /* Frameworks */ = {
@@ -409,9 +437,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pulse/Pods-Pulse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -458,9 +489,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */,
 				A32380811FF918E5000321B5 /* Pulse.xcdatamodeld in Sources */,
+				A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */,
+				A3A47FE81FFADEFF00F72313 /* BackendError.swift in Sources */,
 				A323807B1FF918E5000321B5 /* ViewController.swift in Sources */,
 				A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */,
+				A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

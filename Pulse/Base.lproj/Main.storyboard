@@ -51,10 +51,12 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76A-1P-axb">
                                                 <rect key="frame" x="0.0" y="133" width="200" height="30"/>
                                                 <state key="normal" title="Log In"/>
+                                                <connections>
+                                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I4e-zW-FWa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="76A-1P-axb" firstAttribute="top" secondItem="3r1-EE-Ado" secondAttribute="bottom" constant="20" id="81m-vd-Uop"/>
                                             <constraint firstItem="qw4-Mo-Qvc" firstAttribute="leading" secondItem="3WJ-G5-HTi" secondAttribute="leading" id="9Ir-it-oUA"/>
                                             <constraint firstAttribute="trailing" secondItem="76A-1P-axb" secondAttribute="trailing" id="DnU-CO-7Iu"/>
                                             <constraint firstItem="76A-1P-axb" firstAttribute="leading" secondItem="3WJ-G5-HTi" secondAttribute="leading" id="FwY-wV-F0F"/>
@@ -75,6 +77,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="qw4-Mo-Qvc" id="eX0-wx-x0q"/>
+                        <outlet property="login" destination="76A-1P-axb" id="slL-MN-9j7"/>
+                        <outlet property="password" destination="3r1-EE-Ado" id="8MT-io-uek"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
