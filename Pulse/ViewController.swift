@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Actions
     @IBAction func login(_ sender: Any) {
-        PulseApi.conversations() { (response: DataResponse<[Conversation]>) in
+        PulseApi.conversations { (response: DataResponse<[Conversation]>) in
                 debugPrint(response)
 
                 if let conversations = response.result.value {
