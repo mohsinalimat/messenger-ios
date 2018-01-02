@@ -27,6 +27,10 @@ class _PulseApi {
     }
     
     func conversations(completionHandler: @escaping (DataResponse<[Conversation]>) -> Void) {
+        if (!Account.exists()) {
+            return
+        }
+        
         get(path: "conversations", parameters: ["account_id": Account.accountId!, "limit": 100])
             .responseCollection(completionHandler: completionHandler)
     }

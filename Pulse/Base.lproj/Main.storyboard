@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8D3-jh-GRk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sgd-Hb-hdJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -58,21 +58,24 @@
                             <outlet property="delegate" destination="8D3-jh-GRk" id="YN0-yd-bX4"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Pulse SMS" id="tRX-WV-3PF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Ij8-XU-cLU"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrV-dl-M4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-711.20000000000005" y="130.88455772113943"/>
+            <point key="canvasLocation" x="-372" y="130.88455772113943"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Login" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController title="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BkZ-5H-7B3">
-                                <rect key="frame" x="0.0" y="140" width="375" height="163"/>
+                                <rect key="frame" x="0.0" y="124" width="375" height="163"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3WJ-G5-HTi">
                                         <rect key="frame" x="87.5" y="0.0" width="200" height="163"/>
@@ -124,12 +127,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BkZ-5H-7B3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="3e5-j8-KFs"/>
+                            <constraint firstItem="BkZ-5H-7B3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="3e5-j8-KFs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BkZ-5H-7B3" secondAttribute="trailing" id="Bud-gw-bUC"/>
                             <constraint firstItem="BkZ-5H-7B3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JP8-yS-dWa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2g9-yC-MNd"/>
                     <connections>
                         <outlet property="email" destination="qw4-Mo-Qvc" id="eX0-wx-x0q"/>
                         <outlet property="login" destination="76A-1P-axb" id="slL-MN-9j7"/>
@@ -138,7 +142,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-711" y="-617"/>
+            <point key="canvasLocation" x="-372" y="-617.54122938530736"/>
+        </scene>
+        <!--Conversation Navigation Controller-->
+        <scene sceneID="Xqh-rM-1Sb">
+            <objects>
+                <navigationController storyboardIdentifier="ConversationNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="sgd-Hb-hdJ" customClass="ConversationNavigationController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wvj-kB-RZi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8D3-jh-GRk" kind="relationship" relationship="rootViewController" id="UbU-kx-3Zb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BkY-qG-scn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1201" y="131"/>
+        </scene>
+        <!--Login Navigation Controller-->
+        <scene sceneID="mAB-gP-O7o">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNavigationController" title="Login Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iBE-0M-5b9" customClass="LoginNavigationController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EPv-vq-Nk6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JsT-9J-3eL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AuO-Yh-ZRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1202" y="-618"/>
         </scene>
     </scenes>
 </document>

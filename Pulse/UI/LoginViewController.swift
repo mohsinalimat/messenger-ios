@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Async
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
     @IBOutlet weak var email: UITextField!
@@ -33,36 +33,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Actions
     @IBAction func login(_ sender: Any) {
-        PulseApi.conversations { (response: DataResponse<[Conversation]>) in
+        if (email.text != nil && email.text!.count != 0 && password.text != nil && password.text!.count != 0) {
+            login.isEnabled = false
+            password.resignFirstResponder()
+            
+            PulseApi.login(email: email.text!, password: password.text!) { (response: DataResponse<LoginResponse>) in
                 debugPrint(response)
+                if let loginResponse = response.result.value {
+                    let password = self.password.text!
 
-                if let conversations = response.result.value {
-                conversations.forEach { print("- \($0.description)") }
+                    Async.background {
+                        print("run in background")
+                        do {
+                            try Account.createAccount(password: password, loginResponse: loginResponse)
+                            print("finished creating account")
+                        } catch {
+                            print("error encrypting")
+                        }
+                    }.main {
+                        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ConversationNavigationController") as! ConversationNavigationController
+                        self.present(secondViewController, animated: true)
+                    }
                 }
+            }
         }
-        
-//        if (email.text != nil && email.text!.count != 0 && password.text != nil && password.text!.count != 0) {
-//            login.isEnabled = false
-//            PulseApi.login(email: email.text!, password: password.text!) { (response: DataResponse<LoginResponse>) in
-//                debugPrint(response)
-//                if let loginResponse = response.result.value {
-//                    let password = self.password.text!
-//
-//                    Async.background {
-//                        print("run in background")
-//                        do {
-//                            try Account.createAccount(password: password, loginResponse: loginResponse)
-//                            print("finished creating account")
-//                        } catch {
-//                            print("error encrypting")
-//                        }
-//                    }.main {
-//                        // TODO: end the login activity
-//                        print("run on main")
-//                    }
-//                }
-//            }
-//        }
     }
 }
 
