@@ -27,6 +27,10 @@ class _Account {
         readValues()
     }
     
+    func exists() -> Bool {
+        return accountId != nil
+    }
+    
     func createAccount(password: String, loginResponse: LoginResponse) throws {
         let preferences = UserDefaults.standard
         
