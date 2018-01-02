@@ -5,6 +5,8 @@ target 'Pulse' do
   use_frameworks!
 
   pod 'Alamofire', '~> 4.5'
+  pod 'CryptoSwift', '~> 0.8.0'
+  pod 'AsyncSwift', '~> 2.0.4'
 
   target 'PulseTests' do
     inherit! :search_paths

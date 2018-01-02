@@ -31,14 +31,12 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
             let colorAccent = representation["color_accent"] as? Int
         else { return nil }
         
-        self.title = title
-        self.snippet = snippet
+        self.title = Account.encryptionUtils?.decrypt(data: title) ?? ""
+        self.snippet = Account.encryptionUtils?.decrypt(data: snippet) ?? ""
         self.timestamp = timestamp
         self.color = color
         self.colorDark = colorDark
         self.colorAccent = colorAccent
-        
-        // TODO: decrypt the title and snippet
     }
 }
 

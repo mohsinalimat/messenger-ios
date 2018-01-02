@@ -32,11 +32,5 @@ class _PulseApi {
             .responseCollection(completionHandler: completionHandler)
     }
     
-//    PulseApi.conversations() { (response: DataResponse<[Conversation]>) in
-//    debugPrint(response)
-//
-//    if let conversations = response.result.value {
-//    conversations.forEach { print("- \($0.description)") }
-//    }
-//    }
+//    
 }

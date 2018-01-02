@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Async
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -32,15 +33,36 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Actions
     @IBAction func login(_ sender: Any) {
-        if (email.text != nil && email.text!.count != 0 && password.text != nil && password.text!.count != 0) {
-            login.isEnabled = false
-            PulseApi.login(email: email.text!, password: password.text!) { (response: DataResponse<LoginResponse>) in
+        PulseApi.conversations() { (response: DataResponse<[Conversation]>) in
                 debugPrint(response)
-                if let loginResponse = response.result.value {
-                    print(loginResponse.description)
+
+                if let conversations = response.result.value {
+                conversations.forEach { print("- \($0.description)") }
                 }
-            }
         }
+        
+//        if (email.text != nil && email.text!.count != 0 && password.text != nil && password.text!.count != 0) {
+//            login.isEnabled = false
+//            PulseApi.login(email: email.text!, password: password.text!) { (response: DataResponse<LoginResponse>) in
+//                debugPrint(response)
+//                if let loginResponse = response.result.value {
+//                    let password = self.password.text!
+//
+//                    Async.background {
+//                        print("run in background")
+//                        do {
+//                            try Account.createAccount(password: password, loginResponse: loginResponse)
+//                            print("finished creating account")
+//                        } catch {
+//                            print("error encrypting")
+//                        }
+//                    }.main {
+//                        // TODO: end the login activity
+//                        print("run on main")
+//                    }
+//                }
+//            }
+//        }
     }
 }
 

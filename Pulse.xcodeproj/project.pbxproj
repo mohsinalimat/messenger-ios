@@ -15,6 +15,10 @@
 		A32380861FF918E5000321B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32380841FF918E5000321B5 /* LaunchScreen.storyboard */; };
 		A32380911FF918E5000321B5 /* PulseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380901FF918E5000321B5 /* PulseTests.swift */; };
 		A323809C1FF918E5000321B5 /* PulseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323809B1FF918E5000321B5 /* PulseUITests.swift */; };
+		A37EEDD81FFBBE7300DC0B23 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDD71FFBBE7300DC0B23 /* Account.swift */; };
+		A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDD91FFBBE8600DC0B23 /* Settings.swift */; };
+		A37EEDDD1FFBC2A600DC0B23 /* EncryptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */; };
+		A37EEDDF1FFBC2B500DC0B23 /* KeyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDDE1FFBC2B500DC0B23 /* KeyUtils.swift */; };
 		A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE01FFAD03800F72313 /* PulseApi.swift */; };
 		A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE31FFADDF900F72313 /* LoginResponse.swift */; };
 		A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */; };
@@ -68,6 +72,10 @@
 		A32380971FF918E5000321B5 /* PulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A323809B1FF918E5000321B5 /* PulseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseUITests.swift; sourceTree = "<group>"; };
 		A323809D1FF918E5000321B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A37EEDD71FFBBE7300DC0B23 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		A37EEDD91FFBBE8600DC0B23 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionUtils.swift; sourceTree = "<group>"; };
+		A37EEDDE1FFBC2B500DC0B23 /* KeyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyUtils.swift; sourceTree = "<group>"; };
 		A3A47FE01FFAD03800F72313 /* PulseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApi.swift; sourceTree = "<group>"; };
 		A3A47FE31FFADDF900F72313 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
@@ -130,6 +138,7 @@
 		A32380771FF918E5000321B5 /* Pulse */ = {
 			isa = PBXGroup;
 			children = (
+				A37EEDD61FFBBE5C00DC0B23 /* Account */,
 				A3A47FE21FFADDEA00F72313 /* Model */,
 				A3A47FDF1FFAD01E00F72313 /* API */,
 				A32380781FF918E5000321B5 /* AppDelegate.swift */,
@@ -159,6 +168,25 @@
 				A323809D1FF918E5000321B5 /* Info.plist */,
 			);
 			path = PulseUITests;
+			sourceTree = "<group>";
+		};
+		A37EEDD61FFBBE5C00DC0B23 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A37EEDDB1FFBC29500DC0B23 /* Encryption */,
+				A37EEDD71FFBBE7300DC0B23 /* Account.swift */,
+				A37EEDD91FFBBE8600DC0B23 /* Settings.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		A37EEDDB1FFBC29500DC0B23 /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */,
+				A37EEDDE1FFBC2B500DC0B23 /* KeyUtils.swift */,
+			);
+			path = Encryption;
 			sourceTree = "<group>";
 		};
 		A3A47FDF1FFAD01E00F72313 /* API */ = {
@@ -456,10 +484,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pulse/Pods-Pulse-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -507,11 +539,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3A47FED1FFAE61800F72313 /* DataRequest.swift in Sources */,
+				A37EEDD81FFBBE7300DC0B23 /* Account.swift in Sources */,
 				A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */,
 				A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */,
 				A32380811FF918E5000321B5 /* Pulse.xcdatamodeld in Sources */,
 				A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */,
+				A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */,
+				A37EEDDF1FFBC2B500DC0B23 /* KeyUtils.swift in Sources */,
 				A3A47FE81FFADEFF00F72313 /* BackendError.swift in Sources */,
+				A37EEDDD1FFBC2A600DC0B23 /* EncryptionUtils.swift in Sources */,
 				A323807B1FF918E5000321B5 /* ViewController.swift in Sources */,
 				A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */,
 				A3A47FEF1FFAE65200F72313 /* Conversation.swift in Sources */,
