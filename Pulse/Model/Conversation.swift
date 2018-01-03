@@ -12,6 +12,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
     let title: String
     let snippet: String
     let timestamp: Int64
+    let pinned: Bool
     let color: Int
     let colorDark: Int
     let colorAccent: Int
@@ -26,6 +27,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
             let title = representation["title"] as? String,
             let snippet = representation["snippet"] as? String,
             let timestamp = representation["timestamp"] as? Int64,
+            let pinned = representation["pinned"] as? Bool,
             let color = representation["color"] as? Int,
             let colorDark = representation["color_dark"] as? Int,
             let colorAccent = representation["color_accent"] as? Int
@@ -34,6 +36,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
         self.title = Account.encryptionUtils?.decrypt(data: title) ?? ""
         self.snippet = Account.encryptionUtils?.decrypt(data: snippet) ?? ""
         self.timestamp = timestamp
+        self.pinned = pinned
         self.color = color
         self.colorDark = colorDark
         self.colorAccent = colorAccent
