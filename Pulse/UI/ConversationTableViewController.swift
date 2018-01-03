@@ -13,16 +13,13 @@ class ConversationTableViewController: UITableViewController {
     
     // MARK: Properties
     let sectionHeaderHeight: CGFloat = 32
-    var sections = [ConversationSectionType]()
+    var sections = [ConversationSection]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         DataProvider.conversations { conversations in
-            let section = ConversationSectionType(type: .pinned)
-            section.conversations += conversations
-            
-            self.sections.append(section)
+            self.sections = ConversationSection.loadConversationsToSections(conversations: conversations)
             self.tableView.reloadData()
         }
     }
@@ -65,9 +62,9 @@ class ConversationTableViewController: UITableViewController {
         case .yesterday:
             label.text = "Yesterday"
         case .lastWeek:
-            label.text = "Last Week"
-        case . lastMonth:
-            label.text = "Last Month"
+            label.text = "This Week"
+        case .lastMonth:
+            label.text = "This Month"
         default:
             label.text = "Older"
         }
