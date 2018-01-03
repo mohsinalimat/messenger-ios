@@ -44,10 +44,18 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQd-5h-AcE">
+                                            <rect key="frame" x="16" y="11" width="42" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="conversationImage" destination="BPh-81-vtD" id="b22-hn-RBM"/>
+                                    <outlet property="imageLetter" destination="yQd-5h-AcE" id="j7j-3u-QfN"/>
                                     <outlet property="snippet" destination="Ec5-Sq-agl" id="FEC-N6-1xu"/>
                                     <outlet property="title" destination="Hdx-w6-S1k" id="4NN-XQ-MDT"/>
                                 </connections>

@@ -14,5 +14,6 @@ class ConversationTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var snippet: UILabel!
     @IBOutlet weak var conversationImage: UIImageView!
-
+    @IBOutlet weak var imageLetter: UILabel!
+    
 }

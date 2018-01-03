@@ -82,10 +82,32 @@ class ConversationTableViewController: UITableViewController {
         
         cell.title.text = conversation.title
         cell.snippet.text = conversation.snippet
-        cell.conversationImage.backgroundColor = UIColor(rgb: conversation.color)
+        cell.imageLetter.text = "\(conversation.title.first!)"
+        cell.conversationImage.image = UIImage(color: UIColor(rgb: conversation.color))
         cell.conversationImage.maskCircle()
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let conversation = self.sections[indexPath.section].conversations[indexPath.row]
+            self.sections[indexPath.section].conversations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
+            let conversation = self.sections[indexPath.section].conversations[indexPath.row]
+            self.sections[indexPath.section].conversations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let conversation = sections[indexPath.section].conversations[indexPath.row]
+        archive.backgroundColor = UIColor(rgb: conversation.color)
+        delete.backgroundColor = UIColor(rgb: conversation.colorAccent)
+        
+        return [archive, delete]
+        
     }
 
     /*

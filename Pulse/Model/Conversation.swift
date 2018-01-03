@@ -9,6 +9,8 @@
 import Alamofire
 
 struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
+    let id: Int64
+    
     let title: String
     let snippet: String
     let timestamp: Int64
@@ -24,6 +26,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
     init?(response: HTTPURLResponse, representation: Any) {
         guard
             let representation = representation as? [String: Any],
+            let id = representation["device_id"] as? Int64,
             let title = representation["title"] as? String,
             let snippet = representation["snippet"] as? String,
             let timestamp = representation["timestamp"] as? Int64,
@@ -33,6 +36,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
             let colorAccent = representation["color_accent"] as? Int
         else { return nil }
         
+        self.id = id
         self.title = Account.encryptionUtils?.decrypt(data: title) ?? ""
         self.snippet = Account.encryptionUtils?.decrypt(data: snippet) ?? ""
         self.timestamp = timestamp
