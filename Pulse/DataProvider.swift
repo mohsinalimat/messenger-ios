@@ -19,7 +19,7 @@ class _DataProvider {
         if (conversations != nil) {
             completed(conversations!)
         } else {
-            PulseApi.unarchivedConversations { (response: DataResponse<[Conversation]>) in
+            PulseApi.conversations().getUnarchived { (response: DataResponse<[Conversation]>) in
                 if let conversations = response.result.value {
                     self.conversations = conversations
                     completed(conversations)

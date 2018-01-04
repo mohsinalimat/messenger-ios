@@ -37,7 +37,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             login.isEnabled = false
             password.resignFirstResponder()
             
-            PulseApi.login(email: email.text!, password: password.text!) { (response: DataResponse<LoginResponse>) in
+            PulseApi.accounts().login(email: email.text!, password: password.text!) { (response: DataResponse<LoginResponse>) in
                 debugPrint(response)
                 if let loginResponse = response.result.value {
                     let password = self.password.text!

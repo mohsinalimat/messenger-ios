@@ -92,7 +92,7 @@ class ConversationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             let conversation = self.sections[indexPath.section].conversations[indexPath.row]
-            PulseApi.delete(conversation: conversation)
+            PulseApi.conversations().delete(conversation: conversation)
             
             self.sections[indexPath.section].conversations.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -100,7 +100,7 @@ class ConversationTableViewController: UITableViewController {
         
         let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
             let conversation = self.sections[indexPath.section].conversations[indexPath.row]
-            PulseApi.archive(conversation: conversation)
+            PulseApi.conversations().archive(conversation: conversation)
             
             self.sections[indexPath.section].conversations.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
