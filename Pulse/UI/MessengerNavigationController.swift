@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversationNavigationController: UINavigationController {
+class MessengerNavigationController: UINavigationController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

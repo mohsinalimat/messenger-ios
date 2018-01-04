@@ -13,7 +13,7 @@ class BaseRoute {
     private let baseUrl: String
     
     init(route: String) {
-        self.baseUrl = "https://api.messenger.klinkerapps.com/api/v1/\(route)/"
+        self.baseUrl = "https://api.messenger.klinkerapps.com/api/v1/\(route)"
     }
     
     @discardableResult func get(path: String, parameters: Parameters = ["account_id": Account.accountId!]) -> DataRequest {

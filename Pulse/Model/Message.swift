@@ -14,9 +14,7 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
     let messageType: Int
     let data: String
     let mimeType: String
-    let from: String
     let timestamp: Int64
-    let simStamp: String
     
     var description: String {
         return "Message: { id: \(id), data: \(data), mimetype: \(mimeType), timestamp: \(timestamp) }"
@@ -29,18 +27,14 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
             let messageType = representation["message_type"] as? Int,
             let data = representation["data"] as? String,
             let mimeType = representation["mime_type"] as? String,
-            let from = representation["message_from"] as? String,
-            let timestamp = representation["timestamp"] as? Int64,
-            let simStamp = representation["sim_stamp"] as? String
-            else { return nil }
+            let timestamp = representation["timestamp"] as? Int64
+        else { return nil }
         
         self.id = id
         self.messageType = messageType
         self.data = Account.encryptionUtils?.decrypt(data: data) ?? ""
         self.mimeType = Account.encryptionUtils?.decrypt(data: mimeType) ?? "text/plain"
-        self.from = Account.encryptionUtils?.decrypt(data: from) ?? ""
         self.timestamp = timestamp
-        self.simStamp = simStamp
     }
 }
 

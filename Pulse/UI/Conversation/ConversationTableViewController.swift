@@ -42,6 +42,10 @@ class ConversationTableViewController: UITableViewController {
             self.refresh.endRefreshing()
         }
     }
+    
+    func conversation(indexPath: IndexPath) -> Conversation {
+        return self.sections[indexPath.section].conversations[indexPath.row]
+    }
 
     // MARK: Table view data source
 
@@ -94,7 +98,7 @@ class ConversationTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ConversationTableViewCell.")
         }
 
-        let conversation = sections[indexPath.section].conversations[indexPath.row]
+        let conversation = self.conversation(indexPath: indexPath)
         
         cell.title.text = conversation.title
         cell.snippet.text = conversation.snippet
@@ -107,7 +111,7 @@ class ConversationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            let conversation = self.sections[indexPath.section].conversations[indexPath.row]
+            let conversation = self.conversation(indexPath: indexPath)
             PulseApi.conversations().delete(conversation: conversation)
             
             self.sections[indexPath.section].conversations.remove(at: indexPath.row)
@@ -115,28 +119,24 @@ class ConversationTableViewController: UITableViewController {
         }
         
         let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
-            let conversation = self.sections[indexPath.section].conversations[indexPath.row]
+            let conversation = self.conversation(indexPath: indexPath)
             PulseApi.conversations().archive(conversation: conversation)
             
             self.sections[indexPath.section].conversations.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
-        let conversation = sections[indexPath.section].conversations[indexPath.row]
+        let conversation = self.conversation(indexPath: indexPath)
         archive.backgroundColor = UIColor(rgb: conversation.color)
         delete.backgroundColor = UIColor(rgb: conversation.colorAccent)
         
         return [archive, delete]
-        
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let controller = segue.destination as! MessageTableViewController
+        controller.conversation = conversation(indexPath: self.tableView.indexPathForSelectedRow!)
     }
-    */
 }

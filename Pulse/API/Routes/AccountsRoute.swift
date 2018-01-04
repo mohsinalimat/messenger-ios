@@ -16,7 +16,7 @@ class AccountsRoute : BaseRoute {
     }
     
     func login(email: String, password: String, completionHandler: @escaping (DataResponse<LoginResponse>) -> Void) {
-        post(path: "login", parameters: ["username": email, "password": password])
+        post(path: "/login", parameters: ["username": email, "password": password])
             .responseObject(completionHandler: completionHandler)
     }
 }

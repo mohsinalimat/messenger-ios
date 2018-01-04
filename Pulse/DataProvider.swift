@@ -14,6 +14,7 @@ let DataProvider = _DataProvider()
 class _DataProvider {
     
     private var conversations: [Conversation]? = nil
+    private var messages = [Int64: [Message]]()
     
     func clear() {
         conversations = nil
@@ -29,6 +30,21 @@ class _DataProvider {
                     completed(conversations)
                 } else {
                     completed([Conversation]())
+                }
+            }
+        }
+    }
+    
+    func messages(conversation: Conversation, completed: @escaping ([Message]) -> Void) {
+        if let messageList = messages[conversation.id] {
+            completed(messageList)
+        } else {
+            PulseApi.messages().getMessages(conversationId: conversation.id) { (response: DataResponse<[Message]>) in
+                if let messageList = response.result.value {
+                    self.messages.updateValue(messageList, forKey: conversation.id)
+                    completed(messageList)
+                } else {
+                    completed([Message]())
                 }
             }
         }

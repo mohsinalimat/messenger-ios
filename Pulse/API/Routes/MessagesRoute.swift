@@ -15,8 +15,8 @@ class MessagesRoute : BaseRoute {
         super.init(route: "messages")
     }
     
-    func get(conversationId: Int64, completionHandler: @escaping (DataResponse<[Message]>) -> Void) {
-        get(path: "", parameters: ["account_id": Account.accountId!, "conversation_id": conversationId, "web": "true", "limit": 20])
+    func getMessages(conversationId: Int64, completionHandler: @escaping (DataResponse<[Message]>) -> Void) {
+        get(path: "", parameters: ["account_id": Account.accountId!, "conversation_id": conversationId, "web": true, "limit": 20])
             .responseCollection(completionHandler: completionHandler)
     }
 

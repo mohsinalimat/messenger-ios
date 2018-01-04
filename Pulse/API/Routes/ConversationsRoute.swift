@@ -20,19 +20,19 @@ class ConversationsRoute : BaseRoute {
             return
         }
         
-        get(path: "index_unarchived", parameters: ["account_id": Account.accountId!, "limit": 100])
+        get(path: "/index_unarchived", parameters: ["account_id": Account.accountId!, "limit": 100])
             .responseCollection(completionHandler: completionHandler)
     }
     
     func archive(conversation: Conversation) {
-        post(path: "archive/\(conversation.id)")
+        post(path: "/archive/\(conversation.id)")
     }
     
     func unarchive(conversation: Conversation) {
-        post(path: "unarchive/\(conversation.id)")
+        post(path: "/unarchive/\(conversation.id)")
     }
     
     func delete(conversation: Conversation) {
-        post(path: "delete/\(conversation.id)")
+        post(path: "/delete/\(conversation.id)")
     }
 }

@@ -51,7 +51,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             print("error encrypting")
                         }
                     }.main {
-                        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ConversationNavigationController") as! ConversationNavigationController
+                        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "MessengerNavigationController") as! MessengerNavigationController
                         self.present(secondViewController, animated: true)
                     }
                 }
