@@ -15,13 +15,32 @@ class ConversationTableViewController: UITableViewController {
     
     let sectionHeaderHeight: CGFloat = 32
     var sections = [ConversationSection]()
+    
+    private let refresh = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        refresh.addTarget(self, action: #selector(loadData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = refresh
+        } else {
+            self.tableView.addSubview(refresh)
+        }
+        
+        loadData(refresh)
+    }
+    
+    @objc private func loadData(_ sender: Any) {
+        DataProvider.clear()
+        loadData()
+    }
+    
+    func loadData() {
         DataProvider.conversations { conversations in
             self.sections = ConversationSection.loadConversationsToSections(conversations: conversations)
             self.tableView.reloadData()
+            self.refresh.endRefreshing()
         }
     }
 

@@ -15,6 +15,10 @@ class _DataProvider {
     
     private var conversations: [Conversation]? = nil
     
+    func clear() {
+        conversations = nil
+    }
+    
     func conversations(completed: @escaping ([Conversation]) -> Void) {
         if (conversations != nil) {
             completed(conversations!)
