@@ -12,6 +12,7 @@ import Alamofire
 class ConversationTableViewController: UITableViewController {
     
     // MARK: Properties
+    
     let sectionHeaderHeight: CGFloat = 32
     var sections = [ConversationSection]()
 
@@ -24,12 +25,7 @@ class ConversationTableViewController: UITableViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
+    // MARK: Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -46,6 +42,8 @@ class ConversationTableViewController: UITableViewController {
         
         return 0
     }
+    
+    // MARK: Table view UI functions
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: sectionHeaderHeight))
