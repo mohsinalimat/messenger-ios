@@ -9,8 +9,8 @@
 import Alamofire
 
 struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
-    let id: Int64
     
+    let id: Int64
     let title: String
     let snippet: String
     let timestamp: Int64

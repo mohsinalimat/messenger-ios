@@ -13,11 +13,11 @@ let PulseApi = _PulseApi()
 class _PulseApi {
     private let BASE_URL = "https://api.messenger.klinkerapps.com/api/v1/"
     
-    private func get(path: String, parameters: Parameters) -> DataRequest {
+    private func get(path: String, parameters: Parameters = ["account_id": Account.accountId!]) -> DataRequest {
         return Alamofire.request("\(BASE_URL)\(path)", method: .get, parameters: parameters)
     }
     
-    private func post(path: String, parameters: Parameters) -> DataRequest {
+    private func post(path: String, parameters: Parameters = ["account_id": Account.accountId!]) -> DataRequest {
         return Alamofire.request("\(BASE_URL)\(path)", method: .post, parameters: parameters)
     }
     
@@ -33,6 +33,18 @@ class _PulseApi {
         
         get(path: "conversations/index_unarchived", parameters: ["account_id": Account.accountId!, "limit": 100])
             .responseCollection(completionHandler: completionHandler)
+    }
+    
+    func archive(conversation: Conversation) {
+        post(path: "conversations/archive/\(conversation.id)")
+    }
+    
+    func unarchive(conversation: Conversation) {
+        post(path: "conversations/unarchive/\(conversation.id)")
+    }
+    
+    func delete(conversation: Conversation) {
+        post(path: "conversations/delete/\(conversation.id)")
     }
     
 }
