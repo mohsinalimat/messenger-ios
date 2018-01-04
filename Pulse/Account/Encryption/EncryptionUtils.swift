@@ -12,7 +12,7 @@ import CryptoSwift
 class EncryptionUtils {
     
     private let SEPARATOR = "-:-";
-    let key: String
+    private let key: String
     
     init(key: String) {
         self.key = key

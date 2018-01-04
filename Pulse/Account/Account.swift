@@ -17,9 +17,9 @@ class _Account {
     var accountId: String?
     var deviceId: String?
     
-    var salt: String?
-    var passwordHash: String?
-    var encryptionKey: String?
+    private var salt: String?
+    private var passwordHash: String?
+    private var encryptionKey: String?
     
     var encryptionUtils: EncryptionUtils?
     

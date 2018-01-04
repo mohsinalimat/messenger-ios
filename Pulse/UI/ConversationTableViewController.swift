@@ -17,6 +17,10 @@ class ConversationTableViewController: UITableViewController {
     var sections = [ConversationSection]()
     
     private let refresh = UIRefreshControl()
+    @objc private func loadData(_ sender: Any) {
+        DataProvider.clear()
+        loadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +32,6 @@ class ConversationTableViewController: UITableViewController {
             self.tableView.addSubview(refresh)
         }
         
-        loadData(refresh)
-    }
-    
-    @objc private func loadData(_ sender: Any) {
-        DataProvider.clear()
         loadData()
     }
     

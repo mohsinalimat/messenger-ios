@@ -12,6 +12,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
     
     let id: Int64
     let title: String
+    let phoneNumbers: String
     let snippet: String
     let timestamp: Int64
     let pinned: Bool
@@ -28,6 +29,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
             let representation = representation as? [String: Any],
             let id = representation["device_id"] as? Int64,
             let title = representation["title"] as? String,
+            let phoneNumbers = representation["phone_numbers"] as? String,
             let snippet = representation["snippet"] as? String,
             let timestamp = representation["timestamp"] as? Int64,
             let pinned = representation["pinned"] as? Bool,
@@ -38,6 +40,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
         
         self.id = id
         self.title = Account.encryptionUtils?.decrypt(data: title) ?? ""
+        self.phoneNumbers = Account.encryptionUtils?.decrypt(data: phoneNumbers) ?? ""
         self.snippet = Account.encryptionUtils?.decrypt(data: snippet) ?? ""
         self.timestamp = timestamp
         self.pinned = pinned
