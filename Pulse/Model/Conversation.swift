@@ -49,4 +49,3 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
         self.colorAccent = colorAccent
     }
 }
-

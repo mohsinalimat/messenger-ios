@@ -20,4 +20,8 @@ class _PulseApi {
         return ConversationsRoute()
     }
     
+    func messages() -> MessagesRoute {
+        return MessagesRoute()
+    }
+    
 }
