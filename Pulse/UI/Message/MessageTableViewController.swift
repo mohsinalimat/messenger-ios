@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MessageTableViewController: UITableViewController {
 
@@ -14,6 +15,7 @@ class MessageTableViewController: UITableViewController {
     
     var messages = [Message]()
     var conversation: Conversation? = nil
+    var subscription: Disposable? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,11 @@ class MessageTableViewController: UITableViewController {
         self.tableView.allowsSelection = false
         self.tableView.estimatedRowHeight = 56
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        subscription = DataObserver.messages(conversation: conversation!, onNext: { messages in
+            self.messages = messages.element!.reversed()
+            self.showData()
+        })
         
         if (!DataProvider.hasMessages(conversation: conversation!)) {
             self.hideTableView()
@@ -73,10 +80,7 @@ class MessageTableViewController: UITableViewController {
     // MARK: helper functions
     
     private func loadData() {
-        DataProvider.messages(conversation: conversation!) { messages in
-            self.messages = messages.reversed()
-            self.showData()
-        }
+        DataProvider.loadMessages(conversation: conversation!)
     }
     
     private func showData() {

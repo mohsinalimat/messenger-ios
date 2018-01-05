@@ -7,6 +7,8 @@ target 'Pulse' do
   pod 'Alamofire', '~> 4.5'
   pod 'CryptoSwift', '~> 0.8.0'
   pod 'AsyncSwift', '~> 2.0.4'
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
 
   target 'PulseTests' do
     inherit! :search_paths

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RxSwift
 
 class ConversationTableViewController: UITableViewController {
     
@@ -15,11 +16,12 @@ class ConversationTableViewController: UITableViewController {
     
     let sectionHeaderHeight: CGFloat = 32
     var sections = [ConversationSection]()
+    var subscription: Disposable? = nil
     
     private let refresh = UIRefreshControl()
     @objc private func loadData(_ sender: Any) {
         DataProvider.clear()
-        loadData()
+        DataProvider.loadConversations()
     }
 
     override func viewDidLoad() {
@@ -32,15 +34,13 @@ class ConversationTableViewController: UITableViewController {
             self.tableView.addSubview(refresh)
         }
         
-        loadData()
-    }
-    
-    func loadData() {
-        DataProvider.conversations { conversations in
-            self.sections = ConversationSection.loadConversationsToSections(conversations: conversations)
+        subscription = DataObserver.conversations { conversations in
+            self.sections = ConversationSection.loadConversationsToSections(conversations: conversations.element!)
             self.tableView.reloadData()
             self.refresh.endRefreshing()
         }
+        
+        DataProvider.loadConversations()
     }
     
     func conversation(indexPath: IndexPath) -> Conversation {
