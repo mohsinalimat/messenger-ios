@@ -50,4 +50,8 @@ class _DataProvider {
             }
         }
     }
+    
+    func clearMessages(conversation: Conversation) {
+        messages[conversation.id] = nil
+    }
 }

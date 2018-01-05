@@ -29,6 +29,7 @@ class MessageTableViewController: UITableViewController {
     }
     
     @IBAction func refreshData(_ sender: Any) {
+        DataProvider.clearMessages(conversation: conversation!)
         loadData()
     }
     
