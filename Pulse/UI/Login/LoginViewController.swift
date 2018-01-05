@@ -38,17 +38,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             password.resignFirstResponder()
             
             PulseApi.accounts().login(email: email.text!, password: password.text!) { (response: DataResponse<LoginResponse>) in
-                debugPrint(response)
                 if let loginResponse = response.result.value {
                     let password = self.password.text!
 
                     Async.background {
-                        print("run in background")
                         do {
+                            debugPrint("creating account encryption.")
                             try Account.createAccount(password: password, loginResponse: loginResponse)
-                            print("finished creating account")
                         } catch {
-                            print("error encrypting")
+                            debugPrint("error creating encryption for account.")
                         }
                     }.main {
                         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "MessengerNavigationController") as! MessengerNavigationController

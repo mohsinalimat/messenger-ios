@@ -29,7 +29,9 @@ class MessageTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadData()
+        if (messages.count == 0) {
+            loadData()
+        }
     }
     
     @IBAction func refreshData(_ sender: Any) {
