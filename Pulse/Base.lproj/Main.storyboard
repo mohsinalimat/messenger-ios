@@ -214,7 +214,7 @@
         <!--Messenger Navigation Controller-->
         <scene sceneID="Xqh-rM-1Sb">
             <objects>
-                <navigationController storyboardIdentifier="MessengerNavigationController" title="Messenger Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sgd-Hb-hdJ" customClass="MessengerNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MessengerNavigationController" title="Messenger Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sgd-Hb-hdJ" customClass="MessengerNavigationController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wvj-kB-RZi">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

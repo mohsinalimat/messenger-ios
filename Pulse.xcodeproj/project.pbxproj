@@ -42,6 +42,7 @@
 		A3E8E54C1FFEAB4000FB6CCA /* MessagesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E54B1FFEAB4000FB6CCA /* MessagesRoute.swift */; };
 		A3E8E5511FFEB06800FB6CCA /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5501FFEB06800FB6CCA /* MessageTableViewController.swift */; };
 		A3E8E5531FFEB07200FB6CCA /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5521FFEB07200FB6CCA /* MessageTableViewCell.swift */; };
+		A3E8E5551FFEFB3800FB6CCA /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5541FFEFB3800FB6CCA /* ViewUtils.swift */; };
 		B2FB3E9BD5E6B1727A30F857 /* Pods_PulseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F838AF0BCAE988971148362 /* Pods_PulseUITests.framework */; };
 		C747314DA2CC55106CB68B6D /* Pods_Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C50C204838A9CE62146B0 /* Pods_Pulse.framework */; };
 		F419450C8CDEEC4EC4C53F9B /* Pods_PulseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DC997D327DB5940F96B486 /* Pods_PulseTests.framework */; };
@@ -115,6 +116,7 @@
 		A3E8E54B1FFEAB4000FB6CCA /* MessagesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRoute.swift; sourceTree = "<group>"; };
 		A3E8E5501FFEB06800FB6CCA /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		A3E8E5521FFEB07200FB6CCA /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		A3E8E5541FFEFB3800FB6CCA /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				A3CBFDEC1FFC25A600B439C4 /* ColorUtils.swift */,
 				A3CBFDEE1FFC260700B439C4 /* ImageUtils.swift */,
 				A3ABB64D1FFD826F009ECADC /* TimeUtils.swift */,
+				A3E8E5541FFEFB3800FB6CCA /* ViewUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */,
 				A3CBFDF11FFC308B00B439C4 /* MessengerNavigationController.swift in Sources */,
 				A3ABB64E1FFD826F009ECADC /* TimeUtils.swift in Sources */,
+				A3E8E5551FFEFB3800FB6CCA /* ViewUtils.swift in Sources */,
 				A32380811FF918E5000321B5 /* Pulse.xcdatamodeld in Sources */,
 				A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */,
 				A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */,

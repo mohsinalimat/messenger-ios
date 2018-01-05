@@ -21,6 +21,10 @@ class MessageTableViewController: UITableViewController {
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationItem.title = conversation?.title
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        if (!DataProvider.hasMessages(conversation: conversation!)) {
+            self.hideTableView()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,6 +34,8 @@ class MessageTableViewController: UITableViewController {
     
     @IBAction func refreshData(_ sender: Any) {
         DataProvider.clearMessages(conversation: conversation!)
+        
+        hideTableView()
         loadData()
     }
     
@@ -73,8 +79,25 @@ class MessageTableViewController: UITableViewController {
     private func showData() {
         self.tableView.reloadData()
         self.scrollToBottom()
+        self.showTableView()
+    }
+    
+    private func hideTableView() {
+        self.tableView.activityIndicatorView.startAnimating()
         
+        if (messages.count > 0) {
+            self.tableView.alpha = 1.0
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tableView.alpha = 0.0
+            })
+        }
+    }
+    
+    private func showTableView() {
+        self.tableView.activityIndicatorView.stopAnimating()
         self.tableView.alpha = 0.0
+        
         UIView.animate(withDuration: 0.2, animations: {
             self.tableView.alpha = 1.0
         })

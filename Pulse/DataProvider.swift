@@ -51,6 +51,10 @@ class _DataProvider {
         }
     }
     
+    func hasMessages(conversation: Conversation) -> Bool {
+        return messages[conversation.id] != nil
+    }
+    
     func clearMessages(conversation: Conversation) {
         messages[conversation.id] = nil
     }
