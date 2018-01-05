@@ -12,17 +12,19 @@ import RxSwift
 
 class ConversationTableViewController: UITableViewController {
     
-    // MARK: Properties
+    var actionGenerator: SwipeActionGenerator? = nil
+    var sectionGenerator: SectionViewGenerator? = nil
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.actionGenerator = SwipeActionGenerator(controller: self)
+        self.sectionGenerator = SectionViewGenerator(controller: self)
+    }
     
-    let sectionHeaderHeight: CGFloat = 32
     var sections = [ConversationSection]()
     var subscription: Disposable? = nil
     
     private let refresh = UIRefreshControl()
-    @objc private func loadData(_ sender: Any) {
-        DataProvider.clear()
-        DataProvider.loadConversations()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +45,10 @@ class ConversationTableViewController: UITableViewController {
         DataProvider.loadConversations()
     }
     
-    func conversation(indexPath: IndexPath) -> Conversation {
-        return self.sections[indexPath.section].conversations[indexPath.row]
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! MessageTableViewController
+        controller.conversation = conversation(indexPath: self.tableView.indexPathForSelectedRow!)
     }
-
-    // MARK: Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -59,84 +60,45 @@ class ConversationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if sections[section].conversationCount() > 0 {
-            return sectionHeaderHeight
+            return SectionViewGenerator.SECTION_HEADER_HEIGHT
         }
         
         return 0
     }
     
-    // MARK: Table view UI functions
-    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: sectionHeaderHeight))
-        view.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1)
-        let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: sectionHeaderHeight))
-        label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textColor = UIColor.black
-        
-        switch sections[section].type {
-        case .pinned:
-            label.text = "Pinned"
-        case .today:
-            label.text = "Today"
-        case .yesterday:
-            label.text = "Yesterday"
-        case .lastWeek:
-            label.text = "This Week"
-        case .lastMonth:
-            label.text = "This Month"
-        default:
-            label.text = "Older"
-        }
-        
-        view.addSubview(label)
-        return view
+        return sectionGenerator?.generateSection(section: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let conversation = self.conversation(indexPath: indexPath)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationTableViewCell", for: indexPath) as? ConversationTableViewCell  else {
             fatalError("The dequeued cell is not an instance of ConversationTableViewCell.")
         }
 
-        let conversation = self.conversation(indexPath: indexPath)
-        
-        cell.title.text = conversation.title
-        cell.snippet.text = conversation.snippet
-        cell.imageLetter.text = "\(conversation.title.first!)"
-        cell.conversationImage.image = UIImage(color: UIColor(rgb: conversation.color))
-        cell.conversationImage.maskCircle()
-
+        cell.bind(conversation: conversation)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            let conversation = self.conversation(indexPath: indexPath)
-            PulseApi.conversations().delete(conversation: conversation)
-            
-            self.sections[indexPath.section].conversations.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        
-        let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
-            let conversation = self.conversation(indexPath: indexPath)
-            PulseApi.conversations().archive(conversation: conversation)
-            
-            self.sections[indexPath.section].conversations.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        
         let conversation = self.conversation(indexPath: indexPath)
+        let delete = actionGenerator!.delete()
+        let archive = actionGenerator!.archive()
+        
         archive.backgroundColor = UIColor(rgb: conversation.color)
         delete.backgroundColor = UIColor(rgb: conversation.colorAccent)
         
         return [archive, delete]
     }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! MessageTableViewController
-        controller.conversation = conversation(indexPath: self.tableView.indexPathForSelectedRow!)
+    
+    // MARK: Helper functions
+    
+    @objc private func loadData(_ sender: Any) {
+        DataProvider.clear()
+        DataProvider.loadConversations()
+    }
+    
+    func conversation(indexPath: IndexPath) -> Conversation {
+        return self.sections[indexPath.section].conversations[indexPath.row]
     }
 }

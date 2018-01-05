@@ -16,4 +16,11 @@ class ConversationTableViewCell: UITableViewCell {
     @IBOutlet weak var conversationImage: UIImageView!
     @IBOutlet weak var imageLetter: UILabel!
     
+    func bind(conversation: Conversation) {
+        self.title.text = conversation.title
+        self.snippet.text = conversation.snippet
+        self.imageLetter.text = "\(conversation.title.first!)"
+        self.conversationImage.image = UIImage(color: UIColor(rgb: conversation.color))
+        self.conversationImage.maskCircle()
+    }
 }

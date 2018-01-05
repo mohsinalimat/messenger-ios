@@ -10,7 +10,6 @@ import UIKit
 
 class MessageTableViewCell: UITableViewCell {
     
-    // MARK: Properties
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var messageContainer: UIView!
@@ -33,5 +32,3 @@ class MessageTableViewCell: UITableViewCell {
         self.timestamp.text = dateFormatter.string(from: Date(milliseconds: message.timestamp))
     }
 }
-
-

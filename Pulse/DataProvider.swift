@@ -14,7 +14,7 @@ import RxSwift
 // The goal of this is to provide an interface for caching data, updating data, and updating the UI based on the new data.
 // Anyone can subscribe to the conversation list updates, or the message list updates and they will get notified automatically of new data.
 // This means that they only need to manage the UI in one place, rather than providing different UI update methods every time they query data.
-// This is pushing the data to those observables, rather than them trying to pull in the data.
+// This is pushing the data to those observables, rather than them trying to pull in the data when they *think* there could have been an update.
 //
 //
 // Usage:
