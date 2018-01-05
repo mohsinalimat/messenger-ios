@@ -18,6 +18,7 @@ class _DataProvider {
     
     func clear() {
         conversations = nil
+        messages = [Int64: [Message]]()
     }
     
     func conversations(completed: @escaping ([Conversation]) -> Void) {
