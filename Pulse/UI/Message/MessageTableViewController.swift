@@ -20,6 +20,12 @@ class MessageTableViewController: UITableViewController {
         
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationItem.title = conversation?.title
+        
+        self.tableView.register(UINib(nibName: "SentMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "SentMessageTableViewCell")
+        self.tableView.register(UINib(nibName: "ReceivedMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "ReceivedMessageTableViewCell")
+        
+        self.tableView.allowsSelection = false
+        self.tableView.estimatedRowHeight = 56
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         if (!DataProvider.hasMessages(conversation: conversation!)) {
@@ -54,18 +60,13 @@ class MessageTableViewController: UITableViewController {
     // MARK: Table view UI functions
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as? MessageTableViewCell else {
-            fatalError("The dequeued cell is not an instance of MessageTableViewCell.")
-        }
-        
         let message = messages[indexPath.row]
-        
-        if (message.mimeType == "text/plain") {
-            cell.data.text = message.data
-        } else {
-            cell.data.text = "Media coming soon"
+        let identifier = getCellIdentifier(message: message)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MessageTableViewCell else {
+            fatalError("The dequeued cell is not an instance of \(identifier).")
         }
         
+        cell.bind(conversation: conversation!, message: message)
         return cell
     }
     
@@ -109,6 +110,15 @@ class MessageTableViewController: UITableViewController {
         if (self.messages.count > 0) {
             let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        }
+    }
+    
+    private func getCellIdentifier(message: Message) -> String {
+        if (message.messageType == MessageType.RECEIVED) {
+            return "ReceivedMessageTableViewCell"
+        } else {
+            // TODO: handle media/info and error/sending/sent/delivered status
+            return "SentMessageTableViewCell"
         }
     }
 }

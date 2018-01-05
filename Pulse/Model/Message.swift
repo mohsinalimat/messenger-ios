@@ -38,3 +38,12 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
     }
 }
 
+public class MessageType {
+    public static let RECEIVED = 0
+    public static let SENT = 1
+    public static let SENDING = 2
+    public static let ERROR = 3
+    public static let DELIVERED = 4
+    public static let INFO = 5
+    public static let MEDIA = 6
+}

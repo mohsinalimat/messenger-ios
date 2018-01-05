@@ -19,6 +19,10 @@
 		A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDD91FFBBE8600DC0B23 /* Settings.swift */; };
 		A37EEDDD1FFBC2A600DC0B23 /* EncryptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */; };
 		A37EEDDF1FFBC2B500DC0B23 /* KeyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDDE1FFBC2B500DC0B23 /* KeyUtils.swift */; };
+		A385EDE41FFFDE61000C3F25 /* SentMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A385EDE31FFFDE61000C3F25 /* SentMessageTableViewCell.xib */; };
+		A385EDE61FFFF3AE000C3F25 /* ReceivedMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A385EDE51FFFF3AD000C3F25 /* ReceivedMessageTableViewCell.xib */; };
+		A385EDE81FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */; };
+		A385EDEA1FFFF5AE000C3F25 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDE91FFFF5AE000C3F25 /* MessageTableViewCell.swift */; };
 		A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE01FFAD03800F72313 /* PulseApi.swift */; };
 		A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE31FFADDF900F72313 /* LoginResponse.swift */; };
 		A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */; };
@@ -41,7 +45,7 @@
 		A3E8E5481FFEA97F00FB6CCA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5471FFEA97F00FB6CCA /* Message.swift */; };
 		A3E8E54C1FFEAB4000FB6CCA /* MessagesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E54B1FFEAB4000FB6CCA /* MessagesRoute.swift */; };
 		A3E8E5511FFEB06800FB6CCA /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5501FFEB06800FB6CCA /* MessageTableViewController.swift */; };
-		A3E8E5531FFEB07200FB6CCA /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5521FFEB07200FB6CCA /* MessageTableViewCell.swift */; };
+		A3E8E5531FFEB07200FB6CCA /* SentMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5521FFEB07200FB6CCA /* SentMessageTableViewCell.swift */; };
 		A3E8E5551FFEFB3800FB6CCA /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E5541FFEFB3800FB6CCA /* ViewUtils.swift */; };
 		B2FB3E9BD5E6B1727A30F857 /* Pods_PulseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F838AF0BCAE988971148362 /* Pods_PulseUITests.framework */; };
 		C747314DA2CC55106CB68B6D /* Pods_Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C50C204838A9CE62146B0 /* Pods_Pulse.framework */; };
@@ -93,6 +97,10 @@
 		A37EEDD91FFBBE8600DC0B23 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionUtils.swift; sourceTree = "<group>"; };
 		A37EEDDE1FFBC2B500DC0B23 /* KeyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyUtils.swift; sourceTree = "<group>"; };
+		A385EDE31FFFDE61000C3F25 /* SentMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SentMessageTableViewCell.xib; sourceTree = "<group>"; };
+		A385EDE51FFFF3AD000C3F25 /* ReceivedMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivedMessageTableViewCell.xib; sourceTree = "<group>"; };
+		A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedMessageTableViewCell.swift; sourceTree = "<group>"; };
+		A385EDE91FFFF5AE000C3F25 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		A3A47FE01FFAD03800F72313 /* PulseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApi.swift; sourceTree = "<group>"; };
 		A3A47FE31FFADDF900F72313 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		A3A47FE51FFADE8E00F72313 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
@@ -115,7 +123,7 @@
 		A3E8E5471FFEA97F00FB6CCA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A3E8E54B1FFEAB4000FB6CCA /* MessagesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRoute.swift; sourceTree = "<group>"; };
 		A3E8E5501FFEB06800FB6CCA /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
-		A3E8E5521FFEB07200FB6CCA /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		A3E8E5521FFEB07200FB6CCA /* SentMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMessageTableViewCell.swift; sourceTree = "<group>"; };
 		A3E8E5541FFEFB3800FB6CCA /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,8 +188,8 @@
 				A32380781FF918E5000321B5 /* AppDelegate.swift */,
 				A3ABB64B1FFD7D4F009ECADC /* DataProvider.swift */,
 				A323807C1FF918E5000321B5 /* Main.storyboard */,
-				A32380821FF918E5000321B5 /* Assets.xcassets */,
 				A32380841FF918E5000321B5 /* LaunchScreen.storyboard */,
+				A32380821FF918E5000321B5 /* Assets.xcassets */,
 				A32380871FF918E5000321B5 /* Info.plist */,
 				A323807F1FF918E5000321B5 /* Pulse.xcdatamodeld */,
 			);
@@ -312,7 +320,11 @@
 			isa = PBXGroup;
 			children = (
 				A3E8E5501FFEB06800FB6CCA /* MessageTableViewController.swift */,
-				A3E8E5521FFEB07200FB6CCA /* MessageTableViewCell.swift */,
+				A385EDE91FFFF5AE000C3F25 /* MessageTableViewCell.swift */,
+				A385EDE31FFFDE61000C3F25 /* SentMessageTableViewCell.xib */,
+				A3E8E5521FFEB07200FB6CCA /* SentMessageTableViewCell.swift */,
+				A385EDE51FFFF3AD000C3F25 /* ReceivedMessageTableViewCell.xib */,
+				A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -457,8 +469,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A32380861FF918E5000321B5 /* LaunchScreen.storyboard in Resources */,
+				A385EDE41FFFDE61000C3F25 /* SentMessageTableViewCell.xib in Resources */,
 				A32380831FF918E5000321B5 /* Assets.xcassets in Resources */,
 				A323807E1FF918E5000321B5 /* Main.storyboard in Resources */,
+				A385EDE61FFFF3AE000C3F25 /* ReceivedMessageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +653,7 @@
 			files = (
 				A3A47FED1FFAE61800F72313 /* DataRequest.swift in Sources */,
 				A3E8E5441FFE893D00FB6CCA /* BaseRoute.swift in Sources */,
-				A3E8E5531FFEB07200FB6CCA /* MessageTableViewCell.swift in Sources */,
+				A3E8E5531FFEB07200FB6CCA /* SentMessageTableViewCell.swift in Sources */,
 				A37EEDD81FFBBE7300DC0B23 /* Account.swift in Sources */,
 				A3E8E5461FFE8ADC00FB6CCA /* AccountsRoute.swift in Sources */,
 				A3CBFDED1FFC25A600B439C4 /* ColorUtils.swift in Sources */,
@@ -663,8 +677,10 @@
 				A3E8E5481FFEA97F00FB6CCA /* Message.swift in Sources */,
 				A3E8E5511FFEB06800FB6CCA /* MessageTableViewController.swift in Sources */,
 				A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */,
+				A385EDEA1FFFF5AE000C3F25 /* MessageTableViewCell.swift in Sources */,
 				A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */,
 				A3A47FEF1FFAE65200F72313 /* Conversation.swift in Sources */,
+				A385EDE81FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift in Sources */,
 				A3E8E54C1FFEAB4000FB6CCA /* MessagesRoute.swift in Sources */,
 				A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */,
 				A3CBFDE71FFC1BDD00B439C4 /* ConversationTableViewCell.swift in Sources */,

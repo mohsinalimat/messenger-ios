@@ -83,36 +83,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableViewCell" id="n35-uK-0TK" customClass="MessageTableViewCell" customModule="Pulse" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n35-uK-0TK" id="QB9-za-TSb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Text her eis a long afjkdl a;fjeowpq jfodpa fjop jweiqoprj eiwoqp fjkld pwjqfiopejw q" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwB-QO-zBU">
-                                            <rect key="frame" x="16" y="16" width="343" height="11.5"/>
-                                            <accessibility key="accessibilityConfiguration">
-                                                <accessibilityTraits key="traits" none="YES"/>
-                                            </accessibility>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="pwB-QO-zBU" firstAttribute="leading" secondItem="QB9-za-TSb" secondAttribute="leading" constant="16" id="52B-Gg-Yho"/>
-                                        <constraint firstItem="pwB-QO-zBU" firstAttribute="top" secondItem="QB9-za-TSb" secondAttribute="top" constant="16" id="TnJ-lY-jK4"/>
-                                        <constraint firstAttribute="bottom" secondItem="pwB-QO-zBU" secondAttribute="bottom" constant="16" id="cZt-PB-EN6"/>
-                                        <constraint firstAttribute="trailing" secondItem="pwB-QO-zBU" secondAttribute="trailing" constant="16" id="kAm-Sg-EFY"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="data" destination="pwB-QO-zBU" id="G8s-FB-ZLJ"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="ukg-H0-Gnk" id="hLA-X2-6uL"/>
                             <outlet property="delegate" destination="ukg-H0-Gnk" id="aJt-c2-fkL"/>
@@ -131,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJF-TN-bdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="399" y="131"/>
+            <point key="canvasLocation" x="397.60000000000002" y="130.88455772113943"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
