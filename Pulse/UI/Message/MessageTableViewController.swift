@@ -34,9 +34,18 @@ class MessageTableViewController: UITableViewController {
             self.showData()
         })
         
-        if (!DataProvider.hasMessages(conversation: conversation!)) {
+        if (!DataProvider.hasMessages(conversationId: conversation!.id)) {
             self.hideTableView()
         }
+        
+        AppOpenedUpdateHelper.currentlyOpenConversation = conversation!
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        subscription?.dispose()
+        AppOpenedUpdateHelper.currentlyOpenConversation = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {

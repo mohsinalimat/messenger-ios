@@ -15,13 +15,28 @@ class ConversationsRoute : BaseRoute {
         super.init(route: "conversations")
     }
     
-    func getUnarchived(completionHandler: @escaping (DataResponse<[Conversation]>) -> Void) {
+    func latestTimestamp(completionHandler: @escaping (Int64) -> Void) {
         if (!Account.exists()) {
             return
         }
         
-        get(path: "/index_unarchived", parameters: ["account_id": Account.accountId!, "limit": 100])
-            .responseCollection(completionHandler: completionHandler)
+        get(path: "/latest_timestamp").responseString { response in
+            if let timestamp = response.result.value {
+                completionHandler(Int64(timestamp)!)
+            }
+        }
+    }
+    
+    func getUnarchived(completionHandler: @escaping ([Conversation]) -> Void) {
+        if (!Account.exists()) {
+            return
+        }
+        
+        get(path: "/index_unarchived", parameters: ["account_id": Account.accountId!, "limit": 100]).responseCollection { (response: DataResponse<[Conversation]>) in
+            if let conversations = response.result.value {
+                completionHandler(conversations)
+            }
+        }
     }
     
     func archive(conversation: Conversation) {

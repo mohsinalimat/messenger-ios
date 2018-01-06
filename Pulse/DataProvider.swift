@@ -79,28 +79,21 @@ class _DataProvider {
         if (conversations != nil) {
             DataObserver.notifyConversations(conversations: conversations!)
         } else {
-            PulseApi.conversations().getUnarchived { (response: DataResponse<[Conversation]>) in
-                if let conversations = response.result.value {
-                    self.conversations = conversations
-                    DataObserver.notifyConversations(conversations: conversations)
-                } else {
-                    DataObserver.notifyConversations(conversations: [Conversation]())
-                }
+            PulseApi.conversations().getUnarchived { conversations in
+                self.conversations = conversations
+                DataObserver.notifyConversations(conversations: conversations)
+                AppOpenedUpdateHelper.resetLatestTimestamp(conversations: conversations)
             }
         }
     }
     
     func loadMessages(conversation: Conversation) {
-        if hasMessages(conversation: conversation) {
+        if hasMessages(conversationId: conversation.id) {
             DataObserver.notifyMessages(conversation: conversation, messages: messages[conversation.id]!)
         } else {
-            PulseApi.messages().getMessages(conversationId: conversation.id) { (response: DataResponse<[Message]>) in
-                if let messageList = response.result.value {
-                    self.messages.updateValue(messageList, forKey: conversation.id)
-                    DataObserver.notifyMessages(conversation: conversation, messages: messageList)
-                } else {
-                    DataObserver.notifyMessages(conversation: conversation, messages: [Message]())
-                }
+            PulseApi.messages().getMessages(conversationId: conversation.id) { messageList in
+                self.messages.updateValue(messageList, forKey: conversation.id)
+                DataObserver.notifyMessages(conversation: conversation, messages: messageList)
             }
         }
     }
@@ -108,10 +101,12 @@ class _DataProvider {
     // we are ensuring the message list is cached and the latest message's timestamp matches
     // that of the conversation that is cached. Pulse does it's best to persist message lists
     // but it updates the conversation list much more often.
-    func hasMessages(conversation: Conversation) -> Bool {
-        if let messageList = messages[conversation.id] {
+    func hasMessages(conversationId: Int64) -> Bool {
+        if let messageList = messages[conversationId] {
             if let latestMessage = messageList.first {
-                return latestMessage.timestamp >= conversation.timestamp - 1000
+                if let conversation = conversations?.first(where: { (conversation) -> Bool in return conversation.id == conversationId }) {
+                    return latestMessage.timestamp >= conversation.timestamp - 1000
+                }
             }
         }
         
