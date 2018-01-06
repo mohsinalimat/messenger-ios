@@ -30,8 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // TODO: I want to be able to query the API here to know if anything is changed or needs updated. The conversations#latest_timestamp would be good here.
-        // If there are changes, I should invalidate and reload whatever is present on the screen.
         AppOpenedUpdateHelper.checkForConversationListUpdate()
     }
 

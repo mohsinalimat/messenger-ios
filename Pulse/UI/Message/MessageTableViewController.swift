@@ -30,7 +30,7 @@ class MessageTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         subscription = DataObserver.messages(conversation: conversation!, onNext: { messages in
-            self.messages = messages.element!.reversed()
+            self.messages = messages.reversed()
             self.showData()
         })
         

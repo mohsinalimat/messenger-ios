@@ -35,19 +35,24 @@ class _DataObserver {
     private let conversationsObservable = PublishSubject<[Conversation]>()
     private var messagesObservable = [Int64: PublishSubject<[Message]>]()
 
-    func conversations(onNext: @escaping (Event<[Conversation]>) -> Void) -> Disposable {
-        let subscription = self.conversationsObservable.subscribe(onNext)
-        return subscription
+    func conversations(onNext: @escaping ([Conversation]) -> Void) -> Disposable {
+        return self.conversationsObservable.subscribe { event in
+            onNext(event.element!)
+        }
     }
     
-    func messages(conversation: Conversation, onNext: @escaping (Event<[Message]>) -> Void) -> Disposable {
+    func messages(conversation: Conversation, onNext: @escaping ([Message]) -> Void) -> Disposable {
         if let publisher = messagesObservable[conversation.id] {
-            return publisher.subscribe(onNext)
+            return publisher.subscribe { event in
+                onNext(event.element!)
+            }
         } else {
             let publisher = PublishSubject<[Message]>()
             messagesObservable.updateValue(publisher, forKey: conversation.id)
             
-            return publisher.subscribe(onNext)
+            return publisher.subscribe { event in
+                onNext(event.element!)
+            }
         }
     }
     

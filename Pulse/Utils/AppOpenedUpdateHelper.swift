@@ -29,7 +29,7 @@ class _AppOpenedUpdateHelper {
                 self.latestTimestamp = timestamp
                 
                 DataProvider.clear()
-                self.watchCurrentConversationUpdate()
+                self.watchForCurrentConversationUpdate()
                 DataProvider.loadConversations()
             }
         }
@@ -47,8 +47,8 @@ class _AppOpenedUpdateHelper {
         }
     }
     
-    private func watchCurrentConversationUpdate() {
-        self.conversationUpdateSubscription = DataObserver.conversations { event in
+    private func watchForCurrentConversationUpdate() {
+        self.conversationUpdateSubscription = DataObserver.conversations { conversations in
             self.conversationUpdateSubscription?.dispose()
             if let conversation = self.currentlyOpenConversation {
                 if (!DataProvider.hasMessages(conversationId: conversation.id)) {

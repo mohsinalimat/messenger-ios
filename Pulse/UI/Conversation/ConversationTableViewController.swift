@@ -37,7 +37,7 @@ class ConversationTableViewController: UITableViewController {
         }
         
         subscription = DataObserver.conversations { conversations in
-            self.sections = ConversationSection.loadConversationsToSections(conversations: conversations.element!)
+            self.sections = ConversationSection.loadConversationsToSections(conversations: conversations)
             self.tableView.reloadData()
             self.refresh.endRefreshing()
         }
