@@ -289,9 +289,9 @@
 			isa = PBXGroup;
 			children = (
 				A3CBFDF01FFC308B00B439C4 /* MessengerNavigationController.swift */,
-				A3E8E54F1FFEB04F00FB6CCA /* Message */,
 				A3E8E54A1FFEAB2A00FB6CCA /* Login */,
 				A3E8E5491FFEAB2000FB6CCA /* Conversation */,
+				A3E8E54F1FFEB04F00FB6CCA /* Message */,
 			);
 			path = UI;
 			sourceTree = "<group>";

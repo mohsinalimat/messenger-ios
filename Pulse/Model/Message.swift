@@ -15,6 +15,7 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
     let data: String
     let mimeType: String
     let timestamp: Int64
+    let sender: String?
     
     var description: String {
         return "Message: { id: \(id), data: \(data), mimetype: \(mimeType), timestamp: \(timestamp) }"
@@ -35,6 +36,16 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         self.data = Account.encryptionUtils?.decrypt(data: data) ?? ""
         self.mimeType = Account.encryptionUtils?.decrypt(data: mimeType) ?? "text/plain"
         self.timestamp = timestamp
+        self.sender = Message.getOptionalString(representation: representation, key: "message_from")
+    }
+    
+    private static func getOptionalString(representation: [String: Any], key: String) -> String? {
+        let value = representation[key]
+        if (!(value is NSNull)) {
+            return Account.encryptionUtils?.decrypt(data: (value as? String)!) ?? nil
+        } else {
+            return nil
+        }
     }
 }
 

@@ -35,14 +35,9 @@ class MessageTableViewCell: UITableViewCell {
         setupLabel(label: self.message, conversation: conversation)
     }
     
-    private func setupLabel(label: ActiveLabel, conversation: Conversation) {
-        if (self is ReceivedMessageTableViewCell) {
-            label.URLColor = UIColor.white
-        } else {
-            label.URLColor = UIColor(rgb: conversation.colorAccent)
-        }
-        
-        label.urlMaximumLength = 20
+    internal func setupLabel(label: ActiveLabel, conversation: Conversation) {
+        label.URLColor = UIColor(rgb: conversation.colorAccent)
+        label.urlMaximumLength = 30
         label.handleURLTap {
             if let url = URL(string: $0.absoluteString) {
                 UIApplication.shared.open(url, options: [:])

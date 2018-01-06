@@ -48,4 +48,8 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
         self.colorDark = colorDark
         self.colorAccent = colorAccent
     }
+    
+    func isGroup() -> Bool {
+        return phoneNumbers.contains(",")
+    }
 }
