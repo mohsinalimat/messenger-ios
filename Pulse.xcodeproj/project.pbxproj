@@ -342,8 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				A3E8E5501FFEB06800FB6CCA /* MessageTableViewController.swift */,
-				A385EDE91FFFF5AE000C3F25 /* MessageTableViewCell.swift */,
 				A385EDEC20002C55000C3F25 /* CellIdentifier.swift */,
+				A385EDE91FFFF5AE000C3F25 /* MessageTableViewCell.swift */,
 				A385EDEB20002B98000C3F25 /* Cells */,
 			);
 			path = Message;
@@ -616,6 +616,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pulse/Pods-Pulse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
@@ -624,6 +625,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
