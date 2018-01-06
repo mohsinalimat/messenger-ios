@@ -17,10 +17,10 @@ import RxSwift
 // This is pushing the data to those observables, rather than them trying to pull in the data when they *think* there could have been an update.
 //
 //
-// Usage:
+// USAGE:
 //
 // Anyone can subscribe using, for example, DataObserver.conversations { conversations in ... }. Conversations will contain the event that holds
-// the conversation list.
+// the conversation list and get called whenever
 //
 // Anyone can also choose to update the backing data through DataProvider.loadConversations(). The load will pull in the cached data if it exists.
 // If the cached list is nil, it will query the Pulse APIs. Anyone subscribed to that conversation list will get notified when the load is
@@ -69,7 +69,10 @@ class _DataProvider {
     
     func clear() {
         conversations = nil
-        messages = [Int64: [Message]]()
+    }
+    
+    func clearMessages(conversation: Conversation) {
+        messages[conversation.id] = nil
     }
     
     func loadConversations() {
@@ -81,32 +84,37 @@ class _DataProvider {
                     self.conversations = conversations
                     DataObserver.notifyConversations(conversations: conversations)
                 } else {
-                    self.conversations = [Conversation]()
+                    DataObserver.notifyConversations(conversations: [Conversation]())
                 }
             }
         }
     }
     
     func loadMessages(conversation: Conversation) {
-        if let messageList = messages[conversation.id] {
-            DataObserver.notifyMessages(conversation: conversation, messages: messageList)
+        if hasMessages(conversation: conversation) {
+            DataObserver.notifyMessages(conversation: conversation, messages: messages[conversation.id]!)
         } else {
             PulseApi.messages().getMessages(conversationId: conversation.id) { (response: DataResponse<[Message]>) in
                 if let messageList = response.result.value {
                     self.messages.updateValue(messageList, forKey: conversation.id)
                     DataObserver.notifyMessages(conversation: conversation, messages: messageList)
                 } else {
-                    self.messages.updateValue([Message](), forKey: conversation.id)
+                    DataObserver.notifyMessages(conversation: conversation, messages: [Message]())
                 }
             }
         }
     }
     
+    // we are ensuring the message list is cached and the latest message's timestamp matches
+    // that of the conversation that is cached. Pulse does it's best to persist message lists
+    // but it updates the conversation list much more often.
     func hasMessages(conversation: Conversation) -> Bool {
-        return messages[conversation.id] != nil
-    }
-    
-    func clearMessages(conversation: Conversation) {
-        messages[conversation.id] = nil
+        if let messageList = messages[conversation.id] {
+            if let latestMessage = messageList.first {
+                return latestMessage.timestamp >= conversation.timestamp - 1000
+            }
+        }
+        
+        return false
     }
 }
