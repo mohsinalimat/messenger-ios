@@ -11,8 +11,6 @@ import ActiveLabel
 
 class MessageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var background: UIView!
-    @IBOutlet weak var message: ActiveLabel!
     @IBOutlet weak var messageContainer: UIView!
     @IBOutlet weak var timestamp: UILabel!
     
@@ -29,13 +27,10 @@ class MessageTableViewCell: UITableViewCell {
     }
     
     func bind(conversation: Conversation, message: Message) {
-        self.message.text = message.data
         self.timestamp.text = dateFormatter.string(from: Date(milliseconds: message.timestamp))
-        
-        setupLabel(label: self.message, conversation: conversation)
     }
     
-    internal func setupLabel(label: ActiveLabel, conversation: Conversation) {
+    internal func createWebLinks(label: ActiveLabel, conversation: Conversation) {
         label.URLColor = UIColor(rgb: conversation.colorAccent)
         label.urlMaximumLength = 30
         label.handleURLTap {

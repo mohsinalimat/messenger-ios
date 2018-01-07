@@ -8,8 +8,14 @@
 
 import Foundation
 import CryptoSwift
+import Kingfisher
 
-class EncryptionUtils {
+//
+// This is used both for encrypting and decrypting messages/conversations, as well as
+// decrypting images that are downloaded from Kingfisher
+//
+
+class EncryptionUtils : ImageDownloaderDelegate {
     
     private let SEPARATOR = "-:-";
     private let key: String
@@ -58,6 +64,13 @@ class EncryptionUtils {
         return nil
     }
     
+    func imageDownloader(_ downloader: ImageDownloader, didDownload data: Data, for url: URL) -> Data? {
+        if let dataString = String(data: data, encoding: .utf8), let decrypted = decryptData(data: dataString) {
+            return Data(decrypted)
+        }
+        
+        return data
+    }
 }
 
 extension String {

@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Kingfisher
 
 class MessageTableViewController: UITableViewController {
 
@@ -23,9 +24,6 @@ class MessageTableViewController: UITableViewController {
         self.navigationItem.title = conversation?.title
         self.navigationController?.view.backgroundColor = UIColor.white
         
-        self.tableView.register(UINib(nibName: "SentMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "SentMessageTableViewCell")
-        self.tableView.register(UINib(nibName: "ReceivedMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "ReceivedMessageTableViewCell")
-        
         self.tableView.allowsSelection = false
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -38,6 +36,8 @@ class MessageTableViewController: UITableViewController {
             self.hideTableView()
         }
         
+        ImageDownloader.default.delegate = Account.encryptionUtils
+        CellIdentifier.registerCells(tableView: self.tableView)
         AppOpenedUpdateHelper.currentlyOpenConversation = conversation!
     }
     
