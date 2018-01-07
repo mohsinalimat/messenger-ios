@@ -9,6 +9,7 @@ target 'Pulse' do
   pod 'AsyncSwift', '~> 2.0.4'
   pod 'ActiveLabel', :git => 'https://github.com/optonaut/ActiveLabel.swift.git', :tag => '0.8.0'
   pod 'Kingfisher', '~> 4.0'
+  pod 'SwiftyJSON', '~> 4.0.0'
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
 

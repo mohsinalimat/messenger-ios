@@ -16,11 +16,14 @@ class CellIdentifier {
         tableView.register(UINib(nibName: "SentImageTableViewCell", bundle: nil), forCellReuseIdentifier: "SentImageTableViewCell")
         tableView.register(UINib(nibName: "ReceivedMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "ReceivedMessageTableViewCell")
         tableView.register(UINib(nibName: "ReceivedImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ReceivedImageTableViewCell")
+        tableView.register(UINib(nibName: "MediaTableViewCell", bundle: nil), forCellReuseIdentifier: "MediaTableViewCell")
     }
     
     // TODO: handle media/info and error/sending/sent/delivered status
     static func get(message: Message) -> String {
-        if (message.messageType == MessageType.RECEIVED) {
+        if (message.messageType == MessageType.MEDIA) {
+            return "MediaTableViewCell"
+        } else if (message.messageType == MessageType.RECEIVED) {
             if (message.mimeType.contains("image/")) {
                 return "ReceivedImageTableViewCell"
             } else {

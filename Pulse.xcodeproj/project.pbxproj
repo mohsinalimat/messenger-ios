@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3094335200255FA00C86DA6 /* MediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */; };
+		A3094337200257A000C86DA6 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3094336200257A000C86DA6 /* MediaTableViewCell.swift */; };
 		A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380781FF918E5000321B5 /* AppDelegate.swift */; };
 		A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323807A1FF918E5000321B5 /* LoginViewController.swift */; };
 		A323807E1FF918E5000321B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A323807C1FF918E5000321B5 /* Main.storyboard */; };
@@ -87,6 +89,8 @@
 		746C50C204838A9CE62146B0 /* Pods_Pulse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pulse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87838B626A0453639181E815 /* Pods-PulseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseUITests/Pods-PulseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F24AAF75098E94A910D56A5 /* Pods-PulseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseTests/Pods-PulseTests.release.xcconfig"; sourceTree = "<group>"; };
+		A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaTableViewCell.xib; sourceTree = "<group>"; };
+		A3094336200257A000C86DA6 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		A32380751FF918E5000321B5 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32380781FF918E5000321B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A323807A1FF918E5000321B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -256,10 +260,12 @@
 				A3B2B4B820016E9000BE0CCC /* SentImageTableViewCell.xib */,
 				A385EDE51FFFF3AD000C3F25 /* ReceivedMessageTableViewCell.xib */,
 				A3B2B4B920016E9100BE0CCC /* ReceivedImageTableViewCell.xib */,
+				A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */,
 				A3E8E5521FFEB07200FB6CCA /* SentMessageTableViewCell.swift */,
 				A3B2B4BE20016F0D00BE0CCC /* SentImageTableViewCell.swift */,
 				A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */,
 				A3B2B4BC20016EFB00BE0CCC /* ReceivedImageTableViewCell.swift */,
+				A3094336200257A000C86DA6 /* MediaTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -502,6 +508,7 @@
 			files = (
 				A32380861FF918E5000321B5 /* LaunchScreen.storyboard in Resources */,
 				A385EDE41FFFDE61000C3F25 /* SentMessageTableViewCell.xib in Resources */,
+				A3094335200255FA00C86DA6 /* MediaTableViewCell.xib in Resources */,
 				A32380831FF918E5000321B5 /* Assets.xcassets in Resources */,
 				A323807E1FF918E5000321B5 /* Main.storyboard in Resources */,
 				A3B2B4BB20016E9100BE0CCC /* ReceivedImageTableViewCell.xib in Resources */,
@@ -637,6 +644,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -647,6 +655,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -707,6 +716,7 @@
 				A385EDEF20002F02000C3F25 /* SwipeActionGenerator.swift in Sources */,
 				A3ABB64A1FFD7665009ECADC /* ConversationSection.swift in Sources */,
 				A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */,
+				A3094337200257A000C86DA6 /* MediaTableViewCell.swift in Sources */,
 				A3CBFDF11FFC308B00B439C4 /* MessengerNavigationController.swift in Sources */,
 				A3ABB64E1FFD826F009ECADC /* TimeUtils.swift in Sources */,
 				A3E8E5551FFEFB3800FB6CCA /* ViewUtils.swift in Sources */,

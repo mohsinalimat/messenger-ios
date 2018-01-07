@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ReceivedImageTableViewCell: MessageTableViewCell {
+class ReceivedImageTableViewCell : MessageTableViewCell {
     
     @IBOutlet weak var message: UIImageView!
     
@@ -17,7 +17,6 @@ class ReceivedImageTableViewCell: MessageTableViewCell {
         super.bind(conversation: conversation, message: message)
         
         let url = URL(string: "https://api.messenger.klinkerapps.com/api/v1/media/\(message.id)?account_id=\(Account.accountId!)")!
-        
         self.message.kf.setImage(with: url, options: [.transition(.fade(0.2))])
         
         self.messageContainer.backgroundColor = UIColor(rgb: conversation.color)
