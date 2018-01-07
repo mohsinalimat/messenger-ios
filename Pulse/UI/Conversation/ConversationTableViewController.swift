@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import RxSwift
 
-class ConversationTableViewController: UITableViewController {
+class ConversationTableViewController : UITableViewController {
     
     var actionGenerator: SwipeActionGenerator? = nil
     var sectionGenerator: SectionViewGenerator? = nil

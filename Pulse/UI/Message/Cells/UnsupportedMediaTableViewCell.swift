@@ -1,5 +1,5 @@
 //
-//  InfoTableViewCell.swift
+//  UnsupportedMediaTableViewCell.swift
 //  Pulse
 //
 //  Created by Luke Klinker on 1/7/18.
@@ -8,14 +8,10 @@
 
 import UIKit
 
-class InfoTableViewCell : MessageTableViewCell {
-    
-    @IBOutlet weak var message: UILabel!
+class UnsupportedMediaTableViewCell : MessageTableViewCell {
     
     override func bind(conversation: Conversation, message: Message) {
-        super.bind(conversation: conversation, message: message)
-        
-        self.message.text = message.data
         self.timestamp.isHidden = true
     }
 }
+

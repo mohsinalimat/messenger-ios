@@ -8,6 +8,6 @@
 
 import UIKit
 
-class LoginNavigationController: UINavigationController {
+class LoginNavigationController : UINavigationController {
 
 }

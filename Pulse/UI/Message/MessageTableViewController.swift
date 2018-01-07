@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import Kingfisher
 
-class MessageTableViewController: UITableViewController {
+class MessageTableViewController : UITableViewController {
 
     @IBOutlet weak var refresh: UIBarButtonItem!
     

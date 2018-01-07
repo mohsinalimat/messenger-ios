@@ -37,6 +37,8 @@
 		A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE91FFAE5C600F72313 /* ResponseCollectionSerializable.swift */; };
 		A3A47FED1FFAE61800F72313 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FEC1FFAE61800F72313 /* DataRequest.swift */; };
 		A3A47FEF1FFAE65200F72313 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FEE1FFAE65200F72313 /* Conversation.swift */; };
+		A3A631902002B658003834F4 /* UnsupportedMediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A6318F2002B658003834F4 /* UnsupportedMediaTableViewCell.xib */; };
+		A3A631922002B674003834F4 /* UnsupportedMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A631912002B674003834F4 /* UnsupportedMediaTableViewCell.swift */; };
 		A3ABB64A1FFD7665009ECADC /* ConversationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABB6491FFD7665009ECADC /* ConversationSection.swift */; };
 		A3ABB64C1FFD7D4F009ECADC /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABB64B1FFD7D4F009ECADC /* DataProvider.swift */; };
 		A3ABB64E1FFD826F009ECADC /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABB64D1FFD826F009ECADC /* TimeUtils.swift */; };
@@ -127,6 +129,8 @@
 		A3A47FE91FFAE5C600F72313 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		A3A47FEC1FFAE61800F72313 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		A3A47FEE1FFAE65200F72313 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		A3A6318F2002B658003834F4 /* UnsupportedMediaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnsupportedMediaTableViewCell.xib; sourceTree = "<group>"; };
+		A3A631912002B674003834F4 /* UnsupportedMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsupportedMediaTableViewCell.swift; sourceTree = "<group>"; };
 		A3ABB6491FFD7665009ECADC /* ConversationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationSection.swift; sourceTree = "<group>"; };
 		A3ABB64B1FFD7D4F009ECADC /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		A3ABB64D1FFD826F009ECADC /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
@@ -266,12 +270,14 @@
 				A3B2B4B920016E9100BE0CCC /* ReceivedImageTableViewCell.xib */,
 				A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */,
 				A30943382002643300C86DA6 /* InfoTableViewCell.xib */,
+				A3A6318F2002B658003834F4 /* UnsupportedMediaTableViewCell.xib */,
 				A3E8E5521FFEB07200FB6CCA /* SentMessageTableViewCell.swift */,
 				A3B2B4BE20016F0D00BE0CCC /* SentImageTableViewCell.swift */,
 				A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */,
 				A3B2B4BC20016EFB00BE0CCC /* ReceivedImageTableViewCell.swift */,
 				A3094336200257A000C86DA6 /* MediaTableViewCell.swift */,
 				A309433A2002647900C86DA6 /* InfoTableViewCell.swift */,
+				A3A631912002B674003834F4 /* UnsupportedMediaTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				A323807E1FF918E5000321B5 /* Main.storyboard in Resources */,
 				A3B2B4BB20016E9100BE0CCC /* ReceivedImageTableViewCell.xib in Resources */,
 				A385EDE61FFFF3AE000C3F25 /* ReceivedMessageTableViewCell.xib in Resources */,
+				A3A631902002B658003834F4 /* UnsupportedMediaTableViewCell.xib in Resources */,
 				A3B2B4BA20016E9100BE0CCC /* SentImageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -749,6 +756,7 @@
 				A3B2B4B720010AA100BE0CCC /* AppOpenedUpdateHelper.swift in Sources */,
 				A3E8E54C1FFEAB4000FB6CCA /* MessagesRoute.swift in Sources */,
 				A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */,
+				A3A631922002B674003834F4 /* UnsupportedMediaTableViewCell.swift in Sources */,
 				A3CBFDE71FFC1BDD00B439C4 /* ConversationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

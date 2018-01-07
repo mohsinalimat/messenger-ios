@@ -9,7 +9,7 @@
 import UIKit
 import ActiveLabel
 
-class MessageTableViewCell: UITableViewCell {
+class MessageTableViewCell : UITableViewCell {
     
     @IBOutlet weak var messageContainer: UIView!
     @IBOutlet weak var timestamp: UILabel!

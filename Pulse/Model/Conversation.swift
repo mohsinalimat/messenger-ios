@@ -8,13 +8,14 @@
 
 import Alamofire
 
-struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
+struct Conversation : ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
     
     let id: Int64
     let title: String
     let phoneNumbers: String
     let snippet: String
     let timestamp: Int64
+    let read: Bool
     let pinned: Bool
     let color: Int
     let colorDark: Int
@@ -32,6 +33,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
             let phoneNumbers = representation["phone_numbers"] as? String,
             let snippet = representation["snippet"] as? String,
             let timestamp = representation["timestamp"] as? Int64,
+            let read = representation["read"] as? Bool,
             let pinned = representation["pinned"] as? Bool,
             let color = representation["color"] as? Int,
             let colorDark = representation["color_dark"] as? Int,
@@ -43,6 +45,7 @@ struct Conversation: ResponseObjectSerializable, ResponseCollectionSerializable,
         self.phoneNumbers = Account.encryptionUtils?.decrypt(data: phoneNumbers) ?? ""
         self.snippet = Account.encryptionUtils?.decrypt(data: snippet) ?? ""
         self.timestamp = timestamp
+        self.read = read
         self.pinned = pinned
         self.color = color
         self.colorDark = colorDark

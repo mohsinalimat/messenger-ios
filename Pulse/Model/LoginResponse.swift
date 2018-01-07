@@ -8,7 +8,7 @@
 
 import Alamofire
 
-struct LoginResponse: ResponseObjectSerializable, CustomStringConvertible {
+struct LoginResponse : ResponseObjectSerializable, CustomStringConvertible {
     let accountId: String
     let name: String
     let number: String

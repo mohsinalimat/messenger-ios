@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class SentImageTableViewCell: MessageTableViewCell {
+class SentImageTableViewCell : MessageTableViewCell {
 
     @IBOutlet weak var message: UIImageView!
     

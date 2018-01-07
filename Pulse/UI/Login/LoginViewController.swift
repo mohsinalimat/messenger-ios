@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Async
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController : UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!

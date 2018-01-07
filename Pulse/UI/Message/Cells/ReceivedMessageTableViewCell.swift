@@ -9,7 +9,7 @@
 import UIKit
 import ActiveLabel
 
-class ReceivedMessageTableViewCell: MessageTableViewCell {
+class ReceivedMessageTableViewCell : MessageTableViewCell {
 
     @IBOutlet weak var message: ActiveLabel!
     

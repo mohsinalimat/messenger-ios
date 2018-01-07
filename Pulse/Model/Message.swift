@@ -60,6 +60,7 @@ class MessageType {
 }
 
 class MimeType {
+    
     static let TEXT_PLAIN = "text/plain"
     static let TEXT_HTML = "text/html"
     static let TEXT_VCARD = "text/vcard"
@@ -86,4 +87,34 @@ class MimeType {
     static let MEDIA_YOUTUBE_V2 = "media/youtube-v2"
     static let MEDIA_ARTICLE = "media/web"
     static let MEDIA_TWITTER = "media/twitter"
+    
+    static func isText(mimeType: String) -> Bool {
+        return mimeType.lowercased() == TEXT_PLAIN
+    }
+    
+    static func isImage(mimeType: String) -> Bool {
+        return mimeType.lowercased().starts(with: "image/")
+    }
+    
+    static func isStaticImage(mimeType: String) -> Bool {
+        return isImage(mimeType: mimeType) && mimeType.lowercased() != IMAGE_GIF
+    }
+    
+    static func isVideo(mimeType: String) -> Bool {
+        return mimeType.lowercased().starts(with: "video/")
+    }
+    
+    static func isAudio(mimeType: String) -> Bool {
+        return mimeType.lowercased().starts(with: "audio/")
+    }
+    
+    static func isExpandedMedia(mimeType: String) -> Bool {
+        return mimeType.lowercased().starts(with: "media/")
+    }
+    
+    static func isVCard(mimeType: String) -> Bool {
+        let type = mimeType.lowercased()
+        return type.contains("vcard") || type == TEXT_VCARD || type == TEXT_X_VCARD || type == TEXT_X_VCALENDAR ||
+            type == TEXT_DIRECTORY || type == TEXT_DIRECTORY_VCARD_PROFILE || type == APPLICATION_VCARD
+    }
 }

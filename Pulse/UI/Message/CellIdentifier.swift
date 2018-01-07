@@ -18,6 +18,7 @@ class CellIdentifier {
         tableView.register(UINib(nibName: "ReceivedImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ReceivedImageTableViewCell")
         tableView.register(UINib(nibName: "InfoTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoTableViewCell")
         tableView.register(UINib(nibName: "MediaTableViewCell", bundle: nil), forCellReuseIdentifier: "MediaTableViewCell")
+        tableView.register(UINib(nibName: "UnsupportedMediaTableViewCell", bundle: nil), forCellReuseIdentifier: "UnsupportedMediaTableViewCell")
     }
     
     static func get(message: Message) -> String {
@@ -26,14 +27,18 @@ class CellIdentifier {
         } else if (message.messageType == MessageType.INFO) {
             return "InfoTableViewCell"
         } else if (message.messageType == MessageType.RECEIVED) {
-            if (message.mimeType.contains("image/")) {
+            if (MimeType.isImage(mimeType: message.mimeType)) {
                 return "ReceivedImageTableViewCell"
+            } else if (MimeType.isAudio(mimeType: message.mimeType) || MimeType.isVideo(mimeType: message.mimeType) || MimeType.isVCard(mimeType: message.mimeType)) {
+                return "UnsupportedMediaTableViewCell"
             } else {
                 return "ReceivedMessageTableViewCell"
             }
         } else {
-            if (message.mimeType.contains("image/")) {
+            if (MimeType.isImage(mimeType: message.mimeType)) {
                 return "SentImageTableViewCell"
+            } else if (MimeType.isAudio(mimeType: message.mimeType) || MimeType.isVideo(mimeType: message.mimeType) || MimeType.isVCard(mimeType: message.mimeType)) {
+                return "UnsupportedMediaTableViewCell"
             } else {
                 return "SentMessageTableViewCell"
             }
