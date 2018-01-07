@@ -86,7 +86,7 @@ class ConversationTableViewController : UITableViewController {
         let archive = actionGenerator!.archive()
         
         archive.backgroundColor = UIColor(rgb: conversation.color)
-        delete.backgroundColor = UIColor(rgb: conversation.colorAccent)
+        delete.backgroundColor = UIColor(rgb: conversation.colorDark)
         
         return [archive, delete]
     }
