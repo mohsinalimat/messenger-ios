@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A3094335200255FA00C86DA6 /* MediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */; };
 		A3094337200257A000C86DA6 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3094336200257A000C86DA6 /* MediaTableViewCell.swift */; };
+		A30943392002643400C86DA6 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30943382002643300C86DA6 /* InfoTableViewCell.xib */; };
+		A309433B2002647900C86DA6 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A309433A2002647900C86DA6 /* InfoTableViewCell.swift */; };
 		A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380781FF918E5000321B5 /* AppDelegate.swift */; };
 		A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323807A1FF918E5000321B5 /* LoginViewController.swift */; };
 		A323807E1FF918E5000321B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A323807C1FF918E5000321B5 /* Main.storyboard */; };
@@ -91,6 +93,8 @@
 		8F24AAF75098E94A910D56A5 /* Pods-PulseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseTests/Pods-PulseTests.release.xcconfig"; sourceTree = "<group>"; };
 		A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaTableViewCell.xib; sourceTree = "<group>"; };
 		A3094336200257A000C86DA6 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
+		A30943382002643300C86DA6 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		A309433A2002647900C86DA6 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		A32380751FF918E5000321B5 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32380781FF918E5000321B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A323807A1FF918E5000321B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -261,11 +265,13 @@
 				A385EDE51FFFF3AD000C3F25 /* ReceivedMessageTableViewCell.xib */,
 				A3B2B4B920016E9100BE0CCC /* ReceivedImageTableViewCell.xib */,
 				A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */,
+				A30943382002643300C86DA6 /* InfoTableViewCell.xib */,
 				A3E8E5521FFEB07200FB6CCA /* SentMessageTableViewCell.swift */,
 				A3B2B4BE20016F0D00BE0CCC /* SentImageTableViewCell.swift */,
 				A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */,
 				A3B2B4BC20016EFB00BE0CCC /* ReceivedImageTableViewCell.swift */,
 				A3094336200257A000C86DA6 /* MediaTableViewCell.swift */,
+				A309433A2002647900C86DA6 /* InfoTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				A385EDE41FFFDE61000C3F25 /* SentMessageTableViewCell.xib in Resources */,
 				A3094335200255FA00C86DA6 /* MediaTableViewCell.xib in Resources */,
 				A32380831FF918E5000321B5 /* Assets.xcassets in Resources */,
+				A30943392002643400C86DA6 /* InfoTableViewCell.xib in Resources */,
 				A323807E1FF918E5000321B5 /* Main.storyboard in Resources */,
 				A3B2B4BB20016E9100BE0CCC /* ReceivedImageTableViewCell.xib in Resources */,
 				A385EDE61FFFF3AE000C3F25 /* ReceivedMessageTableViewCell.xib in Resources */,
@@ -723,6 +730,7 @@
 				A32380811FF918E5000321B5 /* Pulse.xcdatamodeld in Sources */,
 				A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */,
 				A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */,
+				A309433B2002647900C86DA6 /* InfoTableViewCell.swift in Sources */,
 				A37EEDDF1FFBC2B500DC0B23 /* KeyUtils.swift in Sources */,
 				A3CBFDF31FFC311E00B439C4 /* LoginNavigationController.swift in Sources */,
 				A3B2B4BF20016F0D00BE0CCC /* SentImageTableViewCell.swift in Sources */,
