@@ -53,6 +53,8 @@ class MessageTableViewController : UITableViewController {
         if (messages.count == 0) {
             DataProvider.loadMessages(conversation: conversation!)
         }
+        
+        DataProvider.markAsRead(conversationId: conversation!.id)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

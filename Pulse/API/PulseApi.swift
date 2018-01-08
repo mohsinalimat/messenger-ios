@@ -23,5 +23,4 @@ class _PulseApi {
     func messages() -> MessagesRoute {
         return MessagesRoute()
     }
-    
 }

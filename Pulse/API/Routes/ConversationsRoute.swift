@@ -50,4 +50,8 @@ class ConversationsRoute : BaseRoute {
     func delete(conversation: Conversation) {
         post(path: "/remove/\(conversation.id)")
     }
+    
+    func read(conversation: Conversation) {
+        post(path: "/read/\(conversation.id)")
+    }
 }

@@ -117,4 +117,25 @@ class _DataProvider {
         
         return false
     }
+    
+    func markAsRead(conversationId: Int64) {
+        if conversations == nil {
+            return
+        }
+        
+        for i in 0..<conversations!.count {
+            if (conversations![i].id == conversationId) {
+                let conversation = conversations![i]
+                if (!conversation.read) {
+                    conversations![i].read = true
+                    DataObserver.notifyConversations(conversations: conversations!)
+                    
+                    PulseApi.conversations().read(conversation: conversation)
+                    PulseApi.accounts().dismissNotification(conversation: conversation)
+                }
+                
+                break
+            }
+        }
+    }
 }

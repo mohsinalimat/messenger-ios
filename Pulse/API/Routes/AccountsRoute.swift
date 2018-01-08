@@ -19,4 +19,8 @@ class AccountsRoute : BaseRoute {
         post(path: "/login", parameters: ["username": email, "password": password])
             .responseObject(completionHandler: completionHandler)
     }
+    
+    func dismissNotification(conversation: Conversation) {
+        post(path: "/dismissed_notification", parameters: ["account_id": Account.accountId!, "id": conversation.id])
+    }
 }

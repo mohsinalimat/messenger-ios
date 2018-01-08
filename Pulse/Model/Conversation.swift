@@ -15,7 +15,7 @@ struct Conversation : ResponseObjectSerializable, ResponseCollectionSerializable
     let phoneNumbers: String
     let snippet: String
     let timestamp: Int64
-    let read: Bool
+    var read: Bool
     let pinned: Bool
     let color: Int
     let colorDark: Int
