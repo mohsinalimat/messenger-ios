@@ -38,16 +38,16 @@ class MediaTableViewCell : MessageTableViewCell {
         let imageUrl = URL(string: json["image_url"].string!)!
         
         self.previewImage.kf.setImage(with: imageUrl, options: [.transition(.fade(0.2))])
-        self.title.text = " \(json["title"].string!)"
-        self.descriptionLabel.text = " \(json["description"].string!)"
+        self.title.text = json["title"].string!
+        self.descriptionLabel.text = json["description"].string!
     }
     
     private func handleYoutube(json: JSON) {
         let thumbnail = URL(string: json["thumbnail"].string!)!
         
         self.previewImage.kf.setImage(with: thumbnail, options: [.transition(.fade(0.2))])
-        self.title.text = " \(json["title"].string!)"
-        self.descriptionLabel.text = " YouTube"
+        self.title.text = json["title"].string!
+        self.descriptionLabel.text = "YouTube"
     }
 }
 
