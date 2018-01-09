@@ -28,7 +28,7 @@ class MessageTableViewController : SLKTextViewController {
         self.tableView!.allowsSelection = false
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.separatorStyle = .none
-        self.tableView!.keyboardDismissMode = UIScrollViewKeyboardDismissMode.onDrag;
+        self.tableView!.keyboardDismissMode = UIScrollViewKeyboardDismissMode.interactive;
         
         // Slack Text View Controller setup
         self.bounces = true
@@ -39,6 +39,7 @@ class MessageTableViewController : SLKTextViewController {
         self.rightButton.setTitle(NSLocalizedString("Send", comment: ""), for: UIControlState())
         self.textInputbar.autoHideRightButton = true
         self.textView.placeholder = "Type message...";
+        self.textView.keyboardType = UIKeyboardType.default
         
         subscription = DataObserver.messages(conversation: conversation!, onNext: { messages in
             self.messages = messages
