@@ -99,7 +99,7 @@ class MessageTableViewController : SLKTextViewController {
     }
     
     private func showTableView() {
-        self.tableView!.activityIndicatorView.stopAnimating()
+        self.activityIndicatorView.stopAnimating()
         self.tableView!.alpha = 0.0
         
         UIView.animate(withDuration: 0.2, animations: {
@@ -108,7 +108,7 @@ class MessageTableViewController : SLKTextViewController {
     }
     
     private func hideTableView() {
-        self.tableView!.activityIndicatorView.startAnimating()
+        self.activityIndicatorView.startAnimating()
         
         if (messages.count > 0) {
             self.tableView!.alpha = 1.0
