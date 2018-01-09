@@ -108,7 +108,7 @@ class _DataProvider {
         
         for i in 0..<conversations!.count {
             if (conversations![i].id == conversation.id) {
-                conversations![i].snippet = message.mimeType == MimeType.TEXT_PLAIN ? message.data : ""
+                conversations![i].snippet = message.mimeType == MimeType.TEXT_PLAIN ? "You: \(message.data)" : ""
                 conversations![i].timestamp = message.timestamp
                 conversations![i].read = true
                 DataObserver.notifyConversations(conversations: conversations!)
