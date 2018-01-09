@@ -85,6 +85,25 @@ class MessageTableViewController : SLKTextViewController {
         return cell
     }
     
+    override func didPressRightButton(_ sender: Any!) {
+        self.textView.refreshFirstResponder()
+        
+        let message = PulseApi.messages().send(conversation: conversation!, message: self.textView.text, mimeType: MimeType.TEXT_PLAIN)
+        let indexPath = IndexPath(row: 0, section: 0)
+        let rowAnimation: UITableViewRowAnimation = self.isInverted ? .bottom : .top
+        let scrollPosition: UITableViewScrollPosition = self.isInverted ? .bottom : .top
+        
+        self.tableView!.beginUpdates()
+        self.messages.insert(message, at: 0)
+        self.tableView!.insertRows(at: [indexPath], with: rowAnimation)
+        self.tableView!.endUpdates()
+        
+        self.tableView!.scrollToRow(at: indexPath, at: scrollPosition, animated: true)
+        self.tableView!.reloadRows(at: [indexPath], with: .automatic)
+        
+        super.didPressRightButton(sender)
+    }
+    
     @IBAction func refreshData(_ sender: Any) {
         DataProvider.clearMessages(conversation: conversation!)
         
@@ -94,7 +113,6 @@ class MessageTableViewController : SLKTextViewController {
     
     private func showData() {
         self.tableView!.reloadData()
-        self.scrollToBottom()
         self.showTableView()
     }
     
@@ -117,12 +135,5 @@ class MessageTableViewController : SLKTextViewController {
                 self.tableView!.alpha = 0.0
             })
         }
-    }
-    
-    private func scrollToBottom() {
-//        if (self.messages.count > 0) {
-//            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-//            self.tableView!.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//        }
     }
 }

@@ -21,6 +21,15 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         return "Message: { id: \(id), data: \(data), mimetype: \(mimeType), timestamp: \(timestamp) }"
     }
     
+    init(id: Int64, messageType: Int, data: String, mimeType: String) {
+        self.id = id
+        self.messageType = messageType
+        self.data = data
+        self.mimeType = mimeType
+        self.timestamp = Date().millisecondsSince1970
+        self.sender = nil
+    }
+    
     init?(response: HTTPURLResponse, representation: Any) {
         guard
             let representation = representation as? [String: Any],

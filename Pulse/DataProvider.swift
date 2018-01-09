@@ -138,4 +138,11 @@ class _DataProvider {
             }
         }
     }
+    
+    func generateId() -> Int64 {
+        var rnd : Int64 = 0
+        arc4random_buf(&rnd, MemoryLayout.size(ofValue: rnd))
+        
+        return rnd % 922337203685477
+    }
 }

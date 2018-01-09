@@ -54,7 +54,7 @@ class _Account {
         self.name = _Account.getKey(key: AccountPreferenceKeys.NAME)
         self.phoneNumber = _Account.getKey(key: AccountPreferenceKeys.PHONE_NUMBER)
         self.accountId = _Account.getKey(key: AccountPreferenceKeys.ACCOUNT_ID)
-        self.deviceId = _Account.getKey(key: AccountPreferenceKeys.DEVICE_ID)
+        self.deviceId = "5"//_Account.getKey(key: AccountPreferenceKeys.DEVICE_ID)
         self.salt = _Account.getKey(key: AccountPreferenceKeys.SALT)
         self.passwordHash = _Account.getKey(key: AccountPreferenceKeys.PASSWORD_HASH)
         self.encryptionKey = _Account.getKey(key: AccountPreferenceKeys.ENCRYPTION_KEY)
