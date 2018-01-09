@@ -3,6 +3,9 @@ platform :ios, '9.0'
 
 target 'Pulse' do
   use_frameworks!
+  
+  # ignore all warnings from all pods
+  inhibit_all_warnings!
 
   pod 'SlackTextViewController', '~> 1.9.6'
   pod 'ActiveLabel', :git => 'https://github.com/optonaut/ActiveLabel.swift.git', :tag => '0.8.0'

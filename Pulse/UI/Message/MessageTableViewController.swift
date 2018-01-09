@@ -28,6 +28,7 @@ class MessageTableViewController : SLKTextViewController {
         self.tableView!.allowsSelection = false
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.separatorStyle = .none
+        self.tableView!.keyboardDismissMode = UIScrollViewKeyboardDismissMode.onDrag;
         
         // Slack Text View Controller setup
         self.bounces = true

@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUr-b9-i8g">
-                        <rect key="frame" x="12" y="12" width="296" height="30.5"/>
+                        <rect key="frame" x="12" y="6" width="296" height="30.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This media is not currently supported on the iOS version." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwH-GY-LAK">
                                 <rect key="frame" x="12" y="9" width="272" height="12.5"/>
@@ -37,7 +37,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJz-uV-Q4q">
-                        <rect key="frame" x="14" y="43" width="32" height="12"/>
+                        <rect key="frame" x="14" y="37.5" width="32" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="cNZ-0X-gFU"/>
                         </constraints>
@@ -47,10 +47,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="jUr-b9-i8g" secondAttribute="bottom" constant="13" id="Gd0-I3-kc0"/>
-                    <constraint firstItem="jUr-b9-i8g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="KvH-Ey-ef7"/>
+                    <constraint firstAttribute="bottom" secondItem="jUr-b9-i8g" secondAttribute="bottom" constant="19" id="Gd0-I3-kc0"/>
+                    <constraint firstItem="jUr-b9-i8g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="KvH-Ey-ef7"/>
                     <constraint firstItem="jUr-b9-i8g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Z8A-8E-8AH"/>
-                    <constraint firstAttribute="bottom" secondItem="JJz-uV-Q4q" secondAttribute="bottom" id="iXi-Vz-Jrs"/>
+                    <constraint firstAttribute="bottom" secondItem="JJz-uV-Q4q" secondAttribute="bottom" constant="6" id="iXi-Vz-Jrs"/>
                     <constraint firstAttribute="trailing" secondItem="jUr-b9-i8g" secondAttribute="trailing" constant="12" id="laU-DP-Ijh"/>
                     <constraint firstItem="JJz-uV-Q4q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="mst-bO-kdJ"/>
                 </constraints>

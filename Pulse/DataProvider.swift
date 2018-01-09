@@ -104,9 +104,7 @@ class _DataProvider {
     }
     
     func addSentMessage(conversation: Conversation, message: Message) {
-        if messages[conversation.id] != nil {
-            messages[conversation.id]?.append(message)
-        }
+        messages[conversation.id]?.insert(message, at: 0)
         
         for i in 0..<conversations!.count {
             if (conversations![i].id == conversation.id) {
