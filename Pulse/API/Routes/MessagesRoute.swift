@@ -32,6 +32,7 @@ class MessagesRoute : BaseRoute {
             "mime_type": Account.encryptionUtils!.encrypt(data: message.mimeType), "read": true, "seen": true, "sent_device": Account.deviceId!
         ])
         
+        DataProvider.addSentMessage(conversation: conversation, message: message)
         return message
     }
 

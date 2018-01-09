@@ -13,8 +13,8 @@ struct Conversation : ResponseObjectSerializable, ResponseCollectionSerializable
     let id: Int64
     let title: String
     let phoneNumbers: String
-    let snippet: String
-    let timestamp: Int64
+    var snippet: String
+    var timestamp: Int64
     var read: Bool
     let pinned: Bool
     let color: Int

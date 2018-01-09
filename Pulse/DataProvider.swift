@@ -103,6 +103,23 @@ class _DataProvider {
         }
     }
     
+    func addSentMessage(conversation: Conversation, message: Message) {
+        if messages[conversation.id] != nil {
+            messages[conversation.id]?.append(message)
+        }
+        
+        for i in 0..<conversations!.count {
+            if (conversations![i].id == conversation.id) {
+                conversations![i].snippet = message.mimeType == MimeType.TEXT_PLAIN ? message.data : ""
+                conversations![i].timestamp = message.timestamp
+                conversations![i].read = true
+                DataObserver.notifyConversations(conversations: conversations!)
+                
+                break
+            }
+        }
+    }
+    
     // we are ensuring the message list is cached and the latest message's timestamp matches
     // that of the conversation that is cached. Pulse does it's best to persist message lists
     // but it updates the conversation list much more often.
