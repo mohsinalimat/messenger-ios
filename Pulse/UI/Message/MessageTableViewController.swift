@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import SlackTextViewController
 import RxSwift
 import Kingfisher
 
-class MessageTableViewController : UITableViewController {
+class MessageTableViewController : SLKTextViewController {
 
     @IBOutlet weak var refresh: UIBarButtonItem!
     
     var messages = [Message]()
     var conversation: Conversation? = nil
-    var subscription: Disposable? = nil // TODO: How should I dispose of this? (I just don't know the lifecycle well enough.)
+    var subscription: Disposable? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +25,22 @@ class MessageTableViewController : UITableViewController {
         self.navigationItem.title = conversation?.title
         self.navigationController?.view.backgroundColor = UIColor.white
         
-        self.tableView.allowsSelection = false
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView!.allowsSelection = false
+        self.tableView!.rowHeight = UITableViewAutomaticDimension
+        self.tableView!.separatorStyle = .none
+        
+        // Slack Text View Controller setup
+        self.bounces = true
+        self.shakeToClearEnabled = true
+        self.isKeyboardPanningEnabled = true
+        self.shouldScrollToBottomAfterKeyboardShows = false
+        self.isInverted = true
+        self.rightButton.setTitle(NSLocalizedString("Send", comment: ""), for: UIControlState())
+        self.textInputbar.autoHideRightButton = true
+        self.textView.placeholder = "Type message...";
         
         subscription = DataObserver.messages(conversation: conversation!, onNext: { messages in
-            self.messages = messages.reversed()
+            self.messages = messages
             self.showData()
         })
         
@@ -37,7 +49,7 @@ class MessageTableViewController : UITableViewController {
         }
         
         ImageDownloader.default.delegate = Account.encryptionUtils
-        CellIdentifier.registerCells(tableView: self.tableView)
+        CellIdentifier.registerCells(tableView: self.tableView!)
         AppOpenedUpdateHelper.currentlyOpenConversation = conversation!
     }
     
@@ -68,6 +80,7 @@ class MessageTableViewController : UITableViewController {
             fatalError("The dequeued cell is not an instance of \(identifier).")
         }
         
+        cell.transform = self.tableView!.transform
         cell.bind(conversation: conversation!, message: message)
         return cell
     }
@@ -80,36 +93,36 @@ class MessageTableViewController : UITableViewController {
     }
     
     private func showData() {
-        self.tableView.reloadData()
+        self.tableView!.reloadData()
         self.scrollToBottom()
         self.showTableView()
     }
     
     private func showTableView() {
-        self.tableView.activityIndicatorView.stopAnimating()
-        self.tableView.alpha = 0.0
+        self.tableView!.activityIndicatorView.stopAnimating()
+        self.tableView!.alpha = 0.0
         
         UIView.animate(withDuration: 0.2, animations: {
-            self.tableView.alpha = 1.0
+            self.tableView!.alpha = 1.0
         })
     }
     
     private func hideTableView() {
-        self.tableView.activityIndicatorView.startAnimating()
+        self.tableView!.activityIndicatorView.startAnimating()
         
         if (messages.count > 0) {
-            self.tableView.alpha = 1.0
+            self.tableView!.alpha = 1.0
             
             UIView.animate(withDuration: 0.2, animations: {
-                self.tableView.alpha = 0.0
+                self.tableView!.alpha = 0.0
             })
         }
     }
     
     private func scrollToBottom() {
-        if (self.messages.count > 0) {
-            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        }
+//        if (self.messages.count > 0) {
+//            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+//            self.tableView!.scrollToRow(at: indexPath, at: .bottom, animated: false)
+//        }
     }
 }
