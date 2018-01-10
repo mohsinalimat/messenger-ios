@@ -12,6 +12,12 @@
 		A30943392002643400C86DA6 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30943382002643300C86DA6 /* InfoTableViewCell.xib */; };
 		A309433B2002647900C86DA6 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A309433A2002647900C86DA6 /* InfoTableViewCell.swift */; };
 		A31B256F20064F9500C93DD4 /* ArchiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B256E20064F9500C93DD4 /* ArchiveTableViewController.swift */; };
+		A31B25732006613700C93DD4 /* BlacklistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B25722006613700C93DD4 /* BlacklistTableViewController.swift */; };
+		A31B25752006616800C93DD4 /* ScheduledMessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B25742006616800C93DD4 /* ScheduledMessageTableViewController.swift */; };
+		A31B2577200661BD00C93DD4 /* Blacklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B2576200661BD00C93DD4 /* Blacklist.swift */; };
+		A31B2579200661C800C93DD4 /* ScheduledMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B2578200661C800C93DD4 /* ScheduledMessage.swift */; };
+		A31B257B2006636400C93DD4 /* BlacklistRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B257A2006636400C93DD4 /* BlacklistRoute.swift */; };
+		A31B257D2006637000C93DD4 /* ScheduledMessageRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B257C2006637000C93DD4 /* ScheduledMessageRoute.swift */; };
 		A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380781FF918E5000321B5 /* AppDelegate.swift */; };
 		A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323807A1FF918E5000321B5 /* LoginViewController.swift */; };
 		A323807E1FF918E5000321B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A323807C1FF918E5000321B5 /* Main.storyboard */; };
@@ -99,6 +105,12 @@
 		A30943382002643300C86DA6 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		A309433A2002647900C86DA6 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		A31B256E20064F9500C93DD4 /* ArchiveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewController.swift; sourceTree = "<group>"; };
+		A31B25722006613700C93DD4 /* BlacklistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewController.swift; sourceTree = "<group>"; };
+		A31B25742006616800C93DD4 /* ScheduledMessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMessageTableViewController.swift; sourceTree = "<group>"; };
+		A31B2576200661BD00C93DD4 /* Blacklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blacklist.swift; sourceTree = "<group>"; };
+		A31B2578200661C800C93DD4 /* ScheduledMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMessage.swift; sourceTree = "<group>"; };
+		A31B257A2006636400C93DD4 /* BlacklistRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistRoute.swift; sourceTree = "<group>"; };
+		A31B257C2006637000C93DD4 /* ScheduledMessageRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMessageRoute.swift; sourceTree = "<group>"; };
 		A32380751FF918E5000321B5 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32380781FF918E5000321B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A323807A1FF918E5000321B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +203,22 @@
 				A31B256E20064F9500C93DD4 /* ArchiveTableViewController.swift */,
 			);
 			path = Archive;
+			sourceTree = "<group>";
+		};
+		A31B25702006609F00C93DD4 /* Blacklist */ = {
+			isa = PBXGroup;
+			children = (
+				A31B25722006613700C93DD4 /* BlacklistTableViewController.swift */,
+			);
+			path = Blacklist;
+			sourceTree = "<group>";
+		};
+		A31B2571200660AB00C93DD4 /* ScheduledMessage */ = {
+			isa = PBXGroup;
+			children = (
+				A31B25742006616800C93DD4 /* ScheduledMessageTableViewController.swift */,
+			);
+			path = ScheduledMessage;
 			sourceTree = "<group>";
 		};
 		A323806C1FF918E5000321B5 = {
@@ -311,6 +339,8 @@
 				A3A47FEE1FFAE65200F72313 /* Conversation.swift */,
 				A3ABB6491FFD7665009ECADC /* ConversationSection.swift */,
 				A3E8E5471FFEA97F00FB6CCA /* Message.swift */,
+				A31B2576200661BD00C93DD4 /* Blacklist.swift */,
+				A31B2578200661C800C93DD4 /* ScheduledMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,9 +360,11 @@
 			children = (
 				A3CBFDF01FFC308B00B439C4 /* MessengerNavigationController.swift */,
 				A3E8E54A1FFEAB2A00FB6CCA /* Login */,
+				A3E8E54F1FFEB04F00FB6CCA /* Message */,
 				A3E8E5491FFEAB2000FB6CCA /* Conversation */,
 				A31B256D20064F4900C93DD4 /* Archive */,
-				A3E8E54F1FFEB04F00FB6CCA /* Message */,
+				A31B25702006609F00C93DD4 /* Blacklist */,
+				A31B2571200660AB00C93DD4 /* ScheduledMessage */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -355,6 +387,8 @@
 				A3E8E5411FFE892F00FB6CCA /* ConversationsRoute.swift */,
 				A3E8E5451FFE8ADC00FB6CCA /* AccountsRoute.swift */,
 				A3E8E54B1FFEAB4000FB6CCA /* MessagesRoute.swift */,
+				A31B257A2006636400C93DD4 /* BlacklistRoute.swift */,
+				A31B257C2006637000C93DD4 /* ScheduledMessageRoute.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -728,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A385EDF1200031C6000C3F25 /* SectionViewGenerator.swift in Sources */,
+				A31B25752006616800C93DD4 /* ScheduledMessageTableViewController.swift in Sources */,
 				A385EDED20002C55000C3F25 /* CellIdentifier.swift in Sources */,
 				A3A47FED1FFAE61800F72313 /* DataRequest.swift in Sources */,
 				A3E8E5441FFE893D00FB6CCA /* BaseRoute.swift in Sources */,
@@ -735,6 +770,8 @@
 				A3E8E5531FFEB07200FB6CCA /* SentMessageTableViewCell.swift in Sources */,
 				A37EEDD81FFBBE7300DC0B23 /* Account.swift in Sources */,
 				A3E8E5461FFE8ADC00FB6CCA /* AccountsRoute.swift in Sources */,
+				A31B2577200661BD00C93DD4 /* Blacklist.swift in Sources */,
+				A31B2579200661C800C93DD4 /* ScheduledMessage.swift in Sources */,
 				A3CBFDED1FFC25A600B439C4 /* ColorUtils.swift in Sources */,
 				A3CBFDEA1FFC1E6B00B439C4 /* ConversationTableViewController.swift in Sources */,
 				A3E8E5421FFE892F00FB6CCA /* ConversationsRoute.swift in Sources */,
@@ -747,6 +784,7 @@
 				A3ABB64E1FFD826F009ECADC /* TimeUtils.swift in Sources */,
 				A3E8E5551FFEFB3800FB6CCA /* ViewUtils.swift in Sources */,
 				A32380811FF918E5000321B5 /* Pulse.xcdatamodeld in Sources */,
+				A31B257B2006636400C93DD4 /* BlacklistRoute.swift in Sources */,
 				A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */,
 				A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */,
 				A309433B2002647900C86DA6 /* InfoTableViewCell.swift in Sources */,
@@ -764,12 +802,14 @@
 				A385EDEA1FFFF5AE000C3F25 /* MessageTableViewCell.swift in Sources */,
 				A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */,
 				A3A47FEF1FFAE65200F72313 /* Conversation.swift in Sources */,
+				A31B25732006613700C93DD4 /* BlacklistTableViewController.swift in Sources */,
 				A385EDE81FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift in Sources */,
 				A3B2B4B720010AA100BE0CCC /* AppOpenedUpdateHelper.swift in Sources */,
 				A3E8E54C1FFEAB4000FB6CCA /* MessagesRoute.swift in Sources */,
 				A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */,
 				A3A631922002B674003834F4 /* UnsupportedMediaTableViewCell.swift in Sources */,
 				A3CBFDE71FFC1BDD00B439C4 /* ConversationTableViewCell.swift in Sources */,
+				A31B257D2006637000C93DD4 /* ScheduledMessageRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

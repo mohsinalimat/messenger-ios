@@ -22,7 +22,7 @@ class ConversationTableViewController : UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        tabBarItem = UITabBarItem(title: "Conversations", image: UIImage(named: "icon-inbox"), tag: 1)
+        tabBarItem = UITabBarItem(title: "Inbox", image: UIImage(named: "icon-conversations"), tag: 1)
         
         self.actionGenerator = SwipeActionGenerator(controller: self)
         self.sectionGenerator = SectionViewGenerator(controller: self)

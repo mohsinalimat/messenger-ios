@@ -12,7 +12,7 @@ class ArchiveTableViewController : ConversationTableViewController {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        tabBarItem = UITabBarItem(title: "Archive", image: UIImage(named: "icon-archive"), tag: 1)
+        tabBarItem = UITabBarItem(title: "Archive", image: UIImage(named: "icon-archive"), tag: 2)
     }
     
     override func loadData() {

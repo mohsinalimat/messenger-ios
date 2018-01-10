@@ -34,6 +34,8 @@ class _DataObserver {
     
     private let conversationsObservable = PublishSubject<[Conversation]>()
     private let archiveObservable = PublishSubject<[Conversation]>()
+    private let scheduledMessagesObservable = PublishSubject<[ScheduledMessage]>()
+    private let blacklistsObservable = PublishSubject<[Blacklist]>()
     private var messagesObservable = [Int64: PublishSubject<[Message]>]()
 
     func conversations(onNext: @escaping ([Conversation]) -> Void) -> Disposable {
@@ -44,6 +46,18 @@ class _DataObserver {
     
     func archive(onNext: @escaping ([Conversation]) -> Void) -> Disposable {
         return self.archiveObservable.subscribe { event in
+            onNext(event.element!)
+        }
+    }
+    
+    func scheduledMessages(onNext: @escaping ([ScheduledMessage]) -> Void) -> Disposable {
+        return self.scheduledMessagesObservable.subscribe { event in
+            onNext(event.element!)
+        }
+    }
+    
+    func blacklists(onNext: @escaping ([Blacklist]) -> Void) -> Disposable {
+        return self.blacklistsObservable.subscribe { event in
             onNext(event.element!)
         }
     }
@@ -71,6 +85,14 @@ class _DataObserver {
         archiveObservable.onNext(conversations)
     }
     
+    fileprivate func notifyScheduledMessages(messages: [ScheduledMessage]) {
+        scheduledMessagesObservable.onNext(messages)
+    }
+    
+    fileprivate func notifyBlacklists(blacklists: [Blacklist]) {
+        blacklistsObservable.onNext(blacklists)
+    }
+    
     fileprivate func notifyMessages(conversation: Conversation, messages: [Message]) {
         if let publisher = messagesObservable[conversation.id] {
             publisher.onNext(messages)
@@ -82,11 +104,15 @@ class _DataProvider {
     
     private var conversations: [Conversation]? = nil
     private var archive: [Conversation]? = nil
+    private var scheduledMessages: [ScheduledMessage]? = nil
+    private var blacklists: [Blacklist]? = nil
     private var messages = [Int64: [Message]]()
     
     func clear() {
         conversations = nil
         archive = nil
+        scheduledMessages = nil
+        blacklists = nil
     }
     
     func clearMessages(conversation: Conversation) {
@@ -116,6 +142,28 @@ class _DataProvider {
         }
     }
     
+    func loadScheduledMessages() {
+        if (scheduledMessages != nil) {
+            DataObserver.notifyScheduledMessages(messages: scheduledMessages!)
+        } else {
+            PulseApi.scheduledMessages().getMessages { messages in
+                self.scheduledMessages = messages
+                DataObserver.notifyScheduledMessages(messages: messages)
+            }
+        }
+    }
+    
+    func loadBlacklists() {
+        if (blacklists != nil) {
+            DataObserver.notifyBlacklists(blacklists: blacklists!)
+        } else {
+            PulseApi.blacklists().getBlacklists { blacklists in
+                self.blacklists = blacklists
+                DataObserver.notifyBlacklists(blacklists: blacklists)
+            }
+        }
+    }
+    
     func loadMessages(conversation: Conversation) {
         if hasMessages(conversationId: conversation.id) {
             DataObserver.notifyMessages(conversation: conversation, messages: messages[conversation.id]!)
@@ -140,6 +188,16 @@ class _DataProvider {
                 break
             }
         }
+    }
+    
+    func addBlacklist(blacklist: Blacklist) {
+        self.blacklists?.append(blacklist)
+        DataObserver.notifyBlacklists(blacklists: self.blacklists!)
+    }
+    
+    func addScheduledMessage(message: ScheduledMessage) {
+        self.scheduledMessages?.append(message)
+        DataObserver.notifyScheduledMessages(messages: self.scheduledMessages!)
     }
     
     // we are ensuring the message list is cached and the latest message's timestamp matches
