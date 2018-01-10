@@ -8,6 +8,7 @@ target 'Pulse' do
   inhibit_all_warnings!
 
   pod 'SlackTextViewController', '~> 1.9.6'
+  pod 'TURecipientBar', '~> 2.0'
   pod 'ActiveLabel', :git => 'https://github.com/optonaut/ActiveLabel.swift.git', :tag => '0.8.0'
   
   pod 'RxSwift', '~> 4.0'

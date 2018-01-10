@@ -173,14 +173,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2943" y="-198"/>
+            <point key="canvasLocation" x="-3679" y="-241"/>
         </scene>
         <!--Pulse SMS-->
         <scene sceneID="G45-8U-KGN">
             <objects>
                 <tabBarController id="SzO-na-LWc" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Pulse SMS" id="Yqj-hM-W23">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Ij8-XU-cLU"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Ij8-XU-cLU">
+                            <connections>
+                                <segue destination="5o3-Zc-pWy" kind="popoverPresentation" popoverAnchorBarButtonItem="Ij8-XU-cLU" id="gKM-wh-ggP">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="voS-Hb-MNQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -265,6 +271,56 @@
             </objects>
             <point key="canvasLocation" x="-2156" y="1079.9100449775112"/>
         </scene>
+        <!--Compose-->
+        <scene sceneID="sPp-Fk-hPj">
+            <objects>
+                <viewController title="Compose" id="lV1-6i-0WN" customClass="ComposeViewController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZOy-RZ-iVJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xns-Kk-eOC" customClass="ComposeRecipientBar" customModule="Pulse" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fo1-hX-N9h">
+                                <rect key="frame" x="0.0" y="200" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="74w-px-8S9" firstAttribute="trailing" secondItem="xns-Kk-eOC" secondAttribute="trailing" id="9ba-JC-BCb"/>
+                            <constraint firstItem="fo1-hX-N9h" firstAttribute="leading" secondItem="74w-px-8S9" secondAttribute="leading" id="R0B-aL-APg"/>
+                            <constraint firstItem="74w-px-8S9" firstAttribute="trailing" secondItem="fo1-hX-N9h" secondAttribute="trailing" id="Rho-wv-zZW"/>
+                            <constraint firstItem="xns-Kk-eOC" firstAttribute="top" secondItem="74w-px-8S9" secondAttribute="top" id="gEr-qp-3oh"/>
+                            <constraint firstItem="fo1-hX-N9h" firstAttribute="top" secondItem="xns-Kk-eOC" secondAttribute="bottom" id="is0-hp-aCt"/>
+                            <constraint firstItem="74w-px-8S9" firstAttribute="bottom" secondItem="fo1-hX-N9h" secondAttribute="bottom" id="nHb-zP-Q9d"/>
+                            <constraint firstItem="xns-Kk-eOC" firstAttribute="leading" secondItem="74w-px-8S9" secondAttribute="leading" id="yw4-f1-TzF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="74w-px-8S9"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Compose" id="I8M-xY-eqK">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fLi-eM-qeC">
+                            <connections>
+                                <action selector="cancel:" destination="lV1-6i-0WN" id="j6M-Kk-ucP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="eZp-95-J5V">
+                            <connections>
+                                <action selector="send:" destination="lV1-6i-0WN" id="t9S-ck-Bd1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="recipientsBar" destination="xns-Kk-eOC" id="HjH-cy-1rP"/>
+                        <outlet property="tableView" destination="fo1-hX-N9h" id="IXV-nM-SvR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRD-6j-vdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2943" y="1281"/>
+        </scene>
         <!--Archive List-->
         <scene sceneID="n6I-X2-6IE">
             <objects>
@@ -333,6 +389,22 @@
             </objects>
             <point key="canvasLocation" x="-2156" y="-290"/>
         </scene>
+        <!--Compose Navigation-->
+        <scene sceneID="WGY-en-Tii">
+            <objects>
+                <navigationController title="Compose Navigation" id="5o3-Zc-pWy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KQX-ld-qId">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lV1-6i-0WN" kind="relationship" relationship="rootViewController" id="XdQ-0O-rjM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8yw-Ii-yoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3679" y="1282"/>
+        </scene>
         <!--Messenger Navigation Controller-->
         <scene sceneID="Xqh-rM-1Sb">
             <objects>
@@ -367,7 +439,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuO-Yh-ZRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3679" y="-198"/>
+            <point key="canvasLocation" x="-4422" y="-242"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

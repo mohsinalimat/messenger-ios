@@ -1,0 +1,6 @@
+framework module TURecipientBar {
+  umbrella header "TURecipientBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

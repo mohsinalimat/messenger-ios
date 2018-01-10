@@ -107,7 +107,7 @@ class _DataProvider {
     private var scheduledMessages: [ScheduledMessage]? = nil
     private var blacklists: [Blacklist]? = nil
     private var messages = [Int64: [Message]]()
-    private var contacts = [Contact]()
+    var contacts = [Contact]()
     
     func clear() {
         conversations = nil
