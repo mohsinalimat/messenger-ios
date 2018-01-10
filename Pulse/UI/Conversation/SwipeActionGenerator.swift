@@ -35,4 +35,14 @@ class SwipeActionGenerator {
             self.controller.tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    func moveToInbox() -> UITableViewRowAction {
+        return UITableViewRowAction(style: .default, title: "Move to Inbox") { (action, indexPath) in
+            let conversation = self.controller.conversation(indexPath: indexPath)
+            PulseApi.conversations().unarchive(conversation: conversation)
+            
+            self.controller.sections[indexPath.section].conversations.remove(at: indexPath.row)
+            self.controller.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }

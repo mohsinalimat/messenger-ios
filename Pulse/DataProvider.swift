@@ -33,10 +33,17 @@ let DataProvider = _DataProvider()
 class _DataObserver {
     
     private let conversationsObservable = PublishSubject<[Conversation]>()
+    private let archiveObservable = PublishSubject<[Conversation]>()
     private var messagesObservable = [Int64: PublishSubject<[Message]>]()
 
     func conversations(onNext: @escaping ([Conversation]) -> Void) -> Disposable {
         return self.conversationsObservable.subscribe { event in
+            onNext(event.element!)
+        }
+    }
+    
+    func archive(onNext: @escaping ([Conversation]) -> Void) -> Disposable {
+        return self.archiveObservable.subscribe { event in
             onNext(event.element!)
         }
     }
@@ -60,6 +67,10 @@ class _DataObserver {
         conversationsObservable.onNext(conversations)
     }
     
+    fileprivate func notifyArchive(conversations: [Conversation]) {
+        archiveObservable.onNext(conversations)
+    }
+    
     fileprivate func notifyMessages(conversation: Conversation, messages: [Message]) {
         if let publisher = messagesObservable[conversation.id] {
             publisher.onNext(messages)
@@ -70,10 +81,12 @@ class _DataObserver {
 class _DataProvider {
     
     private var conversations: [Conversation]? = nil
+    private var archive: [Conversation]? = nil
     private var messages = [Int64: [Message]]()
     
     func clear() {
         conversations = nil
+        archive = nil
     }
     
     func clearMessages(conversation: Conversation) {
@@ -88,6 +101,17 @@ class _DataProvider {
                 self.conversations = conversations
                 DataObserver.notifyConversations(conversations: conversations)
                 AppOpenedUpdateHelper.resetLatestTimestamp(conversations: conversations)
+            }
+        }
+    }
+    
+    func loadArchive() {
+        if (archive != nil) {
+            DataObserver.notifyArchive(conversations: conversations!)
+        } else {
+            PulseApi.conversations().getArchived { conversations in
+                self.archive = conversations
+                DataObserver.notifyArchive(conversations: conversations)
             }
         }
     }

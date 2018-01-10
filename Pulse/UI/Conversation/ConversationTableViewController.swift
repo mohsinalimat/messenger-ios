@@ -12,6 +12,10 @@ import RxSwift
 
 class ConversationTableViewController : UITableViewController {
     
+    let refresh = UIRefreshControl()
+    var sections = [ConversationSection]()
+    var subscription: Disposable? = nil
+    
     var actionGenerator: SwipeActionGenerator? = nil
     var sectionGenerator: SectionViewGenerator? = nil
 
@@ -23,31 +27,18 @@ class ConversationTableViewController : UITableViewController {
         self.actionGenerator = SwipeActionGenerator(controller: self)
         self.sectionGenerator = SectionViewGenerator(controller: self)
     }
-    
-    var sections = [ConversationSection]()
-    var subscription: Disposable? = nil
-    
-    private let refresh = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Pulse SMS"
-        
-        refresh.addTarget(self, action: #selector(loadData(_:)), for: .valueChanged)
+        refresh.addTarget(self, action: #selector(reloadData(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = refresh
         } else {
             self.tableView.addSubview(refresh)
         }
         
-        subscription = DataObserver.conversations { conversations in
-            self.sections = ConversationSection.loadConversationsToSections(conversations: conversations)
-            self.tableView.reloadData()
-            self.refresh.endRefreshing()
-        }
-        
-        DataProvider.loadConversations()
+        loadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,20 +78,38 @@ class ConversationTableViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let conversation = self.conversation(indexPath: indexPath)
+        let first = firstSwipeAction()
         let delete = actionGenerator!.delete()
-        let archive = actionGenerator!.archive()
         
-        archive.backgroundColor = UIColor(rgb: conversation.color)
+        first.backgroundColor = UIColor(rgb: conversation.color)
         delete.backgroundColor = UIColor(rgb: conversation.colorDark)
         
-        return [archive, delete]
+        return [first, delete]
     }
     
     // MARK: Helper functions
     
-    @objc private func loadData(_ sender: Any) {
+    @objc private func reloadData(_ sender: Any) {
+        reloadData()
+    }
+    
+    func loadData() {
+        subscription = DataObserver.conversations { conversations in
+            self.sections = ConversationSection.loadConversationsToSections(conversations: conversations)
+            self.tableView.reloadData()
+            self.refresh.endRefreshing()
+        }
+        
+        DataProvider.loadConversations()
+    }
+    
+    func reloadData() {
         DataProvider.clear()
         DataProvider.loadConversations()
+    }
+    
+    func firstSwipeAction() -> UITableViewRowAction {
+        return actionGenerator!.archive()
     }
     
     func conversation(indexPath: IndexPath) -> Conversation {

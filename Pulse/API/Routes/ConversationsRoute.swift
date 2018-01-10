@@ -39,6 +39,18 @@ class ConversationsRoute : BaseRoute {
         }
     }
     
+    func getArchived(completionHandler: @escaping ([Conversation]) -> Void) {
+        if (!Account.exists()) {
+            return
+        }
+        
+        get(path: "/index_archived", parameters: ["account_id": Account.accountId!, "limit": 100]).responseCollection { (response: DataResponse<[Conversation]>) in
+            if let conversations = response.result.value {
+                completionHandler(conversations)
+            }
+        }
+    }
+    
     func archive(conversation: Conversation) {
         post(path: "/archive/\(conversation.id)")
     }
