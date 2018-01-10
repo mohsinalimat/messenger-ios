@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class BlacklistRoute : BaseRoute {
+class BlacklistsRoute : BaseRoute {
 
     init() {
         super.init(route: "blacklists")

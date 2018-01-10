@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class ScheduledMessageRoute : BaseRoute {
+class ScheduledMessagesRoute : BaseRoute {
 
     init() {
         super.init(route: "scheduled_messages")

@@ -50,6 +50,10 @@ class EncryptionUtils : ImageDownloaderDelegate {
     }
     
     func decryptData(data: String) -> [UInt8]? {
+        if (data.isEmpty) {
+            return nil
+        }
+        
         let splitData = data.components(separatedBy: SEPARATOR)
         let dataOne = splitData[0].base64Decoded()
         let dataTwo = splitData[1].base64Decoded()

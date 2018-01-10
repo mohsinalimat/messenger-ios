@@ -24,11 +24,15 @@ class _PulseApi {
         return MessagesRoute()
     }
     
-    func scheduledMessages() -> ScheduledMessageRoute {
-        return ScheduledMessageRoute()
+    func scheduledMessages() -> ScheduledMessagesRoute {
+        return ScheduledMessagesRoute()
     }
     
-    func blacklists() -> BlacklistRoute {
-        return BlacklistRoute()
+    func blacklists() -> BlacklistsRoute {
+        return BlacklistsRoute()
+    }
+    
+    func contacts() -> ContactsRoute {
+        return ContactsRoute()
     }
 }

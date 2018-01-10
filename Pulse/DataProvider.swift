@@ -107,6 +107,7 @@ class _DataProvider {
     private var scheduledMessages: [ScheduledMessage]? = nil
     private var blacklists: [Blacklist]? = nil
     private var messages = [Int64: [Message]]()
+    private var contacts = [Contact]()
     
     func clear() {
         conversations = nil
@@ -172,6 +173,19 @@ class _DataProvider {
                 self.messages.updateValue(messageList, forKey: conversation.id)
                 DataObserver.notifyMessages(conversation: conversation, messages: messageList)
             }
+        }
+    }
+    
+    func loadContacts(offset: Int = 0) {
+        if (self.contacts.count % 500 != 0) {
+            // there is a bug here. If the user has exactly any increment of 500,
+            // it would just continue to run through the contact load.
+            return
+        }
+        
+        PulseApi.contacts().getContacts(offset: offset) { contacts in
+            self.contacts.append(contentsOf: contacts)
+            self.loadContacts(offset: self.contacts.count)
         }
     }
     

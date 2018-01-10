@@ -16,6 +16,8 @@ class MessengerNavigationController : UINavigationController {
         if (!Account.exists()) {
             let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginNavigationController") as! LoginNavigationController
             self.present(secondViewController, animated: true)
+        } else {
+            DataProvider.loadContacts()
         }
     }
     
