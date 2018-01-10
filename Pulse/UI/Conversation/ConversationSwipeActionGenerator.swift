@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SwipeActionGenerator {
+class ConversationSwipeActionGenerator {
     
     private let controller: ConversationTableViewController
     

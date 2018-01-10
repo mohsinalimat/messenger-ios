@@ -18,6 +18,8 @@
 		A31B2579200661C800C93DD4 /* ScheduledMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B2578200661C800C93DD4 /* ScheduledMessage.swift */; };
 		A31B257B2006636400C93DD4 /* BlacklistRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B257A2006636400C93DD4 /* BlacklistRoute.swift */; };
 		A31B257D2006637000C93DD4 /* ScheduledMessageRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B257C2006637000C93DD4 /* ScheduledMessageRoute.swift */; };
+		A31B257F20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B257E20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift */; };
+		A31B258120067F4600C93DD4 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B258020067F4600C93DD4 /* BlacklistTableViewCell.swift */; };
 		A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380781FF918E5000321B5 /* AppDelegate.swift */; };
 		A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323807A1FF918E5000321B5 /* LoginViewController.swift */; };
 		A323807E1FF918E5000321B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A323807C1FF918E5000321B5 /* Main.storyboard */; };
@@ -35,7 +37,7 @@
 		A385EDE81FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */; };
 		A385EDEA1FFFF5AE000C3F25 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDE91FFFF5AE000C3F25 /* MessageTableViewCell.swift */; };
 		A385EDED20002C55000C3F25 /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDEC20002C55000C3F25 /* CellIdentifier.swift */; };
-		A385EDEF20002F02000C3F25 /* SwipeActionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDEE20002F02000C3F25 /* SwipeActionGenerator.swift */; };
+		A385EDEF20002F02000C3F25 /* ConversationSwipeActionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDEE20002F02000C3F25 /* ConversationSwipeActionGenerator.swift */; };
 		A385EDF1200031C6000C3F25 /* SectionViewGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385EDF0200031C6000C3F25 /* SectionViewGenerator.swift */; };
 		A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE01FFAD03800F72313 /* PulseApi.swift */; };
 		A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A47FE31FFADDF900F72313 /* LoginResponse.swift */; };
@@ -111,6 +113,8 @@
 		A31B2578200661C800C93DD4 /* ScheduledMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMessage.swift; sourceTree = "<group>"; };
 		A31B257A2006636400C93DD4 /* BlacklistRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistRoute.swift; sourceTree = "<group>"; };
 		A31B257C2006637000C93DD4 /* ScheduledMessageRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMessageRoute.swift; sourceTree = "<group>"; };
+		A31B257E20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistSwipeActionGenerator.swift; sourceTree = "<group>"; };
+		A31B258020067F4600C93DD4 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
 		A32380751FF918E5000321B5 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32380781FF918E5000321B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A323807A1FF918E5000321B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +138,7 @@
 		A385EDE71FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedMessageTableViewCell.swift; sourceTree = "<group>"; };
 		A385EDE91FFFF5AE000C3F25 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		A385EDEC20002C55000C3F25 /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
-		A385EDEE20002F02000C3F25 /* SwipeActionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionGenerator.swift; sourceTree = "<group>"; };
+		A385EDEE20002F02000C3F25 /* ConversationSwipeActionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationSwipeActionGenerator.swift; sourceTree = "<group>"; };
 		A385EDF0200031C6000C3F25 /* SectionViewGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewGenerator.swift; sourceTree = "<group>"; };
 		A3A47FE01FFAD03800F72313 /* PulseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApi.swift; sourceTree = "<group>"; };
 		A3A47FE31FFADDF900F72313 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				A31B25722006613700C93DD4 /* BlacklistTableViewController.swift */,
+				A31B257E20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift */,
+				A31B258020067F4600C93DD4 /* BlacklistTableViewCell.swift */,
 			);
 			path = Blacklist;
 			sourceTree = "<group>";
@@ -398,7 +404,7 @@
 			children = (
 				A3CBFDE91FFC1E6B00B439C4 /* ConversationTableViewController.swift */,
 				A3CBFDE61FFC1BDD00B439C4 /* ConversationTableViewCell.swift */,
-				A385EDEE20002F02000C3F25 /* SwipeActionGenerator.swift */,
+				A385EDEE20002F02000C3F25 /* ConversationSwipeActionGenerator.swift */,
 				A385EDF0200031C6000C3F25 /* SectionViewGenerator.swift */,
 			);
 			path = Conversation;
@@ -776,7 +782,8 @@
 				A3CBFDEA1FFC1E6B00B439C4 /* ConversationTableViewController.swift in Sources */,
 				A3E8E5421FFE892F00FB6CCA /* ConversationsRoute.swift in Sources */,
 				A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */,
-				A385EDEF20002F02000C3F25 /* SwipeActionGenerator.swift in Sources */,
+				A385EDEF20002F02000C3F25 /* ConversationSwipeActionGenerator.swift in Sources */,
+				A31B257F20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift in Sources */,
 				A3ABB64A1FFD7665009ECADC /* ConversationSection.swift in Sources */,
 				A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */,
 				A3094337200257A000C86DA6 /* MediaTableViewCell.swift in Sources */,
@@ -806,6 +813,7 @@
 				A385EDE81FFFF3BC000C3F25 /* ReceivedMessageTableViewCell.swift in Sources */,
 				A3B2B4B720010AA100BE0CCC /* AppOpenedUpdateHelper.swift in Sources */,
 				A3E8E54C1FFEAB4000FB6CCA /* MessagesRoute.swift in Sources */,
+				A31B258120067F4600C93DD4 /* BlacklistTableViewCell.swift in Sources */,
 				A3A47FE41FFADDF900F72313 /* LoginResponse.swift in Sources */,
 				A3A631922002B674003834F4 /* UnsupportedMediaTableViewCell.swift in Sources */,
 				A3CBFDE71FFC1BDD00B439C4 /* ConversationTableViewCell.swift in Sources */,

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import RxSwift
 
 class ConversationTableViewController : UITableViewController {
@@ -16,7 +15,7 @@ class ConversationTableViewController : UITableViewController {
     var sections = [ConversationSection]()
     var subscription: Disposable? = nil
     
-    var actionGenerator: SwipeActionGenerator? = nil
+    var actionGenerator: ConversationSwipeActionGenerator? = nil
     var sectionGenerator: SectionViewGenerator? = nil
 
     required init?(coder aDecoder: NSCoder) {
@@ -24,7 +23,7 @@ class ConversationTableViewController : UITableViewController {
         
         tabBarItem = UITabBarItem(title: "Inbox", image: UIImage(named: "icon-conversations"), tag: 1)
         
-        self.actionGenerator = SwipeActionGenerator(controller: self)
+        self.actionGenerator = ConversationSwipeActionGenerator(controller: self)
         self.sectionGenerator = SectionViewGenerator(controller: self)
     }
 
