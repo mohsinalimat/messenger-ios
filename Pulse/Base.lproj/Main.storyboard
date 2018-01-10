@@ -279,24 +279,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xns-Kk-eOC" customClass="ComposeRecipientBar" customModule="Pulse" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fo1-hX-N9h">
-                                <rect key="frame" x="0.0" y="200" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="khs-8n-04O">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xns-Kk-eOC" customClass="ComposeRecipientBar" customModule="Pulse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="403"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fo1-hX-N9h" customClass="TPKeyboardAvoidingTableView">
+                                        <rect key="frame" x="0.0" y="403" width="375" height="136"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnw-An-exe">
+                                        <rect key="frame" x="0.0" y="539" width="375" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="clz-EQ-XMN"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fo1-hX-N9h" firstAttribute="top" secondItem="xns-Kk-eOC" secondAttribute="bottom" id="5iE-3l-NBh"/>
+                                    <constraint firstItem="xns-Kk-eOC" firstAttribute="top" secondItem="khs-8n-04O" secondAttribute="top" id="DRU-3n-szF"/>
+                                    <constraint firstAttribute="trailing" secondItem="xns-Kk-eOC" secondAttribute="trailing" id="EwP-U6-waC"/>
+                                    <constraint firstAttribute="trailing" secondItem="fo1-hX-N9h" secondAttribute="trailing" id="Xa3-eQ-wQU"/>
+                                    <constraint firstAttribute="bottom" secondItem="tnw-An-exe" secondAttribute="bottom" id="Xhe-93-dSG"/>
+                                    <constraint firstItem="xns-Kk-eOC" firstAttribute="leading" secondItem="khs-8n-04O" secondAttribute="leading" id="jLM-Hh-mOw"/>
+                                    <constraint firstItem="fo1-hX-N9h" firstAttribute="leading" secondItem="khs-8n-04O" secondAttribute="leading" id="pOl-nD-wiG"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="74w-px-8S9" firstAttribute="trailing" secondItem="xns-Kk-eOC" secondAttribute="trailing" id="9ba-JC-BCb"/>
-                            <constraint firstItem="fo1-hX-N9h" firstAttribute="leading" secondItem="74w-px-8S9" secondAttribute="leading" id="R0B-aL-APg"/>
-                            <constraint firstItem="74w-px-8S9" firstAttribute="trailing" secondItem="fo1-hX-N9h" secondAttribute="trailing" id="Rho-wv-zZW"/>
-                            <constraint firstItem="xns-Kk-eOC" firstAttribute="top" secondItem="74w-px-8S9" secondAttribute="top" id="gEr-qp-3oh"/>
-                            <constraint firstItem="fo1-hX-N9h" firstAttribute="top" secondItem="xns-Kk-eOC" secondAttribute="bottom" id="is0-hp-aCt"/>
-                            <constraint firstItem="74w-px-8S9" firstAttribute="bottom" secondItem="fo1-hX-N9h" secondAttribute="bottom" id="nHb-zP-Q9d"/>
-                            <constraint firstItem="xns-Kk-eOC" firstAttribute="leading" secondItem="74w-px-8S9" secondAttribute="leading" id="yw4-f1-TzF"/>
+                            <constraint firstItem="khs-8n-04O" firstAttribute="bottom" secondItem="74w-px-8S9" secondAttribute="bottom" id="ICV-Mg-hUU"/>
+                            <constraint firstItem="khs-8n-04O" firstAttribute="trailing" secondItem="74w-px-8S9" secondAttribute="trailing" id="g0b-iH-PoW"/>
+                            <constraint firstItem="khs-8n-04O" firstAttribute="leading" secondItem="74w-px-8S9" secondAttribute="leading" id="puf-Lb-tTv"/>
+                            <constraint firstItem="khs-8n-04O" firstAttribute="top" secondItem="74w-px-8S9" secondAttribute="top" id="tdb-ZH-3w2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74w-px-8S9"/>
                     </view>
@@ -313,13 +333,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="messageText" destination="tnw-An-exe" id="NcA-ns-swj"/>
                         <outlet property="recipientsBar" destination="xns-Kk-eOC" id="HjH-cy-1rP"/>
                         <outlet property="tableView" destination="fo1-hX-N9h" id="IXV-nM-SvR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRD-6j-vdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2943" y="1281"/>
+            <point key="canvasLocation" x="-2943.1999999999998" y="1280.5097451274364"/>
         </scene>
         <!--Archive List-->
         <scene sceneID="n6I-X2-6IE">
@@ -392,7 +413,7 @@
         <!--Compose Navigation-->
         <scene sceneID="WGY-en-Tii">
             <objects>
-                <navigationController title="Compose Navigation" id="5o3-Zc-pWy" sceneMemberID="viewController">
+                <navigationController title="Compose Navigation" modalPresentationStyle="currentContext" id="5o3-Zc-pWy" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KQX-ld-qId">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

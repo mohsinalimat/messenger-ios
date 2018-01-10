@@ -35,5 +35,9 @@ class MessagesRoute : BaseRoute {
         DataProvider.addSentMessage(conversation: conversation, message: message)
         return message
     }
+    
+    func forwardToPhone(phoneNumbers: String, message: String) {
+        post(path: "/forward_to_phone", parameters: ["account_id": Account.accountId!, "to": phoneNumbers, "message": message])
+    }
 
 }

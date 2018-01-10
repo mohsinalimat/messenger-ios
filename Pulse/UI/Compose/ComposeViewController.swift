@@ -12,6 +12,7 @@ import TURecipientBar
 class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var recipientsBar: ComposeRecipientBar!
+    @IBOutlet weak var messageText: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     var contacts = [Contact]()
@@ -86,6 +87,11 @@ class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITable
     
     @IBAction func send(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        // TODO: forward the message to the phone to get sent.
+        
+        let phoneNumbers = self.recipientsBar.contacts
+            .map { $0.phoneNumber }
+            .joined(separator: ",")
+        
+        PulseApi.messages().forwardToPhone(phoneNumbers: phoneNumbers, message: messageText.text!)
     }
 }
