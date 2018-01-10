@@ -14,7 +14,7 @@ class MessageTableViewCell : UITableViewCell {
     @IBOutlet weak var messageContainer: UIView!
     @IBOutlet weak var timestamp: UILabel!
     
-    private let dateFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()

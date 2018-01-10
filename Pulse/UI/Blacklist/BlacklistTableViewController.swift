@@ -27,6 +27,8 @@ class BlacklistTableViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.allowsSelection = false
+        
         refresh.addTarget(self, action: #selector(reloadData(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = refresh

@@ -20,6 +20,9 @@
 		A31B257D2006637000C93DD4 /* ScheduledMessageRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B257C2006637000C93DD4 /* ScheduledMessageRoute.swift */; };
 		A31B257F20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B257E20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift */; };
 		A31B258120067F4600C93DD4 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B258020067F4600C93DD4 /* BlacklistTableViewCell.swift */; };
+		A31B25862006859300C93DD4 /* ScheduledMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B25842006859300C93DD4 /* ScheduledMessageTableViewCell.swift */; };
+		A31B25872006859300C93DD4 /* ScheduledMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31B25852006859300C93DD4 /* ScheduledMessageTableViewCell.xib */; };
+		A31B2589200686A700C93DD4 /* ScheduledMessageSwipeActionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B2588200686A700C93DD4 /* ScheduledMessageSwipeActionGenerator.swift */; };
 		A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380781FF918E5000321B5 /* AppDelegate.swift */; };
 		A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323807A1FF918E5000321B5 /* LoginViewController.swift */; };
 		A323807E1FF918E5000321B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A323807C1FF918E5000321B5 /* Main.storyboard */; };
@@ -115,6 +118,9 @@
 		A31B257C2006637000C93DD4 /* ScheduledMessageRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMessageRoute.swift; sourceTree = "<group>"; };
 		A31B257E20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistSwipeActionGenerator.swift; sourceTree = "<group>"; };
 		A31B258020067F4600C93DD4 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
+		A31B25842006859300C93DD4 /* ScheduledMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduledMessageTableViewCell.swift; sourceTree = "<group>"; };
+		A31B25852006859300C93DD4 /* ScheduledMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduledMessageTableViewCell.xib; sourceTree = "<group>"; };
+		A31B2588200686A700C93DD4 /* ScheduledMessageSwipeActionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMessageSwipeActionGenerator.swift; sourceTree = "<group>"; };
 		A32380751FF918E5000321B5 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32380781FF918E5000321B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A323807A1FF918E5000321B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				A31B25742006616800C93DD4 /* ScheduledMessageTableViewController.swift */,
+				A31B2588200686A700C93DD4 /* ScheduledMessageSwipeActionGenerator.swift */,
+				A31B25852006859300C93DD4 /* ScheduledMessageTableViewCell.xib */,
+				A31B25842006859300C93DD4 /* ScheduledMessageTableViewCell.swift */,
 			);
 			path = ScheduledMessage;
 			sourceTree = "<group>";
@@ -575,6 +584,7 @@
 				A32380831FF918E5000321B5 /* Assets.xcassets in Resources */,
 				A30943392002643400C86DA6 /* InfoTableViewCell.xib in Resources */,
 				A323807E1FF918E5000321B5 /* Main.storyboard in Resources */,
+				A31B25872006859300C93DD4 /* ScheduledMessageTableViewCell.xib in Resources */,
 				A3B2B4BB20016E9100BE0CCC /* ReceivedImageTableViewCell.xib in Resources */,
 				A385EDE61FFFF3AE000C3F25 /* ReceivedMessageTableViewCell.xib in Resources */,
 				A3A631902002B658003834F4 /* UnsupportedMediaTableViewCell.xib in Resources */,
@@ -786,6 +796,7 @@
 				A31B257F20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift in Sources */,
 				A3ABB64A1FFD7665009ECADC /* ConversationSection.swift in Sources */,
 				A3A47FEA1FFAE5C600F72313 /* ResponseCollectionSerializable.swift in Sources */,
+				A31B2589200686A700C93DD4 /* ScheduledMessageSwipeActionGenerator.swift in Sources */,
 				A3094337200257A000C86DA6 /* MediaTableViewCell.swift in Sources */,
 				A3CBFDF11FFC308B00B439C4 /* MessengerNavigationController.swift in Sources */,
 				A3ABB64E1FFD826F009ECADC /* TimeUtils.swift in Sources */,
@@ -806,6 +817,7 @@
 				A3E8E5481FFEA97F00FB6CCA /* Message.swift in Sources */,
 				A3E8E5511FFEB06800FB6CCA /* MessageTableViewController.swift in Sources */,
 				A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */,
+				A31B25862006859300C93DD4 /* ScheduledMessageTableViewCell.swift in Sources */,
 				A385EDEA1FFFF5AE000C3F25 /* MessageTableViewCell.swift in Sources */,
 				A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */,
 				A3A47FEF1FFAE65200F72313 /* Conversation.swift in Sources */,

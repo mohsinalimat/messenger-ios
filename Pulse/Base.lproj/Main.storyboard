@@ -201,21 +201,11 @@
         <!--Scheduled Messages-->
         <scene sceneID="clG-sD-X3A">
             <objects>
-                <tableViewController title="Scheduled Messages" id="zXh-fJ-4ZM" customClass="ScheduledMessageTableViewController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ScheduledMessageTableViewController" title="Scheduled Messages" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zXh-fJ-4ZM" customClass="ScheduledMessageTableViewController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fLg-PS-oW3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Hi7-RC-ZNI">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hi7-RC-ZNI" id="gun-tf-9eB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="zXh-fJ-4ZM" id="bIk-Bw-ugP"/>
                             <outlet property="delegate" destination="zXh-fJ-4ZM" id="XhQ-Kg-ZXf"/>
