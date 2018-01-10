@@ -183,7 +183,9 @@ class _DataProvider {
                 conversations![i].snippet = message.mimeType == MimeType.TEXT_PLAIN ? "You: \(message.data)" : ""
                 conversations![i].timestamp = message.timestamp
                 conversations![i].read = true
+                
                 DataObserver.notifyConversations(conversations: conversations!)
+                PulseApi.conversations().updateSnippet(conversation: conversations![i], snippet: conversations![i].snippet)
                 
                 break
             }

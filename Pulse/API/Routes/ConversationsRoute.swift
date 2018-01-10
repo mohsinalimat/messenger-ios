@@ -51,6 +51,13 @@ class ConversationsRoute : BaseRoute {
         }
     }
     
+    func updateSnippet(conversation: Conversation, snippet: String) {
+        post(path: "/update/\(conversation.id)", parameters: [
+            "account_id": Account.accountId!, "read": true, "timestamp": Date().millisecondsSince1970,
+            "snippet": Account.encryptionUtils!.encrypt(data: snippet)
+        ])
+    }
+    
     func archive(conversation: Conversation) {
         post(path: "/archive/\(conversation.id)")
     }
