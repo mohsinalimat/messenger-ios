@@ -29,6 +29,7 @@
 		A31B25922006B2DF00C93DD4 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B25912006B2DF00C93DD4 /* ContactTableViewCell.swift */; };
 		A31B25942006B35700C93DD4 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31B25932006B35700C93DD4 /* ContactTableViewCell.xib */; };
 		A31B25962006B7F700C93DD4 /* ComposeRecipientBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B25952006B7F700C93DD4 /* ComposeRecipientBar.swift */; };
+		A31B25982006BBBD00C93DD4 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B25972006BBBD00C93DD4 /* ArrayUtils.swift */; };
 		A32380791FF918E5000321B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380781FF918E5000321B5 /* AppDelegate.swift */; };
 		A323807B1FF918E5000321B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323807A1FF918E5000321B5 /* LoginViewController.swift */; };
 		A323807E1FF918E5000321B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A323807C1FF918E5000321B5 /* Main.storyboard */; };
@@ -133,6 +134,7 @@
 		A31B25912006B2DF00C93DD4 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		A31B25932006B35700C93DD4 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		A31B25952006B7F700C93DD4 /* ComposeRecipientBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeRecipientBar.swift; sourceTree = "<group>"; };
+		A31B25972006BBBD00C93DD4 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		A32380751FF918E5000321B5 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32380781FF918E5000321B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A323807A1FF918E5000321B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 		A3CBFDEB1FFC259700B439C4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A31B25972006BBBD00C93DD4 /* ArrayUtils.swift */,
 				A3CBFDEC1FFC25A600B439C4 /* ColorUtils.swift */,
 				A3CBFDEE1FFC260700B439C4 /* ImageUtils.swift */,
 				A3ABB64D1FFD826F009ECADC /* TimeUtils.swift */,
@@ -837,6 +840,7 @@
 				A31B25902006AB6000C93DD4 /* ComposeViewController.swift in Sources */,
 				A3A47FE61FFADE8E00F72313 /* ResponseObjectSerializable.swift in Sources */,
 				A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */,
+				A31B25982006BBBD00C93DD4 /* ArrayUtils.swift in Sources */,
 				A309433B2002647900C86DA6 /* InfoTableViewCell.swift in Sources */,
 				A37EEDDF1FFBC2B500DC0B23 /* KeyUtils.swift in Sources */,
 				A3CBFDF31FFC311E00B439C4 /* LoginNavigationController.swift in Sources */,

@@ -180,6 +180,9 @@ class _DataProvider {
         if (self.contacts.count % 500 != 0) {
             // there is a bug here. If the user has exactly any increment of 500,
             // it would just continue to run through the contact load.
+            
+            self.contacts = self.contacts.uniq()
+            
             return
         }
         

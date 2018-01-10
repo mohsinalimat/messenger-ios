@@ -8,7 +8,7 @@
 
 import Alamofire
 
-struct Contact : ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
+struct Contact : ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible, Equatable {
     
     let id: Int64
     let phoneNumber: String
@@ -35,6 +35,10 @@ struct Contact : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         self.name = Account.encryptionUtils?.decrypt(data: name) ?? ""
         self.idMatcher = Account.encryptionUtils?.decrypt(data: idMatcher) ?? ""
         self.color = color
+    }
+    
+    static func ==(lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.phoneNumber == rhs.phoneNumber
     }
 }
 

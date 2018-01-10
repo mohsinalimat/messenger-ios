@@ -28,9 +28,10 @@ class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         
         self.recipientsBar.recipientsBarDelegate = self
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.recipientsBar.showsAddButton = false
         
         self.tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "ContactTableViewCell")
         self.tableView.separatorStyle = .none
