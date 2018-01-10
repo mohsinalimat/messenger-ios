@@ -17,6 +17,9 @@ class ConversationTableViewController : UITableViewController {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        tabBarItem = UITabBarItem(title: "Conversations", image: UIImage(named: "icon-inbox"), tag: 1)
+        
         self.actionGenerator = SwipeActionGenerator(controller: self)
         self.sectionGenerator = SectionViewGenerator(controller: self)
     }
@@ -28,6 +31,8 @@ class ConversationTableViewController : UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Pulse SMS"
         
         refresh.addTarget(self, action: #selector(loadData(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
