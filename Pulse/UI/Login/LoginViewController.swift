@@ -10,6 +10,10 @@ import UIKit
 import Alamofire
 import Async
 
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
+
 class LoginViewController : UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
@@ -44,7 +48,12 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     }
     
     private func createAccount(loginResponse: LoginResponse, password: String) {
-        Async.background {
+        PulseApi.devices().add(accountId: loginResponse.accountId, fcmToken: Messaging.messaging().fcmToken) { deviceId in
+            debugPrint("writing new device id: \(deviceId)")
+            Account.updateDeviceId(id: deviceId)
+        }
+        
+        Async.main {
             do {
                 debugPrint("creating account encryption.")
                 try Account.createAccount(password: password, loginResponse: loginResponse)

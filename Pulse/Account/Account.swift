@@ -16,6 +16,7 @@ class _Account {
     
     var accountId: String?
     var deviceId: String?
+    var fcmToken: String?
     
     private var salt: String?
     private var passwordHash: String?
@@ -50,11 +51,34 @@ class _Account {
         readValues()
     }
     
+    func updateDeviceId(id: String) {
+        self.deviceId = id
+        let preferences = UserDefaults.standard
+        
+        preferences.set(id, forKey: AccountPreferenceKeys.DEVICE_ID)
+        preferences.synchronize()
+    }
+    
+    func updateFcmToken(token: String?) {
+        if token == nil || token == self.fcmToken {
+            return
+        }
+        
+        self.fcmToken = token!
+        let preferences = UserDefaults.standard
+        
+        preferences.set(token!, forKey: AccountPreferenceKeys.FCM_TOKEN)
+        preferences.synchronize()
+        
+        PulseApi.devices().updateFcmToken(fcmToken: token!)
+    }
+    
     private func readValues() {
         self.name = _Account.getKey(key: AccountPreferenceKeys.NAME)
         self.phoneNumber = _Account.getKey(key: AccountPreferenceKeys.PHONE_NUMBER)
         self.accountId = _Account.getKey(key: AccountPreferenceKeys.ACCOUNT_ID)
-        self.deviceId = "5"//_Account.getKey(key: AccountPreferenceKeys.DEVICE_ID)
+        self.deviceId = "187050"//_Account.getKey(key: AccountPreferenceKeys.DEVICE_ID) // TODO: use the device id retrieved from the login
+        self.fcmToken = _Account.getKey(key: AccountPreferenceKeys.FCM_TOKEN)
         self.salt = _Account.getKey(key: AccountPreferenceKeys.SALT)
         self.passwordHash = _Account.getKey(key: AccountPreferenceKeys.PASSWORD_HASH)
         self.encryptionKey = _Account.getKey(key: AccountPreferenceKeys.ENCRYPTION_KEY)
@@ -79,6 +103,7 @@ private class AccountPreferenceKeys {
     static let PHONE_NUMBER = "account_phone_number"
     static let ACCOUNT_ID = "account_id"
     static let DEVICE_ID = "account_device_id"
+    static let FCM_TOKEN = "account_fcm_token"
     static let PASSWORD_HASH = "account_password_hash"
     static let SALT = "account_salt"
     static let ENCRYPTION_KEY = "account_encryption_key"

@@ -16,6 +16,10 @@ class _PulseApi {
         return AccountsRoute()
     }
     
+    func devices() -> DevicesRoute {
+        return DevicesRoute()
+    }
+    
     func conversations() -> ConversationsRoute {
         return ConversationsRoute()
     }

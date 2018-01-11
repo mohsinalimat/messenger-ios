@@ -38,6 +38,11 @@
 		A32380861FF918E5000321B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32380841FF918E5000321B5 /* LaunchScreen.storyboard */; };
 		A32380911FF918E5000321B5 /* PulseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32380901FF918E5000321B5 /* PulseTests.swift */; };
 		A323809C1FF918E5000321B5 /* PulseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323809B1FF918E5000321B5 /* PulseUITests.swift */; };
+		A36627002007B58000B064DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A36626FF2007B58000B064DB /* GoogleService-Info.plist */; };
+		A36627012007B58000B064DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A36626FF2007B58000B064DB /* GoogleService-Info.plist */; };
+		A36627022007B58000B064DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A36626FF2007B58000B064DB /* GoogleService-Info.plist */; };
+		A36627042007BE3300B064DB /* DevicesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36627032007BE3300B064DB /* DevicesRoute.swift */; };
+		A366270B2007CCA400B064DB /* FcmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A366270A2007CCA400B064DB /* FcmHandler.swift */; };
 		A37EEDD81FFBBE7300DC0B23 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDD71FFBBE7300DC0B23 /* Account.swift */; };
 		A37EEDDA1FFBBE8600DC0B23 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDD91FFBBE8600DC0B23 /* Settings.swift */; };
 		A37EEDDD1FFBC2A600DC0B23 /* EncryptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */; };
@@ -149,6 +154,10 @@
 		A32380971FF918E5000321B5 /* PulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A323809B1FF918E5000321B5 /* PulseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseUITests.swift; sourceTree = "<group>"; };
 		A323809D1FF918E5000321B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A36626FE2007B4DB00B064DB /* Pulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pulse.entitlements; sourceTree = "<group>"; };
+		A36626FF2007B58000B064DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A36627032007BE3300B064DB /* DevicesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRoute.swift; sourceTree = "<group>"; };
+		A366270A2007CCA400B064DB /* FcmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcmHandler.swift; sourceTree = "<group>"; };
 		A37EEDD71FFBBE7300DC0B23 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A37EEDD91FFBBE8600DC0B23 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionUtils.swift; sourceTree = "<group>"; };
@@ -286,6 +295,7 @@
 		A32380771FF918E5000321B5 /* Pulse */ = {
 			isa = PBXGroup;
 			children = (
+				A36626FE2007B4DB00B064DB /* Pulse.entitlements */,
 				A3CBFDEB1FFC259700B439C4 /* Utils */,
 				A3CBFDE81FFC1BF100B439C4 /* UI */,
 				A37EEDD61FFBBE5C00DC0B23 /* Account */,
@@ -293,10 +303,12 @@
 				A3A47FDF1FFAD01E00F72313 /* API */,
 				A3ABB64B1FFD7D4F009ECADC /* DataProvider.swift */,
 				A32380781FF918E5000321B5 /* AppDelegate.swift */,
+				A366270A2007CCA400B064DB /* FcmHandler.swift */,
 				A323807C1FF918E5000321B5 /* Main.storyboard */,
 				A32380841FF918E5000321B5 /* LaunchScreen.storyboard */,
 				A32380821FF918E5000321B5 /* Assets.xcassets */,
 				A32380871FF918E5000321B5 /* Info.plist */,
+				A36626FF2007B58000B064DB /* GoogleService-Info.plist */,
 				A323807F1FF918E5000321B5 /* Pulse.xcdatamodeld */,
 			);
 			path = Pulse;
@@ -318,6 +330,14 @@
 				A323809D1FF918E5000321B5 /* Info.plist */,
 			);
 			path = PulseUITests;
+			sourceTree = "<group>";
+		};
+		A36627072007C0AE00B064DB /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				A3A47FE31FFADDF900F72313 /* LoginResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		A37EEDD61FFBBE5C00DC0B23 /* Account */ = {
@@ -375,7 +395,7 @@
 		A3A47FE21FFADDEA00F72313 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A3A47FE31FFADDF900F72313 /* LoginResponse.swift */,
+				A36627072007C0AE00B064DB /* Response */,
 				A3A47FEE1FFAE65200F72313 /* Conversation.swift */,
 				A3ABB6491FFD7665009ECADC /* ConversationSection.swift */,
 				A3E8E5471FFEA97F00FB6CCA /* Message.swift */,
@@ -433,6 +453,7 @@
 				A31B257A2006636400C93DD4 /* BlacklistsRoute.swift */,
 				A31B257C2006637000C93DD4 /* ScheduledMessagesRoute.swift */,
 				A31B258C20069AE500C93DD4 /* ContactsRoute.swift */,
+				A36627032007BE3300B064DB /* DevicesRoute.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -569,6 +590,14 @@
 					A32380741FF918E5000321B5 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A323808B1FF918E5000321B5 = {
 						CreatedOnToolsVersion = 9.2;
@@ -607,6 +636,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36627002007B58000B064DB /* GoogleService-Info.plist in Resources */,
 				A31B25942006B35700C93DD4 /* ContactTableViewCell.xib in Resources */,
 				A32380861FF918E5000321B5 /* LaunchScreen.storyboard in Resources */,
 				A385EDE41FFFDE61000C3F25 /* SentMessageTableViewCell.xib in Resources */,
@@ -626,6 +656,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36627012007B58000B064DB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +664,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36627022007B58000B064DB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,11 +778,15 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TURecipientBar/TURecipientBar.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -758,11 +794,15 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TURecipientBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -816,6 +856,7 @@
 				A3A47FED1FFAE61800F72313 /* DataRequest.swift in Sources */,
 				A3E8E5441FFE893D00FB6CCA /* BaseRoute.swift in Sources */,
 				A31B256F20064F9500C93DD4 /* ArchiveTableViewController.swift in Sources */,
+				A366270B2007CCA400B064DB /* FcmHandler.swift in Sources */,
 				A3E8E5531FFEB07200FB6CCA /* SentMessageTableViewCell.swift in Sources */,
 				A37EEDD81FFBBE7300DC0B23 /* Account.swift in Sources */,
 				A3E8E5461FFE8ADC00FB6CCA /* AccountsRoute.swift in Sources */,
@@ -824,6 +865,7 @@
 				A3CBFDED1FFC25A600B439C4 /* ColorUtils.swift in Sources */,
 				A3CBFDEA1FFC1E6B00B439C4 /* ConversationTableViewController.swift in Sources */,
 				A3E8E5421FFE892F00FB6CCA /* ConversationsRoute.swift in Sources */,
+				A36627042007BE3300B064DB /* DevicesRoute.swift in Sources */,
 				A3A47FE11FFAD03800F72313 /* PulseApi.swift in Sources */,
 				A385EDEF20002F02000C3F25 /* ConversationSwipeActionGenerator.swift in Sources */,
 				A31B257F20067DD200C93DD4 /* BlacklistSwipeActionGenerator.swift in Sources */,
@@ -1034,6 +1076,7 @@
 			baseConfigurationReference = 6CD7F1BD777973ACAD94A5E0 /* Pods-Pulse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pulse/Pulse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y25FUBEE67;
 				INFOPLIST_FILE = Pulse/Info.plist;
@@ -1050,6 +1093,7 @@
 			baseConfigurationReference = 609BD10075FC175689E3AFCE /* Pods-Pulse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pulse/Pulse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y25FUBEE67;
 				INFOPLIST_FILE = Pulse/Info.plist;

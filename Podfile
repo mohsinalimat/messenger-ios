@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'Pulse' do
   use_frameworks!
@@ -17,6 +17,11 @@ target 'Pulse' do
   pod 'SwiftyJSON', '~> 4.0.0'
   pod 'AsyncSwift', '~> 2.0.4'
   pod 'CryptoSwift', '~> 0.8.0'
+  pod 'DeviceKit', '~> 1.0'
+  
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'FirebaseInstanceID', '2.0.0'
   
   target 'PulseTests' do
     inherit! :search_paths
