@@ -14,8 +14,10 @@ class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITable
     @IBOutlet weak var recipientsBar: ComposeRecipientBar!
     @IBOutlet weak var messageText: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var keyboardSize: NSLayoutConstraint!
     
-    var contacts = [Contact]()
+    private var contacts = [Contact]()
+    private var offsetY:CGFloat = 0
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -38,6 +40,8 @@ class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITable
         self.tableView.separatorStyle = .none
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,5 +97,24 @@ class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITable
             .joined(separator: ",")
         
         PulseApi.messages().forwardToPhone(phoneNumbers: phoneNumbers, message: messageText.text!)
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as?     NSValue)?.cgRectValue
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            
+            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
+                self.keyboardSize.constant = 0.0
+            } else {
+                self.keyboardSize.constant = (endFrame?.size.height ?? 0.0) - 20.0
+            }
+            
+            UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve,
+                  animations: { self.view.layoutIfNeeded() }, completion: nil)
+        }
     }
 }

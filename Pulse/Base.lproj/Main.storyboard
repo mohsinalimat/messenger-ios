@@ -286,27 +286,47 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="403"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fo1-hX-N9h" customClass="TPKeyboardAvoidingTableView">
-                                        <rect key="frame" x="0.0" y="403" width="375" height="136"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fo1-hX-N9h">
+                                        <rect key="frame" x="0.0" y="403" width="375" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnw-An-exe">
-                                        <rect key="frame" x="0.0" y="539" width="375" height="64"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBs-nh-SPI">
+                                        <rect key="frame" x="0.0" y="453" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.88147668393782386" green="0.88147668393782386" blue="0.88147668393782386" alpha="0.87307988556338023" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="64" id="clz-EQ-XMN"/>
+                                            <constraint firstAttribute="height" constant="1" id="agO-nO-old"/>
                                         </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-rh-LHS">
+                                        <rect key="frame" x="0.0" y="454" width="375" height="16"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="eMN-21-kbe"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnw-An-exe">
+                                        <rect key="frame" x="0.0" y="470" width="375" height="133"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" smartInsertDeleteType="yes"/>
                                     </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3C-zq-RjO">
+                                        <rect key="frame" x="0.0" y="603" width="375" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="ggf-w2-Bci"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fo1-hX-N9h" firstAttribute="top" secondItem="xns-Kk-eOC" secondAttribute="bottom" id="5iE-3l-NBh"/>
                                     <constraint firstItem="xns-Kk-eOC" firstAttribute="top" secondItem="khs-8n-04O" secondAttribute="top" id="DRU-3n-szF"/>
                                     <constraint firstAttribute="trailing" secondItem="xns-Kk-eOC" secondAttribute="trailing" id="EwP-U6-waC"/>
                                     <constraint firstAttribute="trailing" secondItem="fo1-hX-N9h" secondAttribute="trailing" id="Xa3-eQ-wQU"/>
-                                    <constraint firstAttribute="bottom" secondItem="tnw-An-exe" secondAttribute="bottom" id="Xhe-93-dSG"/>
+                                    <constraint firstItem="l3C-zq-RjO" firstAttribute="top" secondItem="tnw-An-exe" secondAttribute="bottom" constant="200" id="Xhe-93-dSG"/>
                                     <constraint firstItem="xns-Kk-eOC" firstAttribute="leading" secondItem="khs-8n-04O" secondAttribute="leading" id="jLM-Hh-mOw"/>
+                                    <constraint firstItem="tnw-An-exe" firstAttribute="leading" secondItem="khs-8n-04O" secondAttribute="leading" constant="16" id="mvE-mJ-sC8"/>
+                                    <constraint firstAttribute="trailing" secondItem="tnw-An-exe" secondAttribute="trailing" constant="16" id="nhD-WD-mBh"/>
                                     <constraint firstItem="fo1-hX-N9h" firstAttribute="leading" secondItem="khs-8n-04O" secondAttribute="leading" id="pOl-nD-wiG"/>
                                 </constraints>
                             </stackView>
@@ -333,6 +353,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="keyboardSize" destination="ggf-w2-Bci" id="wOw-jg-EUq"/>
                         <outlet property="messageText" destination="tnw-An-exe" id="NcA-ns-swj"/>
                         <outlet property="recipientsBar" destination="xns-Kk-eOC" id="HjH-cy-1rP"/>
                         <outlet property="tableView" destination="fo1-hX-N9h" id="IXV-nM-SvR"/>
