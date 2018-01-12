@@ -50,7 +50,7 @@ class EncryptionUtils : ImageDownloaderDelegate {
     }
     
     func decryptData(data: String) -> [UInt8]? {
-        if (data.isEmpty) {
+        if data.isEmpty {
             return nil
         }
         

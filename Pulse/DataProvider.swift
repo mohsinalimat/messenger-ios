@@ -121,7 +121,7 @@ class _DataProvider {
     }
     
     func loadConversations() {
-        if (conversations != nil) {
+        if conversations != nil {
             DataObserver.notifyConversations(conversations: conversations!)
         } else {
             PulseApi.conversations().getUnarchived { conversations in
@@ -133,7 +133,7 @@ class _DataProvider {
     }
     
     func loadArchive() {
-        if (archive != nil) {
+        if archive != nil {
             DataObserver.notifyArchive(conversations: conversations!)
         } else {
             PulseApi.conversations().getArchived { conversations in
@@ -144,7 +144,7 @@ class _DataProvider {
     }
     
     func loadScheduledMessages() {
-        if (scheduledMessages != nil) {
+        if scheduledMessages != nil {
             DataObserver.notifyScheduledMessages(messages: scheduledMessages!)
         } else {
             PulseApi.scheduledMessages().getMessages { messages in
@@ -155,7 +155,7 @@ class _DataProvider {
     }
     
     func loadBlacklists() {
-        if (blacklists != nil) {
+        if blacklists != nil {
             DataObserver.notifyBlacklists(blacklists: blacklists!)
         } else {
             PulseApi.blacklists().getBlacklists { blacklists in
@@ -177,12 +177,11 @@ class _DataProvider {
     }
     
     func loadContacts(offset: Int = 0) {
-        if (self.contacts.count % 500 != 0) {
+        if self.contacts.count % 500 != 0 {
             // there is a bug here. If the user has exactly any increment of 500,
             // it would just continue to run through the contact load.
             
             self.contacts = self.contacts.uniq()
-            
             return
         }
         

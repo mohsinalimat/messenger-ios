@@ -30,13 +30,13 @@ class ConversationSection {
         for conversation in conversations {
             if conversation.pinned {
                 sections[0].conversations.append(conversation)
-            } else if (conversation.timestamp.isToday()) {
+            } else if conversation.timestamp.isToday() {
                 sections[1].conversations.append(conversation)
-            } else if (conversation.timestamp.isYesterday()) {
+            } else if conversation.timestamp.isYesterday() {
                 sections[2].conversations.append(conversation)
-            } else if (conversation.timestamp.isLastWeek()) {
+            } else if conversation.timestamp.isLastWeek() {
                 sections[3].conversations.append(conversation)
-            } else if (conversation.timestamp.isLastMonth()) {
+            } else if conversation.timestamp.isLastMonth() {
                 sections[4].conversations.append(conversation)
             } else {
                 sections[5].conversations.append(conversation)

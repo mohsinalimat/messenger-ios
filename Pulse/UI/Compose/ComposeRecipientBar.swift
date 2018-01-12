@@ -58,8 +58,8 @@ class ComposeRecipientBar : TURecipientsBar {
 }
 
 class ContactRecipient : NSObject, NSCopying, TURecipientProtocol {
-    
     let contact: Contact
+    
     init(contact: Contact) {
         self.contact = contact
         super.init()
@@ -68,7 +68,6 @@ class ContactRecipient : NSObject, NSCopying, TURecipientProtocol {
     public var recipientTitle: String {
         return contact.name
     }
-    
     
     public func copy(with zone: NSZone? = nil) -> Any {
         return ContactRecipient(contact: self.contact)

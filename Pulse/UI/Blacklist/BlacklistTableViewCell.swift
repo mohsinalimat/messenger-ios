@@ -10,11 +10,9 @@ import UIKit
 
 class BlacklistTableViewCell : UITableViewCell {
     
-    // MARK: Properties
     @IBOutlet weak var phoneNumber: UILabel!
     
     func bind(blacklist: Blacklist) {
         self.phoneNumber.text = blacklist.phoneNumber
     }
 }
-

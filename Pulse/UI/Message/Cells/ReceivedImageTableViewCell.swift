@@ -22,7 +22,7 @@ class ReceivedImageTableViewCell : MessageTableViewCell {
         self.messageContainer.backgroundColor = UIColor(rgb: conversation.color)
         self.message.backgroundColor = UIColor(rgb: conversation.color)
         
-        if (conversation.isGroup() && message.sender != nil) {
+        if conversation.isGroup() && message.sender != nil {
             self.timestamp.text = "\(self.timestamp.text!) - \(message.sender!)"
         }
     }

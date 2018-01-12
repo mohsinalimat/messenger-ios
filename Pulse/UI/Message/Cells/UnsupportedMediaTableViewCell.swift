@@ -14,4 +14,3 @@ class UnsupportedMediaTableViewCell : MessageTableViewCell {
         self.timestamp.isHidden = true
     }
 }
-

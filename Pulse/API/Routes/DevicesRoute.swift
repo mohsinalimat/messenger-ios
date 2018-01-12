@@ -18,7 +18,7 @@ class DevicesRoute : BaseRoute {
     }
     
     func add(accountId: String?, fcmToken: String?, completionHandler: @escaping (String) -> Void) {
-        if (accountId == nil || fcmToken == nil) {
+        if accountId == nil || fcmToken == nil {
             return
         }
         
@@ -37,7 +37,7 @@ class DevicesRoute : BaseRoute {
     }
     
     func updateFcmToken(fcmToken: String) {
-        if (!Account.exists()) {
+        if !Account.exists() {
             return
         }
         

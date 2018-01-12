@@ -27,7 +27,7 @@ struct Blacklist : ResponseObjectSerializable, ResponseCollectionSerializable, C
             let representation = representation as? [String: Any],
             let id = representation["device_id"] as? Int64,
             let phoneNumber = representation["phone_number"] as? String
-            else { return nil }
+        else { return nil }
         
         self.id = id
         self.phoneNumber = Account.encryptionUtils?.decrypt(data: phoneNumber) ?? ""

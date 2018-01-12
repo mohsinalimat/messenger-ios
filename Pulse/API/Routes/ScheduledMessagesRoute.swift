@@ -16,7 +16,7 @@ class ScheduledMessagesRoute : BaseRoute {
     }
     
     func getMessages(completionHandler: @escaping ([ScheduledMessage]) -> Void) {
-        if (!Account.exists()) {
+        if !Account.exists() {
             return
         }
         

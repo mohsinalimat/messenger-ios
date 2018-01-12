@@ -35,4 +35,3 @@ class KeyUtils {
 enum EncryptionError: Error {
     case failedCreatingKey
 }
-

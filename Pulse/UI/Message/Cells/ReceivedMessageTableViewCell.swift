@@ -22,7 +22,7 @@ class ReceivedMessageTableViewCell : MessageTableViewCell {
         self.message.textColor = UIColor.white
         self.createWebLinks(label: self.message, conversation: conversation)
         
-        if (conversation.isGroup() && message.sender != nil) {
+        if conversation.isGroup() && message.sender != nil {
             self.timestamp.text = "\(self.timestamp.text!) - \(message.sender!)"
         }
     }

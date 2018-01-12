@@ -41,4 +41,3 @@ struct Contact : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         return lhs.phoneNumber == rhs.phoneNumber
     }
 }
-

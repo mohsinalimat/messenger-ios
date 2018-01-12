@@ -60,7 +60,7 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
     
     private static func getOptionalString(representation: [String: Any], key: String) -> String? {
         let value = representation[key]
-        if (!(value is NSNull)) {
+        if !(value is NSNull) {
             return Account.encryptionUtils?.decrypt(data: (value as? String)!) ?? nil
         } else {
             return nil

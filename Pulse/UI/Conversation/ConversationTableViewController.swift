@@ -30,12 +30,8 @@ class ConversationTableViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refresh.addTarget(self, action: #selector(reloadData(_:)), for: .valueChanged)
-        if #available(iOS 10.0, *) {
-            self.tableView.refreshControl = refresh
-        } else {
-            self.tableView.addSubview(refresh)
-        }
+        self.refresh.addTarget(self, action: #selector(reloadData(_:)), for: .valueChanged)
+        self.tableView.refreshControl = refresh
         
         loadData()
     }

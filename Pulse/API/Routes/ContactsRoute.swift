@@ -16,7 +16,7 @@ class ContactsRoute : BaseRoute {
     }
     
     func getContacts(offset: Int = 0, completionHandler: @escaping ([Contact]) -> Void) {
-        if (!Account.exists()) {
+        if !Account.exists() {
             return
         }
         

@@ -10,7 +10,6 @@ import UIKit
 
 class ContactTableViewCell : UITableViewCell {
     
-    // MARK: Properties
     @IBOutlet weak var contact: UILabel!
     
     func bind(contact: Contact) {

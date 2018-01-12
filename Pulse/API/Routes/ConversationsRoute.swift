@@ -16,7 +16,7 @@ class ConversationsRoute : BaseRoute {
     }
     
     func latestTimestamp(completionHandler: @escaping (Int64) -> Void) {
-        if (!Account.exists()) {
+        if !Account.exists() {
             return
         }
         
@@ -28,7 +28,7 @@ class ConversationsRoute : BaseRoute {
     }
     
     func getUnarchived(completionHandler: @escaping ([Conversation]) -> Void) {
-        if (!Account.exists()) {
+        if !Account.exists() {
             return
         }
         
@@ -40,7 +40,7 @@ class ConversationsRoute : BaseRoute {
     }
     
     func getArchived(completionHandler: @escaping ([Conversation]) -> Void) {
-        if (!Account.exists()) {
+        if !Account.exists() {
             return
         }
         

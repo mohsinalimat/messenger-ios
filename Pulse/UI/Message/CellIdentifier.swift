@@ -22,22 +22,22 @@ class CellIdentifier {
     }
     
     static func get(message: Message) -> String {
-        if (message.messageType == MessageType.MEDIA) {
+        if message.messageType == MessageType.MEDIA {
             return "MediaTableViewCell"
-        } else if (message.messageType == MessageType.INFO) {
+        } else if message.messageType == MessageType.INFO {
             return "InfoTableViewCell"
-        } else if (message.messageType == MessageType.RECEIVED) {
-            if (MimeType.isImage(mimeType: message.mimeType)) {
+        } else if message.messageType == MessageType.RECEIVED {
+            if MimeType.isImage(mimeType: message.mimeType) {
                 return "ReceivedImageTableViewCell"
-            } else if (MimeType.isAudio(mimeType: message.mimeType) || MimeType.isVideo(mimeType: message.mimeType) || MimeType.isVCard(mimeType: message.mimeType)) {
+            } else if MimeType.isAudio(mimeType: message.mimeType) || MimeType.isVideo(mimeType: message.mimeType) || MimeType.isVCard(mimeType: message.mimeType) {
                 return "UnsupportedMediaTableViewCell"
             } else {
                 return "ReceivedMessageTableViewCell"
             }
         } else {
-            if (MimeType.isImage(mimeType: message.mimeType)) {
+            if MimeType.isImage(mimeType: message.mimeType) {
                 return "SentImageTableViewCell"
-            } else if (MimeType.isAudio(mimeType: message.mimeType) || MimeType.isVideo(mimeType: message.mimeType) || MimeType.isVCard(mimeType: message.mimeType)) {
+            } else if MimeType.isAudio(mimeType: message.mimeType) || MimeType.isVideo(mimeType: message.mimeType) || MimeType.isVCard(mimeType: message.mimeType) {
                 return "UnsupportedMediaTableViewCell"
             } else {
                 return "SentMessageTableViewCell"

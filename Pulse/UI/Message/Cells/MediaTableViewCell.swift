@@ -23,9 +23,9 @@ class MediaTableViewCell : MessageTableViewCell {
             do {
                 let json = try JSON(data: dataFromString)
                 
-                if (message.mimeType == MimeType.MEDIA_YOUTUBE_V2) {
+                if message.mimeType == MimeType.MEDIA_YOUTUBE_V2 {
                     handleYoutube(json: json)
-                } else if (message.mimeType == MimeType.MEDIA_ARTICLE) {
+                } else if message.mimeType == MimeType.MEDIA_ARTICLE {
                     handleArticle(json: json)
                 }
             } catch { }

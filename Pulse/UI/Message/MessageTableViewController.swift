@@ -46,7 +46,7 @@ class MessageTableViewController : SLKTextViewController {
             self.showData()
         })
         
-        if (!DataProvider.hasMessages(conversationId: conversation!.id)) {
+        if !DataProvider.hasMessages(conversationId: conversation!.id) {
             self.hideTableView()
         }
         
@@ -64,7 +64,7 @@ class MessageTableViewController : SLKTextViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (messages.count == 0) {
+        if messages.count == 0 {
             DataProvider.loadMessages(conversation: conversation!)
         }
         
@@ -130,7 +130,7 @@ class MessageTableViewController : SLKTextViewController {
     private func hideTableView() {
         self.activityIndicatorView.startAnimating()
         
-        if (messages.count > 0) {
+        if messages.count > 0 {
             self.tableView!.alpha = 1.0
             
             UIView.animate(withDuration: 0.2, animations: {

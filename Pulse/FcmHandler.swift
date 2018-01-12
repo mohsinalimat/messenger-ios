@@ -12,15 +12,16 @@ import SwiftyJSON
 let FcmHandler = _FcmHandler()
 
 class _FcmHandler {
+    
     func handle(operation: String, json: JSON) {
         switch operation {
-        case "added_message": addedMessage(json: json)
-        case "read_conversation": readConversation(json: json)
-        case "added_conversation": invalidateConversationList()
-        case "removed_conversation": invalidateConversationList()
-        case "archive_conversation": invalidateConversationList()
-        case "dismissed_notification": dismissNotification(json: json)
-        default: debugPrint("no fcm handler for \(operation)")
+        case "added_message":           addedMessage(json: json)
+        case "read_conversation":       readConversation(json: json)
+        case "added_conversation":      invalidateConversationList()
+        case "removed_conversation":    invalidateConversationList()
+        case "archive_conversation":    invalidateConversationList()
+        case "dismissed_notification":  dismissNotification(json: json)
+        default:                        debugPrint("no fcm handler for \(operation)")
         }
     }
     

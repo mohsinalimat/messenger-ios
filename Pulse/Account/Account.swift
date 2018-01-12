@@ -83,7 +83,7 @@ class _Account {
         self.passwordHash = _Account.getKey(key: AccountPreferenceKeys.PASSWORD_HASH)
         self.encryptionKey = _Account.getKey(key: AccountPreferenceKeys.ENCRYPTION_KEY)
         
-        if (encryptionKey != nil) {
+        if encryptionKey != nil {
             self.encryptionUtils = EncryptionUtils(key: self.encryptionKey!)
         }
     }

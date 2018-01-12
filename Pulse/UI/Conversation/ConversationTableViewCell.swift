@@ -10,7 +10,6 @@ import UIKit
 
 class ConversationTableViewCell : UITableViewCell {
     
-    // MARK: Properties
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var snippet: UILabel!
     @IBOutlet weak var conversationImage: UIImageView!
@@ -25,7 +24,7 @@ class ConversationTableViewCell : UITableViewCell {
         self.conversationImage.image = UIImage(color: UIColor(rgb: conversation.color))
         self.conversationImage.maskCircle()
         
-        if (!conversation.read) {
+        if !conversation.read {
             self.unreadIndicator.image = UIImage(color: UIColor(rgb: conversation.colorDark))
             self.unreadIndicator.maskCircle()
             self.unreadIndicator.isHidden = false

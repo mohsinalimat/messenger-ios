@@ -13,7 +13,7 @@ class MessengerNavigationController : UINavigationController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if (!Account.exists()) {
+        if !Account.exists() {
             let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginNavigationController") as! LoginNavigationController
             self.present(secondViewController, animated: true)
         } else {

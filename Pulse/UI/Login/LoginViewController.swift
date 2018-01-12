@@ -15,6 +15,9 @@ import FirebaseInstanceID
 import FirebaseMessaging
 
 class LoginViewController : UIViewController, UITextFieldDelegate {
+    
+    // TODO: Update the UI when the login is happening and when the encryption key is getting made
+    // TODO: Improve the UI of this page, in general
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -32,7 +35,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func login(_ sender: Any) {
-        if (email.text != nil && email.text!.count != 0 && password.text != nil && password.text!.count != 0) {
+        if email.text != nil && email.text!.count != 0 && password.text != nil && password.text!.count != 0 {
             self.login.isEnabled = false
             self.password.resignFirstResponder()
             

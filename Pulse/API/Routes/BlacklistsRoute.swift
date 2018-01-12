@@ -16,7 +16,7 @@ class BlacklistsRoute : BaseRoute {
     }
     
     func getBlacklists(completionHandler: @escaping ([Blacklist]) -> Void) {
-        if (!Account.exists()) {
+        if !Account.exists() {
             return
         }
         

@@ -52,9 +52,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
+    
     //
     // FCM messages coming through APNs, in the background. These are "silent" notitifications.
     //
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         handleFcm(fcm: userInfo)

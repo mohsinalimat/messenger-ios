@@ -36,7 +36,7 @@ class _AppOpenedUpdateHelper {
     }
     
     func resetLatestTimestamp(conversations: [Conversation]) {
-        if (conversations.count == 0) {
+        if conversations.count == 0 {
             self.latestTimestamp = Date().millisecondsSince1970
         } else {
             let latestConversation = conversations.sorted(by: { (one, two) -> Bool in

@@ -33,18 +33,12 @@ class SectionViewGenerator {
     
     private func getTitle(type: SectionType) -> String {
         switch type {
-            case .pinned:
-                return "Pinned"
-            case .today:
-                return "Today"
-            case .yesterday:
-                return "Yesterday"
-            case .lastWeek:
-                return "This Week"
-            case .lastMonth:
-                return "This Month"
-            default:
-                return "Older"
+        case .pinned:       return "Pinned"
+        case .today:        return "Today"
+        case .yesterday:    return "Yesterday"
+        case .lastWeek:     return "This Week"
+        case .lastMonth:    return "This Month"
+        default:            return "Older"
         }
     }
 }

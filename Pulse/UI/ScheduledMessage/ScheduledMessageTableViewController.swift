@@ -32,12 +32,8 @@ class ScheduledMessageTableViewController : UITableViewController {
         self.tableView.separatorStyle = .none
         self.tableView.register(UINib(nibName: "ScheduledMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "ScheduledMessageTableViewCell")
         
-        refresh.addTarget(self, action: #selector(reloadData(_:)), for: .valueChanged)
-        if #available(iOS 10.0, *) {
-            self.tableView.refreshControl = refresh
-        } else {
-            self.tableView.addSubview(refresh)
-        }
+        self.refresh.addTarget(self, action: #selector(reloadData(_:)), for: .valueChanged)
+        self.tableView.refreshControl = refresh
         
         loadData()
     }
