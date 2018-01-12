@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import UserNotifications
 
 let FcmHandler = _FcmHandler()
 
@@ -45,7 +46,7 @@ class _FcmHandler {
     }
     
     private func dismissNotification(json: JSON) {
-        // TODO: dismiss all notifications here, since we really don't store the notifications
-        // or have a way to know which are there...
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 }
