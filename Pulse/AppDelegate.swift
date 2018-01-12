@@ -42,20 +42,22 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) { }
     func applicationDidBecomeActive(_ application: UIApplication) { }
     func applicationWillTerminate(_ application: UIApplication) { }
+    
+    func handleFcm(fcm: [AnyHashable: Any]) {
+        if let operation = fcm["operation"] as? String,
+            let content = fcm["contents"] as? String {
+            FcmHandler.handle(operation: operation, json: JSON(content))
+        }
+    }
 }
 
 extension AppDelegate {
+    //
     // FCM messages coming through APNs, in the background. These are "silent" notitifications.
+    //
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let operation = userInfo["operation"] as? String
-        let content = userInfo["contents"] as? String
-        
-        if operation == nil || content == nil {
-            return
-        }
-        
-        FcmHandler.handle(operation: operation!, json: JSON(content!))
+        handleFcm(fcm: userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
@@ -65,37 +67,34 @@ extension AppDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    //
     // FCM messages that will generate a notification
+    //
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let _ = notification.request.content.userInfo
         completionHandler([])
     }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        let _ = response.notification.request.content.userInfo
-        completionHandler()
-    }
 }
 
 extension AppDelegate: MessagingDelegate {
 
+    //
+    // this is where notifications would usually come in, when the app is in the foreground.
+    // Since I have used silent push notifications through APNs and told FCM about the APNs (above), notifications
+    // haven't come through here. They *may* start coming through here when I stop using the silent notifications
+    // (since they seem to be rate limited and restricted).
+    //
+    // Silent notifications will be used for dismissing a notification so that we can do that from the background.
+    // Display notifications will be used for new messages (only received messages)
+    // Normal FCM notifications will be used for everything else.
+    //
+    
     func application(received remoteMessage: MessagingRemoteMessage) {
-        //
-        // this is where notifications would usually come in, when the app is in the foreground.
-        // Since I have used silent push notifications through APNs and told FCM about the APNs (above), notifications
-        // haven't come through here. They *may* start coming through here when I stop using the silent notifications
-        // (since they seem to be rate limited and restricted).
-        //
-        // Silent notifications will be used for dismissing a notification so that we can do that from the background.
-        // Display notifications will be used for new messages (only received messages)
-        // Normal FCM notifications will be used for everything else.
-        //
-        
-        debugPrint(remoteMessage.appData)
+        handleFcm(fcm: remoteMessage.appData)
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
