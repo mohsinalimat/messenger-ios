@@ -93,8 +93,8 @@ class _DataObserver {
         blacklistsObservable.onNext(blacklists)
     }
     
-    fileprivate func notifyMessages(conversation: Conversation, messages: [Message]) {
-        if let publisher = messagesObservable[conversation.id] {
+    fileprivate func notifyMessages(conversationId: Int64, messages: [Message]) {
+        if let publisher = messagesObservable[conversationId] {
             publisher.onNext(messages)
         }
     }
@@ -167,11 +167,11 @@ class _DataProvider {
     
     func loadMessages(conversation: Conversation) {
         if hasMessages(conversationId: conversation.id) {
-            DataObserver.notifyMessages(conversation: conversation, messages: messages[conversation.id]!)
+            DataObserver.notifyMessages(conversationId: conversation.id, messages: messages[conversation.id]!)
         } else {
             PulseApi.messages().getMessages(conversationId: conversation.id) { messageList in
                 self.messages.updateValue(messageList, forKey: conversation.id)
-                DataObserver.notifyMessages(conversation: conversation, messages: messageList)
+                DataObserver.notifyMessages(conversationId: conversation.id, messages: messageList)
             }
         }
     }
@@ -192,11 +192,11 @@ class _DataProvider {
         }
     }
     
-    func addSentMessage(conversation: Conversation, message: Message) {
-        messages[conversation.id]?.insert(message, at: 0)
+    func addSentMessage(conversationId: Int64, message: Message) {
+        messages[conversationId]?.insert(message, at: 0)
         
         for i in 0..<conversations!.count {
-            if (conversations![i].id == conversation.id) {
+            if (conversations![i].id == conversationId) {
                 conversations![i].snippet = message.mimeType == MimeType.TEXT_PLAIN ? "You: \(message.data)" : ""
                 conversations![i].timestamp = message.timestamp
                 conversations![i].read = true
@@ -204,6 +204,35 @@ class _DataProvider {
                 DataObserver.notifyConversations(conversations: conversations!)
                 PulseApi.conversations().updateSnippet(conversation: conversations![i], snippet: conversations![i].snippet)
                 
+                break
+            }
+        }
+    }
+    
+    func addMessage(conversationId: Int64, message: Message) {
+        if !hasMessages(conversationId: conversationId) {
+            return
+        }
+        
+        messages[conversationId]!.insert(message, at: 0)
+        DataObserver.notifyMessages(conversationId: conversationId, messages: messages[conversationId]!)
+        
+        if conversations == nil {
+            return
+        }
+        
+        for i in 0..<conversations!.count {
+            if (conversations![i].id == conversationId) {
+                conversations![i].timestamp = message.timestamp
+                conversations![i].snippet = message.mimeType == MimeType.TEXT_PLAIN ? message.data : ""
+                if message.messageType != MessageType.RECEIVED {
+                    conversations![i].snippet = "You: \(conversations![i].snippet)"
+                    conversations![i].read = true
+                } else {
+                    conversations![i].read = false
+                }
+                
+                DataObserver.notifyConversations(conversations: conversations!)
                 break
             }
         }
@@ -234,7 +263,8 @@ class _DataProvider {
         return false
     }
     
-    func markAsRead(conversationId: Int64) {
+    // this is called from within the app, when opening an unread conversation
+    func readConversation(conversationId: Int64) {
         if conversations == nil {
             return
         }
@@ -250,6 +280,21 @@ class _DataProvider {
                     PulseApi.accounts().dismissNotification(conversation: conversation)
                 }
                 
+                break
+            }
+        }
+    }
+    
+    // this is called from the FCM receiver to update the read status of a conversation
+    func markAsRead(conversationId: Int64) {
+        if conversations == nil {
+            return
+        }
+        
+        for i in 0..<conversations!.count {
+            if (conversations![i].id == conversationId) {
+                conversations![i].read = true
+                DataObserver.notifyConversations(conversations: conversations!)
                 break
             }
         }

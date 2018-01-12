@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SwiftyJSON
 
 struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
     
@@ -28,6 +29,15 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         self.mimeType = mimeType
         self.timestamp = Date().millisecondsSince1970
         self.sender = nil
+    }
+    
+    init(json: JSON) {
+        self.id = json["device_id"].int64!
+        self.messageType = json["type"].int!
+        self.data = Account.encryptionUtils?.decrypt(data: json["data"].string!) ?? ""
+        self.mimeType = Account.encryptionUtils?.decrypt(data: json["mime_type"].string!) ?? "text/plain"
+        self.timestamp = json["timestamp"].int64!
+        self.sender = Message.getOptionalString(json: json, key: "message_from")
     }
     
     init?(response: HTTPURLResponse, representation: Any) {
@@ -52,6 +62,14 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         let value = representation[key]
         if (!(value is NSNull)) {
             return Account.encryptionUtils?.decrypt(data: (value as? String)!) ?? nil
+        } else {
+            return nil
+        }
+    }
+    
+    private static func getOptionalString(json: JSON, key: String) -> String? {
+        if let value = json[key].string {
+            return Account.encryptionUtils?.decrypt(data: value) ?? nil
         } else {
             return nil
         }

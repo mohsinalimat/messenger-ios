@@ -68,7 +68,7 @@ class MessageTableViewController : SLKTextViewController {
             DataProvider.loadMessages(conversation: conversation!)
         }
         
-        DataProvider.markAsRead(conversationId: conversation!.id)
+        DataProvider.readConversation(conversationId: conversation!.id)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

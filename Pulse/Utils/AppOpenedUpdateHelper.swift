@@ -53,7 +53,7 @@ class _AppOpenedUpdateHelper {
             if let conversation = self.currentlyOpenConversation {
                 if (!DataProvider.hasMessages(conversationId: conversation.id)) {
                     DataProvider.loadMessages(conversation: conversation)
-                    DataProvider.markAsRead(conversationId: conversation.id)
+                    DataProvider.readConversation(conversationId: conversation.id)
                 }
             }
         }
