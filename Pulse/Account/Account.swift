@@ -32,18 +32,18 @@ class _Account {
         return accountId != nil
     }
     
-    func createAccount(password: String, loginResponse: LoginResponse) throws {
+    func createAccount(password: String, accountId: String, name: String, number: String, salt1: String, salt2: String) throws {
         let preferences = UserDefaults.standard
         
-        preferences.set(loginResponse.name, forKey: AccountPreferenceKeys.NAME)
-        preferences.set(loginResponse.number, forKey: AccountPreferenceKeys.PHONE_NUMBER)
+        preferences.set(name, forKey: AccountPreferenceKeys.NAME)
+        preferences.set(number, forKey: AccountPreferenceKeys.PHONE_NUMBER)
         
-        preferences.set(loginResponse.accountId, forKey: AccountPreferenceKeys.ACCOUNT_ID)
+        preferences.set(accountId, forKey: AccountPreferenceKeys.ACCOUNT_ID)
         
-        let passwordHash = try KeyUtils().hashPassword(password: password, salt: loginResponse.salt2)
-        let encryptionKey = try KeyUtils().createKey(passwordHash: passwordHash, accountId: loginResponse.accountId, salt: loginResponse.salt1)
+        let passwordHash = try KeyUtils().hashPassword(password: password, salt: salt2)
+        let encryptionKey = try KeyUtils().createKey(passwordHash: passwordHash, accountId: accountId, salt: salt1)
         
-        preferences.set(loginResponse.salt1, forKey: AccountPreferenceKeys.SALT)
+        preferences.set(salt1, forKey: AccountPreferenceKeys.SALT)
         preferences.set(passwordHash, forKey: AccountPreferenceKeys.PASSWORD_HASH)
         preferences.set(encryptionKey, forKey: AccountPreferenceKeys.ENCRYPTION_KEY)
         
@@ -70,7 +70,7 @@ class _Account {
         preferences.set(token!, forKey: AccountPreferenceKeys.FCM_TOKEN)
         preferences.synchronize()
         
-        PulseApi.devices().updateFcmToken(fcmToken: token!)
+//        PulseApi.devices().updateFcmToken(fcmToken: token!)
     }
     
     private func readValues() {

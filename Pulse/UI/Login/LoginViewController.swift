@@ -59,7 +59,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
         Async.main {
             do {
                 debugPrint("creating account encryption.")
-                try Account.createAccount(password: password, loginResponse: loginResponse)
+                try Account.createAccount(password: password, accountId: loginResponse.accountId, name: loginResponse.name, number: loginResponse.number, salt1: loginResponse.salt1, salt2: loginResponse.salt2)
             } catch {
                 debugPrint("error creating encryption for account.")
             }

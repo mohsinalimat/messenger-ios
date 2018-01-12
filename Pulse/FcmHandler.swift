@@ -26,11 +26,6 @@ class _FcmHandler {
         }
     }
     
-    func handleMessageNotification() {
-        // TODO: transform/decrypt the notification content before it is displayed to the user
-        // this is done through the mutable_content flag on FCM
-    }
-    
     private func addedMessage(json: JSON) {
         let message = Message(json: json)
         DataProvider.addMessage(conversationId: json["conversation_id"].int64!, message: message)

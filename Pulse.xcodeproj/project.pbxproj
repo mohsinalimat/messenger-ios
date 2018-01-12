@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A300AB0C200948AE00CD1589 /* NotificationDecryptor.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A300AB05200948AE00CD1589 /* NotificationDecryptor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A300AB2820094C7D00CD1589 /* EncryptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDDC1FFBC2A600DC0B23 /* EncryptionUtils.swift */; };
+		A300AB2920094C7D00CD1589 /* KeyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDDE1FFBC2B500DC0B23 /* KeyUtils.swift */; };
+		A300AB2A20094C7D00CD1589 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EEDD71FFBBE7300DC0B23 /* Account.swift */; };
 		A3094335200255FA00C86DA6 /* MediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */; };
 		A3094337200257A000C86DA6 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3094336200257A000C86DA6 /* MediaTableViewCell.swift */; };
 		A30943392002643400C86DA6 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30943382002643300C86DA6 /* InfoTableViewCell.xib */; };
@@ -91,6 +95,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A300AB0A200948AE00CD1589 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A323806D1FF918E5000321B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A300AB04200948AE00CD1589;
+			remoteInfo = NotificationDecryptor;
+		};
 		A323808D1FF918E5000321B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A323806D1FF918E5000321B5 /* Project object */;
@@ -107,6 +118,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A300AB10200948AE00CD1589 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A300AB0C200948AE00CD1589 /* NotificationDecryptor.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3C02D50C1072955985FB5BCA /* Pods-PulseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseTests/Pods-PulseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E5CE5749DE78EBF733EE622 /* Pods-PulseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseUITests/Pods-PulseUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,8 +140,12 @@
 		609BD10075FC175689E3AFCE /* Pods-Pulse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pulse/Pods-Pulse.release.xcconfig"; sourceTree = "<group>"; };
 		6CD7F1BD777973ACAD94A5E0 /* Pods-Pulse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulse/Pods-Pulse.debug.xcconfig"; sourceTree = "<group>"; };
 		746C50C204838A9CE62146B0 /* Pods_Pulse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pulse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75F86F17321FDE35B3403D5A /* Pods_NotificationDecryptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationDecryptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87838B626A0453639181E815 /* Pods-PulseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseUITests/Pods-PulseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F24AAF75098E94A910D56A5 /* Pods-PulseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseTests/Pods-PulseTests.release.xcconfig"; sourceTree = "<group>"; };
+		A300AB05200948AE00CD1589 /* NotificationDecryptor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationDecryptor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A300AB07200948AE00CD1589 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		A300AB09200948AE00CD1589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3094334200255FA00C86DA6 /* MediaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaTableViewCell.xib; sourceTree = "<group>"; };
 		A3094336200257A000C86DA6 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		A30943382002643300C86DA6 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -203,6 +232,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A300AB02200948AE00CD1589 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A32380721FF918E5000321B5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +266,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A300AB06200948AE00CD1589 /* NotificationDecryptor */ = {
+			isa = PBXGroup;
+			children = (
+				A300AB07200948AE00CD1589 /* NotificationService.swift */,
+				A300AB09200948AE00CD1589 /* Info.plist */,
+			);
+			path = NotificationDecryptor;
+			sourceTree = "<group>";
+		};
 		A31B256D20064F4900C93DD4 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +321,7 @@
 				A32380771FF918E5000321B5 /* Pulse */,
 				A323808F1FF918E5000321B5 /* PulseTests */,
 				A323809A1FF918E5000321B5 /* PulseUITests */,
+				A300AB06200948AE00CD1589 /* NotificationDecryptor */,
 				A32380761FF918E5000321B5 /* Products */,
 				EB50D8AFAB4FCC387CAD13C2 /* Pods */,
 				CFD77C0876C93678AB2DEA84 /* Frameworks */,
@@ -288,6 +334,7 @@
 				A32380751FF918E5000321B5 /* Pulse.app */,
 				A323808C1FF918E5000321B5 /* PulseTests.xctest */,
 				A32380971FF918E5000321B5 /* PulseUITests.xctest */,
+				A300AB05200948AE00CD1589 /* NotificationDecryptor.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -495,6 +542,7 @@
 				746C50C204838A9CE62146B0 /* Pods_Pulse.framework */,
 				49DC997D327DB5940F96B486 /* Pods_PulseTests.framework */,
 				3F838AF0BCAE988971148362 /* Pods_PulseUITests.framework */,
+				75F86F17321FDE35B3403D5A /* Pods_NotificationDecryptor.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -515,6 +563,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A300AB04200948AE00CD1589 /* NotificationDecryptor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A300AB0F200948AE00CD1589 /* Build configuration list for PBXNativeTarget "NotificationDecryptor" */;
+			buildPhases = (
+				A300AB01200948AE00CD1589 /* Sources */,
+				A300AB02200948AE00CD1589 /* Frameworks */,
+				A300AB03200948AE00CD1589 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationDecryptor;
+			productName = NotificationDecryptor;
+			productReference = A300AB05200948AE00CD1589 /* NotificationDecryptor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A32380741FF918E5000321B5 /* Pulse */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A32380A01FF918E5000321B5 /* Build configuration list for PBXNativeTarget "Pulse" */;
@@ -525,10 +590,12 @@
 				A32380731FF918E5000321B5 /* Resources */,
 				87A08F38E0F02E1845340997 /* [CP] Embed Pods Frameworks */,
 				0EB732A6AA8F21735F2AD87A /* [CP] Copy Pods Resources */,
+				A300AB10200948AE00CD1589 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A300AB0B200948AE00CD1589 /* PBXTargetDependency */,
 			);
 			name = Pulse;
 			productName = Pulse;
@@ -587,6 +654,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Luke Klinker";
 				TargetAttributes = {
+					A300AB04200948AE00CD1589 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					A32380741FF918E5000321B5 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -627,11 +698,19 @@
 				A32380741FF918E5000321B5 /* Pulse */,
 				A323808B1FF918E5000321B5 /* PulseTests */,
 				A32380961FF918E5000321B5 /* PulseUITests */,
+				A300AB04200948AE00CD1589 /* NotificationDecryptor */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A300AB03200948AE00CD1589 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A32380731FF918E5000321B5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -845,6 +924,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A300AB01200948AE00CD1589 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A300AB2820094C7D00CD1589 /* EncryptionUtils.swift in Sources */,
+				A300AB2920094C7D00CD1589 /* KeyUtils.swift in Sources */,
+				A300AB2A20094C7D00CD1589 /* Account.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A32380711FF918E5000321B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -932,6 +1021,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A300AB0B200948AE00CD1589 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A300AB04200948AE00CD1589 /* NotificationDecryptor */;
+			targetProxy = A300AB0A200948AE00CD1589 /* PBXContainerItemProxy */;
+		};
 		A323808E1FF918E5000321B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A32380741FF918E5000321B5 /* Pulse */;
@@ -964,6 +1058,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A300AB0D200948AE00CD1589 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y25FUBEE67;
+				INFOPLIST_FILE = NotificationDecryptor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.klinker.messenger.NotificationDecryptor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A300AB0E200948AE00CD1589 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y25FUBEE67;
+				INFOPLIST_FILE = NotificationDecryptor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.klinker.messenger.NotificationDecryptor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A323809E1FF918E5000321B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1075,6 +1201,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CD7F1BD777973ACAD94A5E0 /* Pods-Pulse.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pulse/Pulse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1092,6 +1219,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 609BD10075FC175689E3AFCE /* Pods-Pulse.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pulse/Pulse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1178,6 +1306,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A300AB0F200948AE00CD1589 /* Build configuration list for PBXNativeTarget "NotificationDecryptor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A300AB0D200948AE00CD1589 /* Debug */,
+				A300AB0E200948AE00CD1589 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A32380701FF918E5000321B5 /* Build configuration list for PBXProject "Pulse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
