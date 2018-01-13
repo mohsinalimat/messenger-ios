@@ -170,8 +170,9 @@ class _DataProvider {
             DataObserver.notifyMessages(conversationId: conversation.id, messages: messages[conversation.id]!)
         } else {
             PulseApi.messages().getMessages(conversationId: conversation.id) { messageList in
-                self.messages.updateValue(messageList, forKey: conversation.id)
-                DataObserver.notifyMessages(conversationId: conversation.id, messages: messageList)
+                let messages = messageList.uniq()
+                self.messages.updateValue(messages, forKey: conversation.id)
+                DataObserver.notifyMessages(conversationId: conversation.id, messages: messages)
             }
         }
     }

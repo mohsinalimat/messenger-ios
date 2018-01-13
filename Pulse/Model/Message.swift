@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
+struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible, Equatable  {
     
     let id: Int64
     let messageType: Int
@@ -73,6 +73,10 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         } else {
             return nil
         }
+    }
+    
+    static func ==(lhs: Message, rhs: Message) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
