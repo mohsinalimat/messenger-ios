@@ -101,6 +101,8 @@ extension AppDelegate: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        Account.updateFcmToken(token: fcmToken)
+        if Account.updateFcmToken(token: fcmToken) {
+            PulseApi.devices().updateFcmToken(fcmToken: fcmToken)
+        }
     }
 }

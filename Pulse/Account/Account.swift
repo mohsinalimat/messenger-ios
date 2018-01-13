@@ -59,9 +59,9 @@ class _Account {
         preferences.synchronize()
     }
     
-    func updateFcmToken(token: String?) {
+    func updateFcmToken(token: String?) -> Bool {
         if token == nil || token == self.fcmToken {
-            return
+            return false
         }
         
         self.fcmToken = token!
@@ -70,7 +70,7 @@ class _Account {
         preferences.set(token!, forKey: AccountPreferenceKeys.FCM_TOKEN)
         preferences.synchronize()
         
-//        PulseApi.devices().updateFcmToken(fcmToken: token!)
+        return true
     }
     
     private func readValues() {
