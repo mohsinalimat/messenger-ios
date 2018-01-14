@@ -18,6 +18,7 @@ class MessageTableViewController : SLKTextViewController {
     var messages = [Message]()
     var conversation: Conversation? = nil
     var subscription: Disposable? = nil
+    var colorMapper: GroupColorMapper? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,9 @@ class MessageTableViewController : SLKTextViewController {
         if !DataProvider.hasMessages(conversationId: conversation!.id) {
             self.hideTableView()
         }
+        
+        colorMapper = GroupColorMapper(conversation: conversation!)
+        colorMapper?.buildMap()
         
         ImageDownloader.default.delegate = Account.encryptionUtils
         CellIdentifier.registerCells(tableView: self.tableView!)
@@ -83,7 +87,13 @@ class MessageTableViewController : SLKTextViewController {
         }
         
         cell.transform = self.tableView!.transform
-        cell.bind(conversation: conversation!, message: message)
+        
+        if (identifier == "ReceivedMessageTableViewCell") {
+            (cell as! ReceivedMessageTableViewCell).bind(conversation: conversation!, message: message, colorMapper: colorMapper!)
+        } else {
+            cell.bind(conversation: conversation!, message: message)
+        }
+        
         return cell
     }
     

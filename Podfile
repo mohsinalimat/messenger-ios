@@ -33,4 +33,8 @@ target 'Pulse' do
     # Pods for testing
   end
   
+  target 'NotificationDecryptor' do
+    inherit! :search_paths
+  end
+  
 end

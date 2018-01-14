@@ -13,10 +13,8 @@ class ReceivedMessageTableViewCell : MessageTableViewCell {
 
     @IBOutlet weak var message: ActiveLabel!
     
-    override func bind(conversation: Conversation, message: Message) {
+    func bind(conversation: Conversation, message: Message, colorMapper: GroupColorMapper) {
         super.bind(conversation: conversation, message: message)
-        
-        self.messageContainer.backgroundColor = UIColor(rgb: conversation.color)
         
         self.message.text = message.data
         self.message.textColor = UIColor.white
@@ -24,6 +22,9 @@ class ReceivedMessageTableViewCell : MessageTableViewCell {
         
         if conversation.isGroup() && message.sender != nil {
             self.timestamp.text = "\(self.timestamp.text!) - \(message.sender!)"
+            self.messageContainer.backgroundColor = UIColor(rgb: colorMapper.getColor(contactName: message.sender!))
+        } else {
+            self.messageContainer.backgroundColor = UIColor(rgb: conversation.color)
         }
     }
     
