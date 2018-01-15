@@ -28,19 +28,27 @@ class _FcmHandler {
     
     private func addedMessage(json: JSON) {
         let message = Message(json: json)
-        DataProvider.addMessage(conversationId: json["conversation_id"].int64!, message: message)
+        debugPrint("added message: \(message.description)")
+        
+        DataProvider.addMessage(conversationId: Int64(json["conversation_id"].stringValue)!, message: message)
     }
     
     private func invalidateConversationList() {
+        debugPrint("invalidate conversation list")
+        
         DataProvider.clear()
         DataProvider.loadConversations()
     }
     
     private func readConversation(json: JSON) {
-        DataProvider.markAsRead(conversationId: json["id"].int64!)
+        debugPrint("read conversation: \(json["id"])")
+        
+        DataProvider.markAsRead(conversationId: Int64(json["id"].stringValue)!)
     }
     
     private func dismissNotification(json: JSON) {
+        debugPrint("dismiss notifications")
+        
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }

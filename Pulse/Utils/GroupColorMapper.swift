@@ -20,10 +20,8 @@ class GroupColorMapper {
     func buildMap() {
         conversation.phoneNumbers.components(separatedBy: ", ").forEach { number in
             let idMatcher = number.createIdMatcher()
-            debugPrint("\(idMatcher). contacts size: \(DataProvider.contacts.count)")
             for contact in DataProvider.contacts {
                 if contact.idMatcher == idMatcher {
-                    debugPrint("matched \(contact.name) to color")
                     contactNamesToColors.updateValue(contact.color, forKey: contact.name)
                     break
                 }

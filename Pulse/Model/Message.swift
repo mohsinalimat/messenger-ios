@@ -32,7 +32,7 @@ struct Message : ResponseObjectSerializable, ResponseCollectionSerializable, Cus
     }
     
     init(json: JSON) {
-        self.id = json["device_id"].int64!
+        self.id = json["id"].int64!
         self.messageType = json["type"].int!
         self.data = Account.encryptionUtils?.decrypt(data: json["data"].string!) ?? ""
         self.mimeType = Account.encryptionUtils?.decrypt(data: json["mime_type"].string!) ?? "text/plain"

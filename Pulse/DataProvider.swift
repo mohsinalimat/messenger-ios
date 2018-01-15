@@ -210,13 +210,6 @@ class _DataProvider {
     }
     
     func addMessage(conversationId: Int64, message: Message) {
-        if !hasMessages(conversationId: conversationId) {
-            return
-        }
-        
-        messages[conversationId]!.insert(message, at: 0)
-        DataObserver.notifyMessages(conversationId: conversationId, messages: messages[conversationId]!)
-        
         if conversations == nil {
             return
         }
@@ -236,6 +229,13 @@ class _DataProvider {
                 break
             }
         }
+        
+        if !hasMessages(conversationId: conversationId) {
+            return
+        }
+        
+        messages[conversationId]!.insert(message, at: 0)
+        DataObserver.notifyMessages(conversationId: conversationId, messages: messages[conversationId]!)
     }
     
     func addBlacklist(blacklist: Blacklist) {

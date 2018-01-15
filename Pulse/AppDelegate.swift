@@ -46,7 +46,12 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     func handleFcm(fcm: [AnyHashable: Any]) {
         if let operation = fcm["operation"] as? String,
             let content = fcm["contents"] as? String {
-            FcmHandler.handle(operation: operation, json: JSON(content))
+            if let dataFromString = content.data(using: .utf8, allowLossyConversion: false) {
+                do {
+                    let json = try JSON(data: dataFromString)
+                    FcmHandler.handle(operation: operation, json: json)
+                } catch { }
+            }
         }
     }
 }
