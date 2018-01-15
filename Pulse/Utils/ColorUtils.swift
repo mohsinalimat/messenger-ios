@@ -27,6 +27,17 @@ public extension UIColor {
     }
 }
 
+public extension Int {
+    func isColorDark() -> Bool {
+        let red = 0.299 * Double((self >> 16) & 0xFF)
+        let green = 0.587 * Double((self >> 8) & 0xFF)
+        let blue = 0.114 * Double(self & 0xFF)
+        
+        let darkness = 1 - (red + green + blue) / 255
+        return darkness >= 0.30
+    }
+}
+
 public extension UIImage {
     convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)

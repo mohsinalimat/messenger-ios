@@ -22,9 +22,23 @@ class ReceivedMessageTableViewCell : MessageTableViewCell {
         
         if conversation.isGroup() && message.sender != nil {
             self.timestamp.text = "\(self.timestamp.text!) - \(message.sender!)"
-            self.messageContainer.backgroundColor = UIColor(rgb: colorMapper.getColor(contactName: message.sender!))
+            
+            let color = colorMapper.getColor(contactName: message.sender!)
+            self.messageContainer.backgroundColor = UIColor(rgb: color)
+            
+            if (color.isColorDark()) {
+                self.message.textColor = UIColor.white
+            } else {
+                self.message.textColor = UIColor.black
+            }
         } else {
             self.messageContainer.backgroundColor = UIColor(rgb: conversation.color)
+            
+            if (conversation.color.isColorDark()) {
+                self.message.textColor = UIColor.white
+            } else {
+                self.message.textColor = UIColor.black
+            }
         }
     }
     
