@@ -77,7 +77,7 @@ class _Account {
         self.name = _Account.getKey(key: AccountPreferenceKeys.NAME)
         self.phoneNumber = _Account.getKey(key: AccountPreferenceKeys.PHONE_NUMBER)
         self.accountId = _Account.getKey(key: AccountPreferenceKeys.ACCOUNT_ID)
-        self.deviceId = "187050"//_Account.getKey(key: AccountPreferenceKeys.DEVICE_ID) // TODO: use the device id retrieved from the login
+        self.deviceId = _Account.getKey(key: AccountPreferenceKeys.DEVICE_ID)
         self.fcmToken = _Account.getKey(key: AccountPreferenceKeys.FCM_TOKEN)
         self.salt = _Account.getKey(key: AccountPreferenceKeys.SALT)
         self.passwordHash = _Account.getKey(key: AccountPreferenceKeys.PASSWORD_HASH)

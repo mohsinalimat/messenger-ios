@@ -25,13 +25,13 @@ class DevicesRoute : BaseRoute {
         let deviceType = Device().description
         
         post(path: "/add", parameters: ["account_id": accountId!, "device": ["info": "Apple, \(deviceType)", "name": deviceType, "primary": false, "fcm_token": fcmToken!]])
-            .responseJSON { response in
-                if let json = response.result.value {
-                    let jsonObject = JSON("\(json)")
-                    let deviceId = jsonObject["id"].string
-                    if deviceId != nil {
-                        completionHandler(deviceId!)
-                    }
+            .responseString { response in
+                if let json = response.result.value, let dataFromString = json.data(using: .utf8, allowLossyConversion: false) {
+                    do {
+                        let jsonObject = try JSON(data: dataFromString)
+                        let deviceId = jsonObject["id"].stringValue
+                        completionHandler(deviceId)
+                    } catch { }
                 }
         }
     }

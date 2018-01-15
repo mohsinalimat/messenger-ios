@@ -1108,6 +1108,7 @@
 			baseConfigurationReference = FC9972BED26C920711C06FC0 /* Pods-NotificationDecryptor.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y25FUBEE67;
 				INFOPLIST_FILE = NotificationDecryptor/Info.plist;
@@ -1125,6 +1126,7 @@
 			baseConfigurationReference = DB397E95107EE1696724DA91 /* Pods-NotificationDecryptor.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y25FUBEE67;
 				INFOPLIST_FILE = NotificationDecryptor/Info.plist;
