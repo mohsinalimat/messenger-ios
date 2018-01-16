@@ -24,7 +24,7 @@ class DevicesRoute : BaseRoute {
         
         let deviceType = Device().description
         
-        post(path: "/add", parameters: ["account_id": accountId!, "device": ["info": "Apple, \(deviceType)", "name": deviceType, "primary": false, "fcm_token": fcmToken!]])
+        post(path: "/add", parameters: ["account_id": accountId!, "device": ["info": "Apple, \(deviceType)", "name": deviceType, "primary": false, "fcm_token": fcmToken!, "ios": true]])
             .responseString { response in
                 if let json = response.result.value, let dataFromString = json.data(using: .utf8, allowLossyConversion: false) {
                     do {

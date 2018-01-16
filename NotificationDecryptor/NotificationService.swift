@@ -17,6 +17,7 @@ class NotificationService: UNNotificationServiceExtension {
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
+        // TODO: why isn't the decryption working? It seems like our extension is never hitting this code
         let encryptor = Account.encryptionUtils!
         if let bestAttemptContent = bestAttemptContent {
             bestAttemptContent.title = encryptor.decrypt(bestAttemptContent.title) ?? ""
