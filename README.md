@@ -6,13 +6,13 @@
 
 This is a [Pulse SMS](https://messenger.klinkerapps.com/overview) client for iOS. This is **not** a replacement SMS app for your iPhone.
 
-Pulse is a service that I built for Android. It is meant to allow you to use your personal phone number, when sending text messages from your computer, tablet, watch, tv, or any other device. As a backend service, it is really just a forwarding utility, based around Firebase Cloud Messaging. Since Android has exposed APIs to build a replacement SMS app, Pulse works as a normal SMS app on your phone, then any other device you are using use FCM to communicate directly and instantly with the Android phone app. Similarly, when messages are received to the phone, it will POST those message to the backend to get distributed to your other devices.
-
-Pulse is not really a typical client-server application, since the phone is the controller and root of all the communication, but the service solves the issues around that, nicely.
-
 **This iOS app is simply a client to the Pulse backend service.** It doesn't replace iMessage on your iPhone, and it doesn't allow you to text through the phone number associated with your iPhone. It acts like the Pulse web client would, or a tablet using Pulse. 
 
-The use-cases for this iOS client, that I can see, are:
+Pulse is a service that I built for Android. It is meant to allow you to use your personal phone number, when sending text messages from your computer, tablet, watch, tv, or any other device. As a backend service, it is really just a forwarding utility, based around Firebase Cloud Messaging. Since Android has exposed APIs to build a replacement SMS app, Pulse works as a normal SMS app on your phone, then any other device you are using use FCM to communicate directly and instantly with the Android phone app, through Pulse's REST APIs. Similarly, when messages are received to the phone, it will POST those message to the backend to get distributed to your other devices.
+
+Pulse is not a typical client-server application, since the phone is the controller and root of all the communication, but the backend and Android app handles that gracefully and solves that issue for you. As a client app, you really only need to worry about the exposed APIs.
+
+Typical use-cases for this iOS client:
 
 * Having an iPad and an Android phone and wanting to be able to use Pulse to text on the iPad
 * Having a separate work iPhone that you want to be able to use with your personal Android phone number
@@ -36,11 +36,11 @@ To set up `CocoaPods`:
 
 ## Contributing
 
-Please fork this repository and contribute back using [pull requests](https://github.com/klinker24/messenger-ios/pulls). Features can be requested using issues on our issue tracker page, rather than issues on this page: https://github.com/klinker-apps/messenger-issues.
+Please fork this repository and contribute back using [pull requests](https://github.com/klinker24/messenger-ios/pulls). Features can be requested using issues on our issue tracker, rather than creating issues directly on this page: https://github.com/klinker-apps/messenger-issues.
 
 ## Changelog
 
-The full changelog for the library can be found [here](CHANGELOG.md).
+The full changelog for the iOS app can be found [here](CHANGELOG.md).
 
 ## License
 
