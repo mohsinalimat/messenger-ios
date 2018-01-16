@@ -214,6 +214,11 @@ class _DataProvider {
             return
         }
         
+        if messages[conversationId] != nil {
+            messages[conversationId]!.insert(message, at: 0)
+            DataObserver.notifyMessages(conversationId: conversationId, messages: messages[conversationId]!)
+        }
+        
         for i in 0..<conversations!.count {
             if (conversations![i].id == conversationId) {
                 conversations![i].timestamp = message.timestamp
@@ -229,13 +234,6 @@ class _DataProvider {
                 break
             }
         }
-        
-        if !hasMessages(conversationId: conversationId) {
-            return
-        }
-        
-        messages[conversationId]!.insert(message, at: 0)
-        DataObserver.notifyMessages(conversationId: conversationId, messages: messages[conversationId]!)
     }
     
     func addBlacklist(blacklist: Blacklist) {

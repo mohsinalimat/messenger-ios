@@ -22,7 +22,7 @@ class _FcmHandler {
         case "removed_conversation":    invalidateConversationList()
         case "archive_conversation":    invalidateConversationList()
         case "dismissed_notification":  dismissNotification(json: json)
-        default:                        debugPrint("no fcm handler for \(operation)")
+        default:                        throwAway(operation: operation, json: json)
         }
     }
     
@@ -30,7 +30,9 @@ class _FcmHandler {
         let message = Message(json: json)
         debugPrint("added message: \(message.description)")
         
-        DataProvider.addMessage(conversationId: Int64(json["conversation_id"].stringValue)!, message: message)
+        if (json["sent_device"].stringValue != Account.deviceId!) {
+            DataProvider.addMessage(conversationId: Int64(json["conversation_id"].stringValue)!, message: message)
+        }
     }
     
     private func invalidateConversationList() {
@@ -51,5 +53,9 @@ class _FcmHandler {
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    }
+    
+    private func throwAway(operation: String, json: JSON) {
+        
     }
 }
