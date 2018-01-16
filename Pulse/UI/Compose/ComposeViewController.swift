@@ -100,19 +100,26 @@ class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITable
     }
     
     @objc func keyboardNotification(notification: NSNotification) {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.keyboardSize.constant = 16.0
+            self.view.layoutIfNeeded()
+            
+            return
+        }
+        
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
             let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseOut.rawValue
             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            
+
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
                 self.keyboardSize.constant = 0.0
             } else {
                 self.keyboardSize.constant = (endFrame?.size.height ?? 0.0) - 20.0
             }
-            
+
             UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve,
                   animations: { self.view.layoutIfNeeded() }, completion: nil)
         }
