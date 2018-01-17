@@ -22,7 +22,7 @@ The app is not available on the Apple App Store, yet. I have a few things to fin
 
 ## Building the App
 
-Open the `Pulse.xcworkspace` in XCode to build and edit the project. You will need a developer license to build to a real device. You can build the app to the simulator if a device isn't available. The simulator will not have FCM functionality.
+Open the `Pulse.xcworkspace` in XCode to build and edit the project. You will need a developer license to build to a real device. You can build the app to the simulator if a device isn't available. The simulator will not have have push notification support for new messages, but it will have real-time updates through FCM.
 
 ### Dependency Management
 
@@ -36,7 +36,7 @@ To set up `CocoaPods`:
 
 ## Contributing
 
-Please fork this repository and contribute back using [pull requests](https://github.com/klinker24/messenger-ios/pulls). Features can be requested using issues on our issue tracker, rather than creating issues directly on this page: https://github.com/klinker-apps/messenger-issues.
+Please fork this repository and contribute back using [pull requests](https://github.com/klinker24/messenger-ios/pulls). Features can be requested using issues on our Pulse platform issue tracker, rather than creating issues directly on this repo: https://github.com/klinker-apps/messenger-issues.
 
 ## Changelog
 
