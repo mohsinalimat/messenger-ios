@@ -79,6 +79,7 @@ class _FcmHandler {
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     private func throwAway(operation: String, json: JSON) {

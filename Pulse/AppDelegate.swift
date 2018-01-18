@@ -37,6 +37,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         AppOpenedUpdateHelper.checkForConversationListUpdate()
         FcmHandler.notifyAppForegrounded()
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     func applicationWillResignActive(_ application: UIApplication) { }
