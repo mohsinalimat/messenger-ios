@@ -46,6 +46,9 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
             PulseApi.accounts().login(email: email, password: password) { (response: DataResponse<LoginResponse>) in
                 if let loginResponse = response.result.value {
                     self.createAccount(loginResponse: loginResponse, password: self.password.text!)
+                } else {
+                    self.login.isEnabled = true
+                    self.login.setTitle("Incorrect login. Retry?", for: .normal)
                 }
             }
         }
@@ -58,8 +61,6 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
         }
         
         Async.main {
-            self.login.setTitle("Creating encryption keys...", for: .normal)
-            
             do {
                 debugPrint("creating account encryption.")
                 try Account.createAccount(password: password, accountId: loginResponse.accountId, name: loginResponse.name, number: loginResponse.number, salt1: loginResponse.salt1, salt2: loginResponse.salt2)
