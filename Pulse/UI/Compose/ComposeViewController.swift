@@ -90,13 +90,17 @@ class ComposeViewController : UIViewController, TURecipientsBarDelegate, UITable
     }
     
     @IBAction func send(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let text = messageText.text!
+        if text.count == 0 || self.recipientsBar.contacts.count == 0 {
+            return
+        }
         
         let phoneNumbers = self.recipientsBar.contacts
             .map { $0.phoneNumber }
             .joined(separator: ",")
         
-        PulseApi.messages().forwardToPhone(phoneNumbers: phoneNumbers, message: messageText.text!)
+        PulseApi.messages().forwardToPhone(phoneNumbers: phoneNumbers, message: text)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func keyboardNotification(notification: NSNotification) {
