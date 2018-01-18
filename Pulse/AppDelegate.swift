@@ -36,6 +36,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         AppOpenedUpdateHelper.checkForConversationListUpdate()
+        FcmHandler.notifyAppForegrounded()
     }
     
     func applicationWillResignActive(_ application: UIApplication) { }
