@@ -33,7 +33,13 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
         login(0)
         return true
     }
-
+    
+    @IBAction func signup(_ sender: Any) {
+        if let url = URL(string: "https://messenger.klinkerapps.com/overview/platform-ios.html") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
     @IBAction func login(_ sender: Any) {
         if email.text != nil && email.text!.count != 0 && password.text != nil && password.text!.count != 0 {
             self.login.isEnabled = false

@@ -164,7 +164,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2g9-yC-MNd"/>
+                    <navigationItem key="navigationItem" title="Login to Pulse" id="2g9-yC-MNd">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Up" id="9vt-Kj-qRX">
+                            <connections>
+                                <action selector="signup:" destination="BYZ-38-t0r" id="N0r-iX-pXl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="email" destination="qw4-Mo-Qvc" id="eX0-wx-x0q"/>
                         <outlet property="login" destination="76A-1P-axb" id="slL-MN-9j7"/>
